@@ -189,21 +189,3 @@ StatXspline <- ggproto("StatXspline", Stat,
     data.frame(x=tmp$x, y=tmp$y)
   }
 )
-
-# function to do the xspline interpolation and return a data.frame since we have
-# to do this graphics device wrapper
-xspline_int <- function(dat, shape, open, rep_ends) {
-
-  # despite the "draw=FALSE" parameter, xspline still
-  # tries to use the graphics device so we have to
-  # do this to work around it
-  tf <- tempfile(fileext=".png")
-  png(tf)
-  plot.new()
-  tmp <- xspline(dat$x, dat$y, shape, open, rep_ends, draw=FALSE, NA, NA)
-  invisible(dev.off())
-  unlink(tf)
-
-  data.frame(x=tmp$x, y=tmp$y)
-
-}
