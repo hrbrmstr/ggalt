@@ -173,10 +173,6 @@ StatXspline <- ggproto("StatXspline", Stat,
 
   required_aes = c("x", "y"),
 
-  setup_params = function(data, params) {
-    params
-  },
-
   compute_group = function(self, data, scales, params,
                            spline_shape=-0.25, open=TRUE, rep_ends=TRUE) {
     tf <- tempfile(fileext=".png")
