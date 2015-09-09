@@ -3,7 +3,7 @@
 
 A package containing additional geoms, coords and stats for the revamped (late 2015) version of ggplot2.
 
-The first two forays into this brave, new `ggplot2` world are *splines*! and being able to use the (much better) `KernSmooth::bkde` for density plots. Support for `KernSmooth::bkde2D` is a WIP.
+The first three forays into this brave, new `ggplot2` world are *splines*! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots.
 
 *NOTE*
 
@@ -15,11 +15,12 @@ The following functions are implemented:
 -   `stat_xspline` : Connect control points/observations with an X-spline
 -   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
 -   `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
--   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`) **WIP**
--   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`) **WIP**
+-   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+-   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 
 ### News
 
+-   Version 0.0.2.9002 released - working 2D density plots
 -   Version 0.0.2.9000 released
 
 ### Installation
@@ -38,7 +39,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.0.2.9000'
+#> [1] '0.0.2.9002'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -151,8 +152,7 @@ geyser_dat <- data.frame(x=geyser$duration, y=geyser$waiting)
 
 ggplot(geyser_dat, aes(x, y)) +
   geom_point() +
-  geom_bkde2d(bandwidth=c(0.7, 7)) +
-  xlim(0, 6) + ylim(35, 120)
+  geom_bkde2d(bandwidth=c(0.7, 7))
 ```
 
 <img src="README_figs/README-unnamed-chunk-4-11.png" title="" alt="" width="672" />
@@ -161,8 +161,7 @@ ggplot(geyser_dat, aes(x, y)) +
 
 ggplot(geyser_dat, aes(x, y)) +
   geom_point() +
-  stat_bkde2d(bandwidth=c(0.7, 7)) +
-  xlim(0, 6) + ylim(35, 120)
+  stat_bkde2d(bandwidth=c(0.7, 7))
 ```
 
 <img src="README_figs/README-unnamed-chunk-4-12.png" title="" alt="" width="672" />
@@ -174,7 +173,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Tue Sep  8 18:56:26 2015"
+#> [1] "Tue Sep  8 21:13:04 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

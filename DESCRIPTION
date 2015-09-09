@@ -1,6 +1,6 @@
 Package: ggalt
 Title: Extra Geoms, Stats and Coords for 'ggplot2'
-Version: 0.0.2.9000
+Version: 0.0.2.9002
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
 Description: A package contains additional geoms, coords and stats for the revamped (late 2015) version of ggplot2.
 Depends: R (>= 3.0.0), ggplot2 (>= 1.0.1.9003)

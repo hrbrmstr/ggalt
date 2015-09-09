@@ -81,7 +81,15 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
   compute_group = function(data, scales, contour=TRUE, bandwidth, grid_size=c(51, 51), range.x=NULL,
                            truncate=TRUE) {
 
-    if (is.null(range.x)) range.x <- list(range(data$x), range(data$y))
+    if (is.null(range.x)) {
+      x_range <- range(data$x)
+      y_range <- range(data$y)
+      x_range[1] <- x_range[1] - 1.5 * bandwidth[1]
+      x_range[2] <- x_range[2] + 1.5 * bandwidth[1]
+      y_range[1] <- y_range[1] - 1.5 * bandwidth[2]
+      y_range[2] <- y_range[2] + 1.5 * bandwidth[2]
+      range.x <- list(x_range, y_range)
+    }
 
     dens <- KernSmooth::bkde2D(
       as.matrix(data.frame(x=data$x, y=data$y)),
