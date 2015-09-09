@@ -39,7 +39,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.0.2.9002'
+#> [1] '0.0.2.9003'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -173,7 +173,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Tue Sep  8 21:13:04 2015"
+#> [1] "Tue Sep  8 21:26:18 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
