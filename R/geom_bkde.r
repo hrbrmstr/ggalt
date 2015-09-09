@@ -24,8 +24,9 @@
 #' @inheritParams ggplot2::geom_point
 #' @export
 geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
-  position = "identity", bandwidth, range.x=NULL, show.legend = NA, inherit.aes = TRUE,
-  ...) {
+                      position = "identity", bandwidth=NULL, range.x=NULL,
+                      show.legend = NA, inherit.aes = TRUE,
+                      ...) {
 
   layer(
     data = data,
@@ -45,18 +46,21 @@ geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
 #' @usage NULL
 #' @export
 GeomBkde <- ggproto("GeomBkde", GeomArea,
-  default_aes = aes(colour = NA, fill = "grey20", size = 0.5, linetype = 1, alpha = NA)
+  default_aes = aes(colour = NA, fill = "grey20", size = 0.5,
+                    linetype = 1, alpha = NA)
 )
 
 
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see
-#'        \code{\link[KernSmooth]{bkde}} for details
+#'        \code{\link[KernSmooth]{bkde}} for details. If \code{NULL},
+#'        it will be computed for you but will most likely not yield optimal
+#'        results.
 #' @param kernel character string which determines the smoothing kernel. see
 #'        \code{\link[KernSmooth]{bkde}} for details
 #' @param canonical	logical flag: if TRUE, canonically scaled kernels are used.
 #'        see \code{\link[KernSmooth]{bkde}} for details
 #' @param gridsize the number of equally spaced points at which to estimate the
-#'        density. see \code{\link[KernSmooth]{bkde}} for details
+#'        density. see \code{\link[KernSmooth]{bkde}} for details.
 #' @param range.x	vector containing the minimum and maximum values of x at which
 #'        to compute the estimate. see \code{\link[KernSmooth]{bkde}} for details
 #' @param truncate logical flag: if TRUE, data with x values outside the range
@@ -80,8 +84,10 @@ GeomBkde <- ggproto("GeomBkde", GeomArea,
 #' ggplot(geyser, aes(x=duration)) +
 #'   geom_bkde(bandwidth=0.25)
 stat_bkde <- function(mapping = NULL, data = NULL, geom = "area",
-  position = "stack", kernel="normal", canonical=FALSE, bandwidth, gridsize=410,
-  range.x=NULL, truncate=TRUE, show.legend = NA, inherit.aes = TRUE, ...) {
+                      position = "stack", kernel="normal", canonical=FALSE,
+                      bandwidth = NULL, gridsize=410, range.x=NULL,
+                      truncate=TRUE, show.legend = NA, inherit.aes = TRUE,
+                      ...) {
 
   layer(
     data = data,
@@ -114,9 +120,12 @@ StatBkde <- ggproto("StatBkde", Stat,
   default_aes = aes(y = ..density.., fill = NA),
 
   compute_group = function(data, scales, kernel="normal", canonical=FALSE,
-                           bandwidth, gridsize=410, range.x, truncate=TRUE) {
+                           bandwidth=NULL, gridsize=410, range.x=NULL,
+                           truncate=TRUE) {
 
-    if (missing(range.x) | is.null(range.x)) range.x <- range(data$x)
+    if (is.null(bandwidth)) bandwidth <- KernSmooth::dpik(data$x)
+
+    if (is.null(range.x)) range.x <- range(data$x)
 
     compute_bkde(data$x, kernel=kernel, canonical=canonical,
                     bandwidth=bandwidth, gridsize=gridsize, range.x=range.x,

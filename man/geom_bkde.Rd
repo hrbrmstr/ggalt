@@ -6,13 +6,13 @@
 \title{Display a smooth density estimate.}
 \usage{
 geom_bkde(mapping = NULL, data = NULL, stat = "bkde",
-  position = "identity", bandwidth, range.x = NULL, show.legend = NA,
-  inherit.aes = TRUE, ...)
+  position = "identity", bandwidth = NULL, range.x = NULL,
+  show.legend = NA, inherit.aes = TRUE, ...)
 
 stat_bkde(mapping = NULL, data = NULL, geom = "area",
-  position = "stack", kernel = "normal", canonical = FALSE, bandwidth,
-  gridsize = 410, range.x = NULL, truncate = TRUE, show.legend = NA,
-  inherit.aes = TRUE, ...)
+  position = "stack", kernel = "normal", canonical = FALSE,
+  bandwidth = NULL, gridsize = 410, range.x = NULL, truncate = TRUE,
+  show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link{aes}} or
@@ -28,7 +28,9 @@ defined at the top level of the plot.}
 a call to a position adjustment function.}
 
 \item{bandwidth}{the kernel bandwidth smoothing parameter. see
-\code{\link[KernSmooth]{bkde}} for details}
+\code{\link[KernSmooth]{bkde}} for details. If \code{NULL},
+it will be computed for you but will most likely not yield optimal
+results.}
 
 \item{range.x}{vector containing the minimum and maximum values of x at which
 to compute the estimate. see \code{\link[KernSmooth]{bkde}} for details}
@@ -63,7 +65,7 @@ the default plot specification, e.g. \code{\link{borders}}.}
 see \code{\link[KernSmooth]{bkde}} for details}
 
 \item{gridsize}{the number of equally spaced points at which to estimate the
-density. see \code{\link[KernSmooth]{bkde}} for details}
+density. see \code{\link[KernSmooth]{bkde}} for details.}
 
 \item{truncate}{logical flag: if TRUE, data with x values outside the range
 specified by range.x are ignored. see \code{\link[KernSmooth]{bkde}}

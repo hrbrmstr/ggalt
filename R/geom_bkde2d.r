@@ -29,7 +29,7 @@
 #' d + stat_bkde2d(bandwidth=c(0.5, 0.5), geom = "point",
 #'                 aes(size = ..density..),  contour = FALSE)
 geom_bkde2d <- function(mapping = NULL, data = NULL, stat = "bkde2d",
-                           position = "identity",  bandwidth, range.x=NULL,
+                           position = "identity",  bandwidth=NULL, range.x=NULL,
                            lineend = "butt", contour=TRUE,
                            linejoin = "round", linemitre = 1,
                            show.legend = NA,
@@ -63,16 +63,35 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 )
 
 
-#' 2D density
+#' Contours from a 2d density estimate.
 #'
-#' @export
+#' Perform a 2D kernel density estimation using \code{bkde2D} and display the
+#' results with contours. This can be useful for dealing with overplotting
+#'
+#' @param bandwidth	the kernel bandwidth smoothing parameter. see
+#'        \code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},
+#'        it will be computed for you but will most likely not yield optimal
+#'        results. see \code{\link[KernSmooth]{bkde2D}} for details
+#' @param gridsize vector containing the number of equally spaced points in each
+#'        direction over which the density is to be estimated. see
+#'        \code{\link[KernSmooth]{bkde2D}} for details
+#' @param range.x	 a list containing two vectors, where each vector contains the
+#'        minimum and maximum values of x at which to compute the estimate for
+#'        each direction. see \code{\link[KernSmooth]{bkde2D}} for details
+#' @param truncate logical flag: if TRUE, data with x values outside the range
+#'        specified by range.x are ignored. see \code{\link[KernSmooth]{bkde2D}}
+#'        for details
 #' @param contour If \code{TRUE}, contour the results of the 2d density
 #'   estimation
 #' @section Computed variables:
 #' Same as \code{\link{stat_contour}}
+#' @seealso \code{\link{geom_contour}} for contour drawing geom,
+#'  \code{\link{stat_sum}} for another way of dealing with overplotting
+#' @rdname geom_bkde2d
+#' @export
 stat_bkde2d <- function(mapping = NULL, data = NULL, geom = "density2d",
                            position = "identity", contour = TRUE,
-                           bandwidth, grid_size=c(51, 51), range.x=NULL,
+                           bandwidth=NULL, grid_size=c(51, 51), range.x=NULL,
                            truncate=TRUE, show.legend = NA,
                            inherit.aes = TRUE, ...) {
   layer(
@@ -104,9 +123,14 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
 
   required_aes = c("x", "y"),
 
-  compute_group = function(data, scales, contour=TRUE, bandwidth,
+  compute_group = function(data, scales, contour=TRUE, bandwidth=NULL,
                            grid_size=c(51, 51), range.x=NULL,
                            truncate=TRUE) {
+
+    if (is.null(bandwidth)) {
+      bandwidth <- c(KernSmooth::dpik(data$x),
+                     KernSmooth::dpik(data$y))
+    }
 
     if (is.null(range.x)) {
       x_range <- range(data$x)

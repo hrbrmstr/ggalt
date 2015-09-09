@@ -2,12 +2,18 @@
 % Please edit documentation in R/geom_bkde2d.r
 \name{geom_bkde2d}
 \alias{geom_bkde2d}
+\alias{stat_bkde2d}
 \title{Contours from a 2d density estimate.}
 \usage{
 geom_bkde2d(mapping = NULL, data = NULL, stat = "bkde2d",
-  position = "identity", bandwidth, range.x = NULL, lineend = "butt",
-  contour = TRUE, linejoin = "round", linemitre = 1, show.legend = NA,
-  inherit.aes = TRUE, ...)
+  position = "identity", bandwidth = NULL, range.x = NULL,
+  lineend = "butt", contour = TRUE, linejoin = "round", linemitre = 1,
+  show.legend = NA, inherit.aes = TRUE, ...)
+
+stat_bkde2d(mapping = NULL, data = NULL, geom = "density2d",
+  position = "identity", contour = TRUE, bandwidth = NULL,
+  grid_size = c(51, 51), range.x = NULL, truncate = TRUE,
+  show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link{aes}} or
@@ -25,7 +31,19 @@ layer, as a string.}
 \item{position}{Position adjustment, either as a string, or the result of
 a call to a position adjustment function.}
 
+\item{bandwidth}{the kernel bandwidth smoothing parameter. see
+\code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},
+it will be computed for you but will most likely not yield optimal
+results. see \code{\link[KernSmooth]{bkde2D}} for details}
+
+\item{range.x}{a list containing two vectors, where each vector contains the
+minimum and maximum values of x at which to compute the estimate for
+each direction. see \code{\link[KernSmooth]{bkde2D}} for details}
+
 \item{lineend}{Line end style (round, butt, square)}
+
+\item{contour}{If \code{TRUE}, contour the results of the 2d density
+estimation}
 
 \item{linejoin}{Line join style (round, mitre, bevel)}
 
@@ -50,9 +68,24 @@ the default plot specification, e.g. \code{\link{borders}}.}
     default \code{stat} associated with the layer.
   \item Other arguments passed on to the stat.
   }}
+
+\item{truncate}{logical flag: if TRUE, data with x values outside the range
+specified by range.x are ignored. see \code{\link[KernSmooth]{bkde2D}}
+for details}
+
+\item{gridsize}{vector containing the number of equally spaced points in each
+direction over which the density is to be estimated. see
+\code{\link[KernSmooth]{bkde2D}} for details}
 }
 \description{
 Contours from a 2d density estimate.
+
+Perform a 2D kernel density estimation using \code{bkde2D} and display the
+results with contours. This can be useful for dealing with overplotting
+}
+\section{Computed variables}{
+
+Same as \code{\link{stat_contour}}
 }
 \examples{
 m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
@@ -79,5 +112,9 @@ d + stat_bkde2d(bandwidth=c(0.5, 0.5), geom = "raster",
 # Or points:
 d + stat_bkde2d(bandwidth=c(0.5, 0.5), geom = "point",
                 aes(size = ..density..),  contour = FALSE)
+}
+\seealso{
+\code{\link{geom_contour}} for contour drawing geom,
+ \code{\link{stat_sum}} for another way of dealing with overplotting
 }
 
