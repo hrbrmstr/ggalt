@@ -1,9 +1,9 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-`ggalt` : Extra Geoms, Stats and Coords for `ggplot2`
+`ggalt` : Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
 
-A package containing additional geoms, coords and stats for the revamped (late 2015) version of ggplot2.
+A package containing additional/alternate 'geoms', 'coords' and 'stats' for use with the revamped (late 2015) version of ggplot2.
 
-The first three forays into this brave, new `ggplot2` world are *splines*! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots.
+The first three forays into this brave, new `ggplot2` world are *splines*! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots and an initial port of the (still needing work) `coord_proj`.
 
 *NOTE*
 
@@ -11,6 +11,7 @@ Until the new `ggplot2` version is on CRAN, you'll need to install it from githu
 
 The following functions are implemented:
 
+-   `coord_proj` : Like `coord_map` only better `:-)`
 -   `geom_xspline` : Connect control points/observations with an X-spline
 -   `stat_xspline` : Connect control points/observations with an X-spline
 -   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
@@ -20,6 +21,8 @@ The following functions are implemented:
 
 ### News
 
+-   Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
+-   Version 0.0.2.9005 released - cleanup before blog post
 -   Version 0.0.2.9002 released - working 2D density plots
 -   Version 0.0.2.9000 released
 
@@ -39,7 +42,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.0.2.9004'
+#> [1] '0.0.3.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -207,6 +210,22 @@ ggplot(geyser_dat, aes(x, y)) +
 
 <img src="README_figs/README-unnamed-chunk-4-16.png" title="" alt="" width="672" />
 
+``` r
+
+### coord_proj LIVES! (still needs work)
+
+world <- map_data("world")
+world <- world[world$region != "Antarctica",]
+
+gg <- ggplot()
+gg <- gg + geom_map(data=world, map=world,
+                    aes(x=long, y=lat, map_id=region))
+gg <- gg + coord_proj("+proj=wintri")
+gg
+```
+
+<img src="README_figs/README-unnamed-chunk-4-17.png" title="" alt="" width="672" />
+
 ### Test Results
 
 ``` r
@@ -214,7 +233,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Fri Sep 11 16:19:52 2015"
+#> [1] "Fri Sep 11 18:14:16 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
