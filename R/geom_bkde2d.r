@@ -82,7 +82,7 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #'        specified by range.x are ignored. see \code{\link[KernSmooth]{bkde2D}}
 #'        for details
 #' @param contour If \code{TRUE}, contour the results of the 2d density
-#'   estimation
+#'        estimation
 #' @section Computed variables:
 #' Same as \code{\link{stat_contour}}
 #' @seealso \code{\link{geom_contour}} for contour drawing geom,
@@ -127,18 +127,27 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
                            grid_size=c(51, 51), range.x=NULL,
                            truncate=TRUE) {
 
+    # See geom_bkde/stat_bkde
     if (is.null(bandwidth)) {
+      tmp <- tempfile()
+      on.exit(unlink(tmp))
+      save(".Random.seed", file=tmp)
+      set.seed(1492)
       bandwidth <- c(KernSmooth::dpik(data$x),
                      KernSmooth::dpik(data$y))
+      message(
+        sprintf("Bandwidth not specified. Using ['%3.2f', '%3.2f'], via KernSmooth::dpik.",
+                bandwidth[1], bandwidth[2]))
+      load(tmp)
     }
 
     if (is.null(range.x)) {
       x_range <- range(data$x)
       y_range <- range(data$y)
-      x_range[1] <- x_range[1] - 1.5 * bandwidth[1]
-      x_range[2] <- x_range[2] + 1.5 * bandwidth[1]
-      y_range[1] <- y_range[1] - 1.5 * bandwidth[2]
-      y_range[2] <- y_range[2] + 1.5 * bandwidth[2]
+      x_range[1] <- x_range[1] - 1.75 * bandwidth[1]
+      x_range[2] <- x_range[2] + 1.75 * bandwidth[1]
+      y_range[1] <- y_range[1] - 1.75 * bandwidth[2]
+      y_range[2] <- y_range[2] + 1.75 * bandwidth[2]
       range.x <- list(x_range, y_range)
     }
 
@@ -149,7 +158,10 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
       range.x,
       truncate
     )
-    df <- data.frame(expand.grid(x = dens$x1, y = dens$x2), z = as.vector(dens$fhat))
+
+    df <- data.frame(expand.grid(x=dens$x1,
+                                 y=dens$x2),
+                     z=as.vector(dens$fhat))
     df$group <- data$group[1]
 
     if (contour) {
@@ -160,5 +172,7 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
       df$piece <- 1
       df
     }
+
   }
+
 )

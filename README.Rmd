@@ -37,6 +37,7 @@ The following functions are implemented:
 
 ### News
 
+- Version 0.0.2.9005 released - cleanup before blog post
 - Version 0.0.2.9002 released - working 2D density plots
 - Version 0.0.2.9000 released
 
@@ -110,10 +111,25 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 data(geyser, package="MASS")
 
 ggplot(geyser, aes(x=duration)) + 
+  stat_bkde(alpha=1/2)
+
+ggplot(geyser, aes(x=duration)) +
+  geom_bkde(alpha=1/2)
+
+ggplot(geyser, aes(x=duration)) + 
   stat_bkde(bandwidth=0.25)
 
 ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
+
+set.seed(1492)
+dat <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
+                   rating = c(rnorm(200),rnorm(200, mean=.8)))
+
+ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(alpha=0)
+
+ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
+
 
 # 2D KernSmooth::bkde2D plots are a WIP
 

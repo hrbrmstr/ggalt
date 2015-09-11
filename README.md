@@ -131,7 +131,8 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 data(geyser, package="MASS")
 
 ggplot(geyser, aes(x=duration)) + 
-  stat_bkde(bandwidth=0.25)
+  stat_bkde(alpha=1/2)
+#> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-unnamed-chunk-4-9.png" title="" alt="" width="672" />
@@ -139,12 +140,52 @@ ggplot(geyser, aes(x=duration)) +
 ``` r
 
 ggplot(geyser, aes(x=duration)) +
-  geom_bkde(bandwidth=0.25)
+  geom_bkde(alpha=1/2)
+#> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-unnamed-chunk-4-10.png" title="" alt="" width="672" />
 
 ``` r
+
+ggplot(geyser, aes(x=duration)) + 
+  stat_bkde(bandwidth=0.25)
+```
+
+<img src="README_figs/README-unnamed-chunk-4-11.png" title="" alt="" width="672" />
+
+``` r
+
+ggplot(geyser, aes(x=duration)) +
+  geom_bkde(bandwidth=0.25)
+```
+
+<img src="README_figs/README-unnamed-chunk-4-12.png" title="" alt="" width="672" />
+
+``` r
+
+set.seed(1492)
+dat <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
+                   rating = c(rnorm(200),rnorm(200, mean=.8)))
+
+ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(alpha=0)
+#> Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
+#> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
+```
+
+<img src="README_figs/README-unnamed-chunk-4-13.png" title="" alt="" width="672" />
+
+``` r
+
+ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
+#> Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
+#> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
+```
+
+<img src="README_figs/README-unnamed-chunk-4-14.png" title="" alt="" width="672" />
+
+``` r
+
 
 # 2D KernSmooth::bkde2D plots are a WIP
 
@@ -155,7 +196,7 @@ ggplot(geyser_dat, aes(x, y)) +
   geom_bkde2d(bandwidth=c(0.7, 7))
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-11.png" title="" alt="" width="672" />
+<img src="README_figs/README-unnamed-chunk-4-15.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -164,7 +205,7 @@ ggplot(geyser_dat, aes(x, y)) +
   stat_bkde2d(bandwidth=c(0.7, 7))
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-12.png" title="" alt="" width="672" />
+<img src="README_figs/README-unnamed-chunk-4-16.png" title="" alt="" width="672" />
 
 ### Test Results
 
@@ -173,7 +214,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Tue Sep  8 21:44:34 2015"
+#> [1] "Fri Sep 11 16:19:52 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

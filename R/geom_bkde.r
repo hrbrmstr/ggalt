@@ -36,7 +36,8 @@ geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
     position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,
-    params = list(range.x=range.x,
+    params = list(bandwidth=bandwidth,
+                  range.x=range.x,
                   ...)
   )
 }
@@ -46,7 +47,7 @@ geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
 #' @usage NULL
 #' @export
 GeomBkde <- ggproto("GeomBkde", GeomArea,
-  default_aes = aes(colour = NA, fill = "grey20", size = 0.5,
+  default_aes = aes(colour = NA, fill = "gray20", size = 0.5,
                     linetype = 1, alpha = NA)
 )
 
@@ -77,6 +78,12 @@ GeomBkde <- ggproto("GeomBkde", GeomArea,
 #' @rdname geom_bkde
 #' @examples
 #' data(geyser, package="MASS")
+#'
+#' ggplot(geyser, aes(x=duration)) +
+#'   stat_bkde(alpha=1/2)
+#'
+#' ggplot(geyser, aes(x=duration)) +
+#'   geom_bkde(alpha=1/2)
 #'
 #' ggplot(geyser, aes(x=duration)) +
 #'  stat_bkde(bandwidth=0.25)
@@ -117,13 +124,29 @@ StatBkde <- ggproto("StatBkde", Stat,
 
   required_aes = "x",
 
-  default_aes = aes(y = ..density.., fill = NA),
+  default_aes = aes(y = ..density.., colour = NA, fill = "gray20", size = 0.5,
+                    linetype = 1, alpha = NA),
 
   compute_group = function(data, scales, kernel="normal", canonical=FALSE,
                            bandwidth=NULL, gridsize=410, range.x=NULL,
                            truncate=TRUE) {
 
-    if (is.null(bandwidth)) bandwidth <- KernSmooth::dpik(data$x)
+    # KernSmooth::dpik uses a generated normal distribution as part of it's
+    # operation but doesn't do this seed save/create/restore. When bandwidth
+    # is NULL the only way to produce consistency in calculated resuts is to use
+    # a dedicated random seed. This might be a candidate for parameterization.
+
+    if (is.null(bandwidth)) {
+      tmp <- tempfile()
+      on.exit(unlink(tmp))
+      save(".Random.seed", file=tmp)
+      set.seed(1492)
+      bandwidth <- KernSmooth::dpik(data$x)
+      message(
+        sprintf("Bandwidth not specified. Using '%3.2f', via KernSmooth::dpik.",
+                bandwidth))
+      load(tmp)
+    }
 
     if (is.null(range.x)) range.x <- range(data$x)
 
