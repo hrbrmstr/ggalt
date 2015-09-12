@@ -245,6 +245,25 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
 
 <img src="README_figs/README-unnamed-chunk-4-18.png" title="" alt="" width="672" />
 
+``` r
+
+cols <- RColorBrewer::brewer.pal(3, "Dark2")
+ggplot(dat, aes(x)) + 
+  stat_ash(alpha=1/2, fill=cols[3]) + 
+  stat_bkde(alpha=1/2, fill=cols[2]) + 
+  stat_density(alpha=1/2, fill=cols[1]) + 
+  geom_rug() +
+  labs(x=NULL, y="density/estimate") +
+  scale_x_continuous(expand=c(0,0)) +
+  theme_bw() +
+  theme(panel.grid=element_blank()) +
+  theme(panel.border=element_blank())
+#> Estimate nonzero outside interval ab.
+#> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
+```
+
+<img src="README_figs/README-unnamed-chunk-4-19.png" title="" alt="" width="672" />
+
 ### Test Results
 
 ``` r
@@ -252,7 +271,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Sat Sep 12 12:55:07 2015"
+#> [1] "Sat Sep 12 13:12:29 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
