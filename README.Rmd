@@ -34,9 +34,11 @@ The following functions are implemented:
 - `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
 - `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+- `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 
 ### News
 
+- Version 0.0.4.9000 released - `stat_ash`
 - Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
 - Version 0.0.2.9005 released - cleanup before blog post
 - Version 0.0.2.9002 released - working 2D density plots
@@ -57,6 +59,8 @@ options(width=120)
 ### Usage
 
 ```{r}
+library(ggplot2)
+library(gridExtra)
 library(ggalt)
 
 # current verison
@@ -144,7 +148,7 @@ ggplot(geyser_dat, aes(x, y)) +
   geom_point() +
   stat_bkde2d(bandwidth=c(0.7, 7))
 
-### coord_proj LIVES! (still needs work)
+# coord_proj LIVES! (still needs work)
 
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
@@ -154,6 +158,15 @@ gg <- gg + geom_map(data=world, map=world,
                     aes(x=long, y=lat, map_id=region))
 gg <- gg + coord_proj("+proj=wintri")
 gg
+
+# stat_ash + compare density plots
+
+set.seed(1492)
+dat <- data.frame(x=rnorm(100))
+grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
+             ggplot(dat, aes(x)) + stat_bkde(),
+             ggplot(dat, aes(x)) + stat_density(),
+             nrow=3)
 
 ```
 

@@ -18,9 +18,11 @@ The following functions are implemented:
 -   `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
 -   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 -   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+-   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 
 ### News
 
+-   Version 0.0.4.9000 released - `stat_ash`
 -   Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
 -   Version 0.0.2.9005 released - cleanup before blog post
 -   Version 0.0.2.9002 released - working 2D density plots
@@ -37,8 +39,9 @@ devtools::install_github("hrbrmstr/ggalt")
 ### Usage
 
 ``` r
+library(ggplot2)
+library(gridExtra)
 library(ggalt)
-#> Loading required package: ggplot2
 
 # current verison
 packageVersion("ggalt")
@@ -212,7 +215,7 @@ ggplot(geyser_dat, aes(x, y)) +
 
 ``` r
 
-### coord_proj LIVES! (still needs work)
+# coord_proj LIVES! (still needs work)
 
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
@@ -226,6 +229,22 @@ gg
 
 <img src="README_figs/README-unnamed-chunk-4-17.png" title="" alt="" width="672" />
 
+``` r
+
+# stat_ash + compare density plots
+
+set.seed(1492)
+dat <- data.frame(x=rnorm(100))
+grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
+             ggplot(dat, aes(x)) + stat_bkde(),
+             ggplot(dat, aes(x)) + stat_density(),
+             nrow=3)
+#> Estimate nonzero outside interval ab.
+#> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
+```
+
+<img src="README_figs/README-unnamed-chunk-4-18.png" title="" alt="" width="672" />
+
 ### Test Results
 
 ``` r
@@ -233,7 +252,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Fri Sep 11 18:14:16 2015"
+#> [1] "Sat Sep 12 12:55:07 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

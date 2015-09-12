@@ -9,4 +9,4 @@ License: AGPL + file LICENSE
 LazyData: true
 Suggests: testthat
 Encoding: UTF-8
-Imports: graphics, grDevices, dplyr, KernSmooth, proj4, scales, grid, gtable
+Imports: graphics, grDevices, dplyr, KernSmooth, proj4, scales, grid, gtable, ash
