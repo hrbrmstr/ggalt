@@ -5,9 +5,9 @@ A package containing additional/alternate 'geoms', 'coords' and 'stats' for use 
 
 The first three forays into this brave, new `ggplot2` world are *splines*! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots and an initial port of the (still needing work) `coord_proj`.
 
-*NOTE*
+**NOTE**
 
-Until the new `ggplot2` version is on CRAN, you'll need to install it from github (see below).
+Until the new `ggplot2` version is on CRAN, you'll need to install it from github via `devtools::install_github("hrbrmstr/ggplot2")`. Locally, I have goth `ggalt` and my `ggplot2` in a "develment mode" install via `devtools::dev_mode()`. Since the new `ggplot2` breaks *many* other packages (like `plotly`, CRAN `ggthemes`, `ggmap` and more), keeping it squirreled away in it's own area is a good idea until everyone catches up.
 
 The following functions are implemented:
 
@@ -273,7 +273,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Sun Sep 13 07:27:26 2015"
+#> [1] "Sun Sep 13 07:31:26 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
