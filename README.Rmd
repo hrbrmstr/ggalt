@@ -182,6 +182,7 @@ ggplot(geyser_dat, aes(x, y)) +
 ### `coord_proj` LIVES! (still needs work)
 
 ```{r coord_proj}
+# devtools::install_github("hrbrmstr/ggplot2")
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
 

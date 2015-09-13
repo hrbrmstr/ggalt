@@ -254,6 +254,7 @@ ggplot(geyser_dat, aes(x, y)) +
 ### `coord_proj` LIVES! (still needs work)
 
 ``` r
+# devtools::install_github("hrbrmstr/ggplot2")
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
 
@@ -273,7 +274,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Sun Sep 13 07:32:09 2015"
+#> [1] "Sun Sep 13 07:33:03 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
