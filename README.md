@@ -52,13 +52,17 @@ dat <- data.frame(x=c(1:10, 1:10, 1:10),
                   y=c(sample(15:30, 10), 2*sample(15:30, 10), 3*sample(15:30, 10)),
                   group=factor(c(rep(1, 10), rep(2, 10), rep(3, 10)))
 )
+```
 
+### Splines!
+
+``` r
 ggplot(dat, aes(x, y, group=group, color=group)) +
   geom_point() +
   geom_line()
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-1.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -68,7 +72,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-2.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-2.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -78,7 +82,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-3.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-3.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -88,7 +92,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=-0.4, size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-4.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-4.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -98,7 +102,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=0.4, size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-5.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-5.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -108,7 +112,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=1, size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-6.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-6.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -118,7 +122,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=0, size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-7.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-7.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -128,11 +132,12 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=-1, size=0.5)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-8.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-8.png" title="" alt="" width="672" />
+
+#### Alternate (better) density plots
 
 ``` r
-
-# Better density plots
+# bkde
 
 data(geyser, package="MASS")
 
@@ -141,7 +146,7 @@ ggplot(geyser, aes(x=duration)) +
 #> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-9.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-1.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -150,7 +155,7 @@ ggplot(geyser, aes(x=duration)) +
 #> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-10.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-2.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -158,7 +163,7 @@ ggplot(geyser, aes(x=duration)) +
   stat_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-11.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-3.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -166,7 +171,7 @@ ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-12.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-4.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -179,7 +184,7 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(alpha=0)
 #> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-13.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-5.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -188,50 +193,11 @@ ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 #> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-14.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-6.png" title="" alt="" width="672" />
 
 ``` r
 
-
-# 2D KernSmooth::bkde2D plots are a WIP
-
-geyser_dat <- data.frame(x=geyser$duration, y=geyser$waiting)
-
-ggplot(geyser_dat, aes(x, y)) +
-  geom_point() +
-  geom_bkde2d(bandwidth=c(0.7, 7))
-```
-
-<img src="README_figs/README-unnamed-chunk-4-15.png" title="" alt="" width="672" />
-
-``` r
-
-ggplot(geyser_dat, aes(x, y)) +
-  geom_point() +
-  stat_bkde2d(bandwidth=c(0.7, 7))
-```
-
-<img src="README_figs/README-unnamed-chunk-4-16.png" title="" alt="" width="672" />
-
-``` r
-
-# coord_proj LIVES! (still needs work)
-
-world <- map_data("world")
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_map(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-```
-
-<img src="README_figs/README-unnamed-chunk-4-17.png" title="" alt="" width="672" />
-
-``` r
-
-# stat_ash + compare density plots
+# ash
 
 set.seed(1492)
 dat <- data.frame(x=rnorm(100))
@@ -243,7 +209,7 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
 #> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-18.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-7.png" title="" alt="" width="672" />
 
 ``` r
 
@@ -262,7 +228,43 @@ ggplot(dat, aes(x)) +
 #> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-unnamed-chunk-4-19.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-8.png" title="" alt="" width="672" />
+
+### Alternate 2D density plots
+
+``` r
+geyser_dat <- data.frame(x=geyser$duration, y=geyser$waiting)
+
+ggplot(geyser_dat, aes(x, y)) +
+  geom_point() +
+  geom_bkde2d(bandwidth=c(0.7, 7))
+```
+
+<img src="README_figs/README-bkde2d-1.png" title="" alt="" width="672" />
+
+``` r
+
+ggplot(geyser_dat, aes(x, y)) +
+  geom_point() +
+  stat_bkde2d(bandwidth=c(0.7, 7))
+```
+
+<img src="README_figs/README-bkde2d-2.png" title="" alt="" width="672" />
+
+### `coord_proj` LIVES! (still needs work)
+
+``` r
+world <- map_data("world")
+world <- world[world$region != "Antarctica",]
+
+gg <- ggplot()
+gg <- gg + geom_map(data=world, map=world,
+                    aes(x=long, y=lat, map_id=region))
+gg <- gg + coord_proj("+proj=wintri")
+gg
+```
+
+<img src="README_figs/README-coord_proj-1.png" title="" alt="" width="672" />
 
 ### Test Results
 
@@ -271,7 +273,7 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Sun Sep 13 07:22:24 2015"
+#> [1] "Sun Sep 13 07:27:26 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================

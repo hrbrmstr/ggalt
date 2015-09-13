@@ -71,7 +71,11 @@ dat <- data.frame(x=c(1:10, 1:10, 1:10),
                   y=c(sample(15:30, 10), 2*sample(15:30, 10), 3*sample(15:30, 10)),
                   group=factor(c(rep(1, 10), rep(2, 10), rep(3, 10)))
 )
+```
 
+### Splines!
+
+```{r splines}
 ggplot(dat, aes(x, y, group=group, color=group)) +
   geom_point() +
   geom_line()
@@ -110,8 +114,12 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
+```
 
-# Better density plots
+#### Alternate (better) density plots
+
+```{r bkde_ash}
+# bkde
 
 data(geyser, package="MASS")
 
@@ -135,31 +143,7 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(alpha=0)
 
 ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 
-
-# 2D KernSmooth::bkde2D plots are a WIP
-
-geyser_dat <- data.frame(x=geyser$duration, y=geyser$waiting)
-
-ggplot(geyser_dat, aes(x, y)) +
-  geom_point() +
-  geom_bkde2d(bandwidth=c(0.7, 7))
-
-ggplot(geyser_dat, aes(x, y)) +
-  geom_point() +
-  stat_bkde2d(bandwidth=c(0.7, 7))
-
-# coord_proj LIVES! (still needs work)
-
-world <- map_data("world")
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_map(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-
-# stat_ash + compare density plots
+# ash
 
 set.seed(1492)
 dat <- data.frame(x=rnorm(100))
@@ -179,6 +163,33 @@ ggplot(dat, aes(x)) +
   theme_bw() +
   theme(panel.grid=element_blank()) +
   theme(panel.border=element_blank())
+```
+
+### Alternate 2D density plots
+
+```{r bkde2d}
+geyser_dat <- data.frame(x=geyser$duration, y=geyser$waiting)
+
+ggplot(geyser_dat, aes(x, y)) +
+  geom_point() +
+  geom_bkde2d(bandwidth=c(0.7, 7))
+
+ggplot(geyser_dat, aes(x, y)) +
+  geom_point() +
+  stat_bkde2d(bandwidth=c(0.7, 7))
+```
+
+### `coord_proj` LIVES! (still needs work)
+
+```{r coord_proj}
+world <- map_data("world")
+world <- world[world$region != "Antarctica",]
+
+gg <- ggplot()
+gg <- gg + geom_map(data=world, map=world,
+                    aes(x=long, y=lat, map_id=region))
+gg <- gg + coord_proj("+proj=wintri")
+gg
 ```
 
 ### Test Results
