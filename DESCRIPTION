@@ -7,6 +7,6 @@ Description: A package containing additional/alternate 'geoms', 'coords' and 'st
 Depends: R (>= 3.0.0), ggplot2 (>= 1.0.1.9003)
 License: AGPL + file LICENSE
 LazyData: true
-Suggests: testthat
+Suggests: testthat, gridExtra
 Encoding: UTF-8
 Imports: graphics, grDevices, dplyr, KernSmooth, proj4, scales, grid, gtable, ash

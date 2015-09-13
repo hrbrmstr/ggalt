@@ -30,9 +30,30 @@
 #' }
 #' @section Computed variables:
 #' \describe{
-#'   \item{\code{estimate}}{ash estimates}
+#'   \item{\code{density}}{ash density estimate}
 #' }
 #' @export
+#' @examples
+#' # compare
+#' library(gridExtra)
+#' set.seed(1492)
+#' dat <- data.frame(x=rnorm(100))
+#' grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
+#'              ggplot(dat, aes(x)) + stat_bkde(),
+#'              ggplot(dat, aes(x)) + stat_density(),
+#'              nrow=3)
+#'
+#' cols <- RColorBrewer::brewer.pal(3, "Dark2")
+#' ggplot(dat, aes(x)) +
+#'   stat_ash(alpha=1/2, fill=cols[3]) +
+#'   stat_bkde(alpha=1/2, fill=cols[2]) +
+#'   stat_density(alpha=1/2, fill=cols[1]) +
+#'   geom_rug() +
+#'   labs(x=NULL, y="density/estimate") +
+#'   scale_x_continuous(expand=c(0,0)) +
+#'   theme_bw() +
+#'   theme(panel.grid=element_blank()) +
+#'   theme(panel.border=element_blank())
 stat_ash <- function(mapping = NULL, data = NULL, geom = "area",
                      position = "stack",
                      ab = NULL, nbin = 50, m = 5, kopt = c(2, 2),
@@ -62,7 +83,7 @@ StatAsh <- ggproto("StatAsh", Stat,
 
   required_aes = c("x"),
 
-  default_aes = aes(y = ..estimate.., colour = NA, fill = "gray20", size = 0.5,
+  default_aes = aes(y = ..density.., colour = NA, fill = "gray20", size = 0.5,
                     linetype = 1, alpha = NA),
 
 
@@ -83,7 +104,7 @@ StatAsh <- ggproto("StatAsh", Stat,
 
     if (ash_res$ier == 1) message("Estimate nonzero outside interval ab.")
 
-    data.frame(x=ash_res$x, estimate=ash_res$y)
+    data.frame(x=ash_res$x, density=ash_res$y)
 
   }
 
