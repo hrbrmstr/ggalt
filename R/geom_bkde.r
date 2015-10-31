@@ -15,17 +15,16 @@
 #'   \item \code{linetype}
 #'   \item \code{size}
 #' }
-#'
+#' @inheritParams ggplot2::geom_point
 #' @param geom,stat Use to override the default connection between
 #'   \code{geom_bkde} and \code{stat_bkde}.
 #' @seealso See \code{\link{geom_histogram}}, \code{\link{geom_freqpoly}} for
 #'   other methods of displaying continuous distribution.
 #'   See \code{\link{geom_violin}} for a compact density display.
-#' @inheritParams ggplot2::geom_point
 #' @export
 geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
                       position = "identity", bandwidth=NULL, range.x=NULL,
-                      show.legend = NA, inherit.aes = TRUE,
+                      na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
                       ...) {
 
   layer(
@@ -38,6 +37,7 @@ geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
     inherit.aes = inherit.aes,
     params = list(bandwidth=bandwidth,
                   range.x=range.x,
+                  na.rm=na.rm,
                   ...)
   )
 }
@@ -93,7 +93,7 @@ GeomBkde <- ggproto("GeomBkde", GeomArea,
 stat_bkde <- function(mapping = NULL, data = NULL, geom = "area",
                       position = "stack", kernel="normal", canonical=FALSE,
                       bandwidth = NULL, gridsize=410, range.x=NULL,
-                      truncate=TRUE, show.legend = NA, inherit.aes = TRUE,
+                      truncate=TRUE, na.rm=FALSE, show.legend = NA, inherit.aes = TRUE,
                       ...) {
 
   layer(
@@ -111,6 +111,7 @@ stat_bkde <- function(mapping = NULL, data = NULL, geom = "area",
       gridsize=gridsize,
       range.x=range.x,
       truncate=truncate,
+      na.rm=na.rm,
       ...
     )
   )
@@ -129,7 +130,7 @@ StatBkde <- ggproto("StatBkde", Stat,
 
   compute_group = function(data, scales, kernel="normal", canonical=FALSE,
                            bandwidth=NULL, gridsize=410, range.x=NULL,
-                           truncate=TRUE) {
+                           truncate=TRUE, na.rm = TRUE) {
 
     # KernSmooth::dpik uses a generated normal distribution as part of it's
     # operation but doesn't do this seed save/create/restore. When bandwidth
@@ -152,14 +153,14 @@ StatBkde <- ggproto("StatBkde", Stat,
 
     compute_bkde(data$x, kernel=kernel, canonical=canonical,
                     bandwidth=bandwidth, gridsize=gridsize, range.x=range.x,
-                    truncate=truncate)
+                    truncate=truncate, na.rm)
 
   }
 
 )
 
 compute_bkde <- function(x, kernel="normal", canonical=FALSE,
-                        bandwidth, gridsize=410, range.x, truncate=TRUE) {
+                        bandwidth, gridsize=410, range.x, truncate=TRUE, na.rm=TRUE) {
 
   n <- length(x)
 
@@ -170,7 +171,7 @@ compute_bkde <- function(x, kernel="normal", canonical=FALSE,
   data.frame(
     x = dens$x,
     density = dens$y,
-    scaled =  dens$y / max(dens$y, na.rm = TRUE),
+    scaled =  dens$y / max(dens$y, na.rm = na.rm),
     count =   dens$y * n,
     n = n
   )

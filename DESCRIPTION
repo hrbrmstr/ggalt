@@ -1,12 +1,26 @@
 Package: ggalt
 Title: Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
-Version: 0.0.3.9000
+Version: 0.0.4.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
-Description: A package containing additional/alternate 'geoms', 'coords' and 'stats'
-    for use with the revamped (late 2015) version of ggplot2.
-Depends: R (>= 3.0.0), ggplot2 (>= 1.0.1.9003)
+Description: A package containing additional/alternate 'geoms', 'coords' and
+    'stats' for use with the revamped (late 2015) version of ggplot2.
+Depends:
+    R (>= 3.0.0),
+    ggplot2 (>= 1.0.1.9003)
 License: AGPL + file LICENSE
 LazyData: true
-Suggests: testthat, gridExtra
+Suggests:
+    testthat,
+    gridExtra
 Encoding: UTF-8
-Imports: graphics, grDevices, dplyr, KernSmooth, proj4, scales, grid, gtable, ash
+Imports:
+    graphics,
+    grDevices,
+    dplyr,
+    KernSmooth,
+    proj4,
+    scales,
+    grid,
+    gtable,
+    ash
+RoxygenNote: 5.0.0

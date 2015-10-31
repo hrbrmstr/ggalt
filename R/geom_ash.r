@@ -57,7 +57,7 @@
 stat_ash <- function(mapping = NULL, data = NULL, geom = "area",
                      position = "stack",
                      ab = NULL, nbin = 50, m = 5, kopt = c(2, 2),
-                     show.legend = NA, inherit.aes = TRUE, ...) {
+                     na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...) {
 
   layer(
     data = data,
@@ -68,6 +68,7 @@ stat_ash <- function(mapping = NULL, data = NULL, geom = "area",
     show.legend = show.legend,
     inherit.aes = inherit.aes,
     params = list(
+      na.rm = na.rm,
       ab = ab,
       nbin = nbin,
       m = m,

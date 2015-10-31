@@ -32,7 +32,7 @@ geom_bkde2d <- function(mapping = NULL, data = NULL, stat = "bkde2d",
                            position = "identity",  bandwidth=NULL, range.x=NULL,
                            lineend = "butt", contour=TRUE,
                            linejoin = "round", linemitre = 1,
-                           show.legend = NA,
+                           na.rm = FALSE, show.legend = NA,
                            inherit.aes = TRUE, ...) {
   layer(
     data = data,
@@ -48,6 +48,7 @@ geom_bkde2d <- function(mapping = NULL, data = NULL, stat = "bkde2d",
       linemitre = linemitre,
       bandwidth = bandwidth,
       range.x = range.x,
+      na.rm = na.rm,
       ...
     )
   )
@@ -92,7 +93,7 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 stat_bkde2d <- function(mapping = NULL, data = NULL, geom = "density2d",
                            position = "identity", contour = TRUE,
                            bandwidth=NULL, grid_size=c(51, 51), range.x=NULL,
-                           truncate=TRUE, show.legend = NA,
+                           truncate=TRUE, na.rm = FALSE, show.legend = NA,
                            inherit.aes = TRUE, ...) {
   layer(
     data = data,
@@ -108,6 +109,7 @@ stat_bkde2d <- function(mapping = NULL, data = NULL, geom = "density2d",
       range.x = range.x,
       truncate = truncate,
       contour = contour,
+      na.rm = na.rm,
       ...
     )
   )

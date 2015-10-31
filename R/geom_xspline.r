@@ -108,8 +108,8 @@
 #'   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
 #'   geom_xspline(spline_shape=-1, size=0.5)
 geom_xspline <- function(mapping = NULL, data = NULL, stat = "xspline",
-                      position = "identity", show.legend = NA,
-                      inherit.aes = TRUE, na.rm = TRUE,
+                      position = "identity", na.rm = TRUE, show.legend = NA,
+                      inherit.aes = TRUE,
                       spline_shape=-0.25, open=TRUE, rep_ends=TRUE, ...) {
   layer(
     geom = GeomXspline,
@@ -121,6 +121,7 @@ geom_xspline <- function(mapping = NULL, data = NULL, stat = "xspline",
     inherit.aes = inherit.aes,
     params = list(spline_shape=spline_shape,
                   open=open,
+                  na.rm = na.rm,
                   rep_ends=rep_ends,
                   ...)
   )
@@ -147,7 +148,7 @@ GeomXspline <- ggproto("GeomXspline", GeomLine,
 #'   \item{y}
 #' }
 stat_xspline <- function(mapping = NULL, data = NULL, geom = "line",
-                     position = "identity", show.legend = NA, inherit.aes = TRUE,
+                     position = "identity", na.rm = TRUE, show.legend = NA, inherit.aes = TRUE,
                      spline_shape=-0.25, open=TRUE, rep_ends=TRUE, ...) {
   layer(
     stat = StatXspline,
@@ -159,6 +160,7 @@ stat_xspline <- function(mapping = NULL, data = NULL, geom = "line",
     inherit.aes = inherit.aes,
     params = list(spline_shape=spline_shape,
                   open=open,
+                  na.rm = na.rm,
                   rep_ends=rep_ends,
                   ...
     )

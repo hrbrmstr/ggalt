@@ -45,7 +45,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.0.3.9000'
+#> [1] '0.0.4.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -256,6 +256,10 @@ ggplot(geyser_dat, aes(x, y)) +
 ``` r
 # devtools::install_github("hrbrmstr/ggplot2")
 world <- map_data("world")
+#> 
+#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
+#>  # Many country borders and names have changed since 1990. #
+#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
@@ -274,13 +278,11 @@ library(ggalt)
 library(testthat)
 
 date()
-#> [1] "Sun Sep 13 07:33:03 2015"
+#> [1] "Sat Oct 31 10:07:15 2015"
 
 test_dir("tests/")
 #> testthat results ========================================================================================================
 #> OK: 0 SKIPPED: 0 FAILED: 0
-#> 
-#> DONE
 ```
 
 ### Code of Conduct
