@@ -72,13 +72,15 @@ the default plot specification, e.g. \code{\link{borders}}.}
   \item Other arguments passed on to the stat.
   }}
 
+\item{geom}{default geom to use with this stat}
+
+\item{grid_size}{vector containing the number of equally spaced points in each
+direction over which the density is to be estimated. see
+\code{\link[KernSmooth]{bkde2D}} for details}
+
 \item{truncate}{logical flag: if TRUE, data with x values outside the range
 specified by range.x are ignored. see \code{\link[KernSmooth]{bkde2D}}
 for details}
-
-\item{gridsize}{vector containing the number of equally spaced points in each
-direction over which the density is to be estimated. see
-\code{\link[KernSmooth]{bkde2D}} for details}
 }
 \description{
 Contours from a 2d density estimate.

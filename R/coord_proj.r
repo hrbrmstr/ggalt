@@ -2,10 +2,11 @@
 #'
 #' The representation of a portion of the earth, which is approximately
 #' spherical, onto a flat 2D plane requires a projection. This is what
-#' \code{coord_proj} does, using the \link[proj4]{project()} function from
+#' \code{coord_proj} does, using the \code{proj4::project()} function from
 #' the \code{proj4} package.
 #'
-#' @param proj projection definition
+#' @param proj projection definition. If left \code{NULL} will default to
+#'        a Robinson projection
 #' @param inverse	if \code{TRUE} inverse projection is performed (from a
 #'        cartographic projection into lat/long), otherwise projects from
 #'        lat/long into a cartographic projection.
@@ -20,9 +21,14 @@
 #' @param xlim manually specific x limits (in degrees of longitude)
 #' @param ylim manually specific y limits (in degrees of latitude)
 #' @export
-coord_proj <- function(proj="+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-                       inverse = FALSE, degrees = TRUE,
+coord_proj <- function(proj=NULL, inverse = FALSE, degrees = TRUE,
                        ellps.default="sphere", xlim = NULL, ylim = NULL) {
+
+  if (is.null(proj)) {
+    proj <- paste0(c("+proj=robin +lon_0=0 +x_0=0 +y_0=0",
+                     "+ellps=WGS84 +datum=WGS84 +units=m +no_defs"),
+                   collapse=" ")
+  }
 
   ggproto(NULL, CoordProj,
     proj = proj,
@@ -35,6 +41,11 @@ coord_proj <- function(proj="+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +da
 
 }
 
+#' Geom Proto
+#' @rdname ggalt-ggproto
+#' @format NULL
+#' @usage NULL
+#' @keywords internal
 #' @export
 CoordProj <- ggproto("CoordProj", Coord,
 

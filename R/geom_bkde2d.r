@@ -55,9 +55,11 @@ geom_bkde2d <- function(mapping = NULL, data = NULL, stat = "bkde2d",
 }
 
 
+#' Geom Proto
 #' @rdname ggalt-ggproto
 #' @format NULL
 #' @usage NULL
+#' @keywords internal
 #' @export
 GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
   default_aes = aes(colour = "#3366FF", size = 0.5, linetype = 1, alpha = NA)
@@ -73,9 +75,10 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #'        \code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},
 #'        it will be computed for you but will most likely not yield optimal
 #'        results. see \code{\link[KernSmooth]{bkde2D}} for details
-#' @param gridsize vector containing the number of equally spaced points in each
+#' @param grid_size vector containing the number of equally spaced points in each
 #'        direction over which the density is to be estimated. see
 #'        \code{\link[KernSmooth]{bkde2D}} for details
+#' @param geom default geom to use with this stat
 #' @param range.x	 a list containing two vectors, where each vector contains the
 #'        minimum and maximum values of x at which to compute the estimate for
 #'        each direction. see \code{\link[KernSmooth]{bkde2D}} for details

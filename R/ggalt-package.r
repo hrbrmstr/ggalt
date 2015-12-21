@@ -1,7 +1,6 @@
 #' Extra Geoms, Stats and Coords for 'ggplot2'
 #'
-#' A package containing additional geoms, coords and stats for the revamped
-#' (late 2015) version of ggplot2.
+#' A package containing additional geoms, coords and stats for the ggplot2 2.0+
 #'
 #' @name ggalt
 #' @docType package
@@ -11,4 +10,5 @@
 #' @importFrom grid grobName grobTree unit.c grobHeight grobWidth viewport
 #'                  grid.draw grobX grobY gTree gList
 #' @importFrom gtable gtable_col gtable_height gtable_width gtable_row gtable_col
+#' @importFrom RColorBrewer brewer.pal
 NULL

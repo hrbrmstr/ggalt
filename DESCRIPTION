@@ -1,6 +1,6 @@
 Package: ggalt
 Title: Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
-Version: 0.0.4.9000
+Version: 0.1.0.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
 Description: A package containing additional/alternate 'geoms', 'coords' and
     'stats' for use with the revamped (late 2015) version of ggplot2.
@@ -13,14 +13,17 @@ Suggests:
     testthat,
     gridExtra
 Encoding: UTF-8
+Enhances: ggplot2
 Imports:
     graphics,
     grDevices,
     dplyr,
+    RColorBrewer,
     KernSmooth,
     proj4,
     scales,
     grid,
     gtable,
-    ash
-RoxygenNote: 5.0.0
+    ash,
+    MASS
+RoxygenNote: 5.0.1

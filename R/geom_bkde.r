@@ -42,9 +42,11 @@ geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
   )
 }
 
+#' Geom Proto
 #' @rdname ggalt-ggproto
 #' @format NULL
 #' @usage NULL
+#' @keywords internal
 #' @export
 GeomBkde <- ggproto("GeomBkde", GeomArea,
   default_aes = aes(colour = NA, fill = "gray20", size = 0.5,

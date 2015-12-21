@@ -4,13 +4,12 @@
 \alias{coord_proj}
 \title{Like \code{coord_map} only better :-)}
 \usage{
-
-  coord_proj(proj = "+proj=robin +lon_0=0 +x_0=0 +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs",
-  inverse = FALSE, degrees = TRUE, ellps.default = "sphere",
-  xlim = NULL, ylim = NULL)
+coord_proj(proj = NULL, inverse = FALSE, degrees = TRUE,
+  ellps.default = "sphere", xlim = NULL, ylim = NULL)
 }
 \arguments{
-\item{proj}{projection definition}
+\item{proj}{projection definition. If left \code{NULL} will default to
+a Robinson projection}
 
 \item{inverse}{if \code{TRUE} inverse projection is performed (from a
 cartographic projection into lat/long), otherwise projects from
@@ -33,7 +32,7 @@ directly).}
 \description{
 The representation of a portion of the earth, which is approximately
 spherical, onto a flat 2D plane requires a projection. This is what
-\code{coord_proj} does, using the \link[proj4]{project()} function from
+\code{coord_proj} does, using the \code{proj4::project()} function from
 the \code{proj4} package.
 }
 

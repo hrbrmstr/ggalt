@@ -79,6 +79,11 @@ stat_ash <- function(mapping = NULL, data = NULL, geom = "area",
 
 }
 
+#' Geom Proto
+#' @rdname ggalt-ggproto
+#' @format NULL
+#' @usage NULL
+#' @keywords internal
 #' @export
 StatAsh <- ggproto("StatAsh", Stat,
 
