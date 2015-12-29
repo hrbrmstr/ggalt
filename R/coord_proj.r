@@ -1,4 +1,5 @@
-#' Like \code{coord_map} only better :-)
+#' Similar to \code{coord_map} but uses the PROJ.4 library/package for projection
+#' transformation
 #'
 #' The representation of a portion of the earth, which is approximately
 #' spherical, onto a flat 2D plane requires a projection. This is what
@@ -18,9 +19,46 @@
 #'        higher always require a datum or an ellipsoid. Set to  \code{NA} if no
 #'        datum should be added to proj (e.g. if you specify an ellipsoid
 #'        directly).
-#' @param xlim manually specific x limits (in degrees of longitude)
-#' @param ylim manually specific y limits (in degrees of latitude)
+#' @param xlim manually specify x limits (in degrees of longitude)
+#' @param ylim manually specify y limits (in degrees of latitude)
+#' @note When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
+#'       large assumption that the coordinates being transformed are within
+#'       -180:180 (longitude) and -90:90 (latitude). As such, it truncates
+#'       all longitude & latitude input to fit within these ranges.
 #' @export
+#' @examples
+#' # World in Winkel-Tripel
+#' world <- map_data("world")
+#' world <- world[world$region != "Antarctica",]
+#'
+#' gg <- ggplot()
+#' gg <- gg + geom_map(data=world, map=world,
+#'                     aes(x=long, y=lat, map_id=region))
+#' gg <- gg + coord_proj("+proj=wintri")
+#' gg
+#'
+#' # U.S.A. Albers-style
+#' usa <- world[world$region == "USA",]
+#' usa <- usa[!(usa$subregion %in% c("Alaska", "Hawaii")),]
+#'
+#' gg <- ggplot()
+#' gg <- gg + geom_map(data=usa, map=usa,
+#'                     aes(x=long, y=lat, map_id=region))
+#' gg <- gg + coord_proj(
+#'              paste0("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96",
+#'                     " +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs"))
+#' gg
+#'
+#' # Showcase Greenland (properly)
+#' greenland <- world[world$region == "Greenland",]
+#'
+#' gg <- ggplot()
+#' gg <- gg + geom_map(data=greenland, map=greenland,
+#'                     aes(x=long, y=lat, map_id=region))
+#' gg <- gg + coord_proj(
+#'              paste0("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=-45 +k=1 +x_0=0",
+#'                     " +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
+#' gg
 coord_proj <- function(proj=NULL, inverse = FALSE, degrees = TRUE,
                        ellps.default="sphere", xlim = NULL, ylim = NULL) {
 
@@ -198,13 +236,17 @@ project4 <- function(coord, x, y) {
 
   df <- data.frame(x=x, y=y)
 
-  # map extremes cause issues with projections both with proj4 &
-  # spTransform. this compensates for them.
+  if (!coord$inverse) {
 
-  df$x <- ifelse(df$x <= -180, -179.999999999, df$x)
-  df$x <- ifelse(df$x >= 180, 179.999999999, df$x)
-  df$y <- ifelse(df$y <= -90, -89.999999999, df$y)
-  df$y <- ifelse(df$y >= 90, 89.999999999, df$y)
+    # map extremes cause issues with projections both with proj4 &
+    # spTransform. this compensates for them.
+
+    df$x <- ifelse(df$x <= -180, -179.99999999999, df$x)
+    df$x <- ifelse(df$x >= 180, 179.99999999999, df$x)
+    df$y <- ifelse(df$y <= -90, -89.99999999999, df$y)
+    df$y <- ifelse(df$y >= 90, 89.99999999999, df$y)
+
+  }
 
   suppressWarnings({
     res <- proj4::project(list(x=df$x, y=df$y),

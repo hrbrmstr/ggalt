@@ -1,19 +1,22 @@
 Package: ggalt
-Title: Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
-Version: 0.1.0.9000
+Title: Additional 'Geoms', 'Stats' and 'Coords' for 'ggplot2' 2.0+
+Version: 0.1.1.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
-Description: A package containing additional/alternate 'geoms', 'coords' and
-    'stats' for use with the revamped (late 2015) version of ggplot2.
+Description: A package containing additional 'geoms', 'coords' and
+    'stats' for use with 'ggplot2' 2.0+, including splines, 1d and 2d densities,
+    univariate average shifted histograms and PROJ.4-based map projections.
 Depends:
     R (>= 3.0.0),
-    ggplot2 (>= 1.0.1.9003)
+    ggplot2 (>= 2.0.0)
 License: AGPL + file LICENSE
 LazyData: true
 Suggests:
     testthat,
-    gridExtra
+    gridExtra,
+    knitr,
+    rmarkdown,
+    ggthemes
 Encoding: UTF-8
-Enhances: ggplot2
 Imports:
     graphics,
     grDevices,
@@ -27,3 +30,4 @@ Imports:
     ash,
     MASS
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr

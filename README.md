@@ -50,7 +50,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.1.0.9000'
+#> [1] '0.1.1.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
