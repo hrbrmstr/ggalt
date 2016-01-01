@@ -10,6 +10,12 @@
 #' \figure{geom_xspline_01.png}{options: width="100\%" alt="Figure: geom_xspline_01.png"}
 #' }
 #'
+#' \if{latex}{
+#' A sample of the output from \code{geom_xspline()}:
+#'
+#' \figure{geomxspline01.pdf}{options: width=10cm}
+#' }
+#'
 #' @section Aesthetics:
 #' \code{geom_xspline} understands the following aesthetics (required aesthetics
 #' are in bold):

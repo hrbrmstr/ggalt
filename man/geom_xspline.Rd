@@ -76,6 +76,12 @@ A sample of the output from \code{geom_xspline()}:
 \figure{geom_xspline_01.png}{options: width="100\%" alt="Figure: geom_xspline_01.png"}
 }
 
+\if{latex}{
+A sample of the output from \code{geom_xspline()}:
+
+\figure{geomxspline01.pdf}{options: width=10cm}
+}
+
 
 An X-spline is a line drawn relative to control points. For each control
 point, the line may pass through (interpolate) the control point or it may

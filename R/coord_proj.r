@@ -12,6 +12,12 @@
 #' \figure{coord_proj_01.png}{options: width="100\%" alt="Figure: coord_proj_01.png"}
 #' }
 #'
+#' \if{latex}{
+#' A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
+#'
+#' \figure{coordproj01.pdf}{options: width=10cm}
+#' }
+#'
 #' @param proj projection definition. If left \code{NULL} will default to
 #'        a Robinson projection
 #' @param inverse	if \code{TRUE} inverse projection is performed (from a

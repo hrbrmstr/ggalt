@@ -77,6 +77,12 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #' \figure{geom_bkde2d_01.png}{options: width="100\%" alt="Figure: geom_bkde2d_01.png"}
 #' }
 #'
+#' \if{latex}{
+#' A sample of the output from \code{geom_bkde2d()}:
+#'
+#' \figure{geombkde2d01.pdf}{options: width=10cm}
+#' }
+#'
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see
 #'        \code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},
 #'        it will be computed for you but will most likely not yield optimal

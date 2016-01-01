@@ -42,6 +42,12 @@ A sample of the output from \code{coord_proj()} using the Winkel-Tripel projecti
 
 \figure{coord_proj_01.png}{options: width="100\%" alt="Figure: coord_proj_01.png"}
 }
+
+\if{latex}{
+A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
+
+\figure{coordproj01.pdf}{options: width=10cm}
+}
 }
 \note{
 When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
