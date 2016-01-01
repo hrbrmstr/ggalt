@@ -61,6 +61,13 @@ the default plot specification, e.g. \code{\link{borders}}.}
 \description{
 See \code{\link[ash]{bin1}} & \code{\link[ash]{ash1}} for more information.
 }
+\details{
+\if{html}{
+A sample of the output from \code{stat_ash()}:
+
+\figure{stat_ash_01.png}{options: width="100\%" alt="Figure: stat_ash_01.png"}
+}
+}
 \section{Aesthetics}{
 
 \code{geom_ash} understands the following aesthetics (required aesthetics

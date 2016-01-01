@@ -6,6 +6,12 @@
 #' \code{coord_proj} does, using the \code{proj4::project()} function from
 #' the \code{proj4} package.
 #'
+#' \if{html}{
+#' A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
+#'
+#' \figure{coord_proj_01.png}{options: width="100\%" alt="Figure: coord_proj_01.png"}
+#' }
+#'
 #' @param proj projection definition. If left \code{NULL} will default to
 #'        a Robinson projection
 #' @param inverse	if \code{TRUE} inverse projection is performed (from a

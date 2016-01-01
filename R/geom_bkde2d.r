@@ -9,9 +9,9 @@
 #'        xlim(0.5, 6) +
 #'        ylim(40, 110)
 #'
-#' m + geom_bkde2d(bandwidth=c(0.5, 5))
+#' m + geom_bkde2d(bandwidth=c(0.5, 4))
 #'
-#' m + stat_bkde2d(bandwidth=c(0.5, 5), aes(fill = ..level..), geom = "polygon")
+#' m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 #'
 #' # If you map an aesthetic to a categorical variable, you will get a
 #' # set of contours for each value of that variable
@@ -70,6 +70,12 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #'
 #' Perform a 2D kernel density estimation using \code{bkde2D} and display the
 #' results with contours. This can be useful for dealing with overplotting
+#'
+#' \if{html}{
+#' A sample of the output from \code{geom_bkde2d()}:
+#'
+#' \figure{geom_bkde2d_01.png}{options: width="100\%" alt="Figure: geom_bkde2d_01.png"}
+#' }
 #'
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see
 #'        \code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},

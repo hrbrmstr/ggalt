@@ -3,6 +3,12 @@
 #' A kernel density estimate, useful for display the distribution of variables
 #' with underlying smoothness.
 #'
+#' \if{html}{
+#' A sample of the output from \code{geom_bkde()}:
+#'
+#' \figure{geom_bkde_01.png}{options: width="100\%" alt="Figure: geom_bkde_01.png"}
+#' }
+#'
 #' @section Aesthetics:
 #' \code{geom_bkde} understands the following aesthetics (required aesthetics
 #' are in bold):

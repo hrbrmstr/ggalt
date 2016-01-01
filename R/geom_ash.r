@@ -2,6 +2,12 @@
 #'
 #' See \code{\link[ash]{bin1}} & \code{\link[ash]{ash1}} for more information.
 #'
+#' \if{html}{
+#' A sample of the output from \code{stat_ash()}:
+#'
+#' \figure{stat_ash_01.png}{options: width="100\%" alt="Figure: stat_ash_01.png"}
+#' }
+#'
 #' @inheritParams ggplot2::geom_area
 #' @param geom Use to override the default Geom
 #' @param ab half-open interval for bins \emph{[a,b)}. If no value is specified,

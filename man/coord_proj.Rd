@@ -36,6 +36,13 @@ spherical, onto a flat 2D plane requires a projection. This is what
 \code{coord_proj} does, using the \code{proj4::project()} function from
 the \code{proj4} package.
 }
+\details{
+\if{html}{
+A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
+
+\figure{coord_proj_01.png}{options: width="100\%" alt="Figure: coord_proj_01.png"}
+}
+}
 \note{
 When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
       large assumption that the coordinates being transformed are within

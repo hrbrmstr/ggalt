@@ -70,6 +70,13 @@ Patterned after \code{geom_line} in that it orders the points by \code{x}
 first before computing the splines.
 }
 \details{
+\if{html}{
+A sample of the output from \code{geom_xspline()}:
+
+\figure{geom_xspline_01.png}{options: width="100\%" alt="Figure: geom_xspline_01.png"}
+}
+
+
 An X-spline is a line drawn relative to control points. For each control
 point, the line may pass through (interpolate) the control point or it may
 only approach (approximate) the control point; the behaviour is determined

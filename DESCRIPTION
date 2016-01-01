@@ -10,12 +10,14 @@ Depends:
     ggplot2 (>= 2.0.0)
 License: AGPL + file LICENSE
 LazyData: true
+URL: http://github.com/hrbrmstr/ggalt
+BugReports: https://github.com/hrbrmstr/ggalt/issues
 Suggests:
     testthat,
     gridExtra,
     knitr,
     rmarkdown,
-    ggthemes
+    ggthemes,
 Encoding: UTF-8
 Imports:
     graphics,
