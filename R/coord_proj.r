@@ -36,7 +36,8 @@
 #' @note When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
 #'       large assumption that the coordinates being transformed are within
 #'       -180:180 (longitude) and -90:90 (latitude). As such, it truncates
-#'       all longitude & latitude input to fit within these ranges.
+#'       all longitude & latitude input to fit within these ranges. More updates
+#'       to this new \code{coord_} are planned.
 #' @export
 #' @examples
 #' # World in Winkel-Tripel

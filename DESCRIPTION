@@ -1,6 +1,6 @@
 Package: ggalt
 Title: Additional 'Geoms', 'Stats' and 'Coords' for 'ggplot2' 2.0+
-Version: 0.1.1.9000
+Version: 0.1.1
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
 Description: A package containing additional 'geoms', 'coords' and
     'stats' for use with 'ggplot2' 2.0+, including splines, 1d and 2d densities,
