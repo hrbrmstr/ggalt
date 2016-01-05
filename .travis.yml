@@ -2,6 +2,11 @@ language: r
 warnings_are_errors: true
 sudo: required
 
+apt_packages:
+ - binutils
+ - libproj-dev
+ - gdal-bin
+
 env:
  global:
    - CRAN: http://cran.rstudio.com
