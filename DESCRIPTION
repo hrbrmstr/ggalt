@@ -10,7 +10,7 @@ Depends:
     ggplot2 (>= 2.0.0)
 License: AGPL + file LICENSE
 LazyData: true
-URL: http://github.com/hrbrmstr/ggalt
+URL: https://github.com/hrbrmstr/ggalt
 BugReports: https://github.com/hrbrmstr/ggalt/issues
 Suggests:
     testthat,
