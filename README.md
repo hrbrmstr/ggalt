@@ -3,12 +3,13 @@
 
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
+[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
-`ggalt` : Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
+`ggalt` : Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
 
- A package containing additional/alternate 'geoms', 'coords' and 'stats' for use with ggplot2 2.0+.
+A compendium of 'geoms', 'coords' and 'stats' for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms and a new map coordinate system based on the 'PROJ.4'-library.
 
 The first three forays into this brave, new `ggplot2` world are _splines_! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots and an initial port of the (still needing work) `coord_proj`.
 
@@ -55,7 +56,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.1.1'
+#> [1] '0.1.1.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
