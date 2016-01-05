@@ -16,6 +16,9 @@ fig.retina = 2,
   fig.path = "README_figs/README-"
 )
 ```
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
+![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
 `ggalt` : Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
 
@@ -36,6 +39,7 @@ The following functions are implemented:
 
 ### News
 
+- Version 0.1.1 released - CRAN!
 - Version 0.1.0.9000 released - Tweaks for ggplot2 2.0 release
 - Version 0.0.4.9000 released - `stat_ash`
 - Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
@@ -48,7 +52,8 @@ The following functions are implemented:
 ```{r eval=FALSE}
 # you'll want to see the vignettes, trust me
 install.packages("ggplot2")
-devtools::install_github("hrbrmstr/ggalt")
+install.packages("ggalt")
+# OR: devtools::install_github("hrbrmstr/ggalt")
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
@@ -181,7 +186,6 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ### `coord_proj` LIVES! (still needs work)
 
 ```{r coord_proj}
-# devtools::install_github("hrbrmstr/ggplot2")
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
 

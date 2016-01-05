@@ -2,6 +2,9 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
+![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
 `ggalt` : Alternate/Extra 'Geoms', 'Stats' and 'Coords' for 'ggplot2'
 
@@ -22,6 +25,7 @@ The following functions are implemented:
 
 ### News
 
+- Version 0.1.1 released - CRAN!
 - Version 0.1.0.9000 released - Tweaks for ggplot2 2.0 release
 - Version 0.0.4.9000 released - `stat_ash`
 - Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
@@ -35,7 +39,8 @@ The following functions are implemented:
 ```r
 # you'll want to see the vignettes, trust me
 install.packages("ggplot2")
-devtools::install_github("hrbrmstr/ggalt")
+install.packages("ggalt")
+# OR: devtools::install_github("hrbrmstr/ggalt")
 ```
 
 
@@ -50,7 +55,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.1.1.9000'
+#> [1] '0.1.1'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -262,12 +267,7 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 
 ```r
-# devtools::install_github("hrbrmstr/ggplot2")
 world <- map_data("world")
-#> 
-#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
-#>  # Many country borders and names have changed since 1990. #
-#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
