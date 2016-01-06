@@ -19,7 +19,7 @@ fig.retina = 2,
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
 [![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
+![downloads](http://cranlogs.r-pkg.org/badges/ggalt)
 
 `ggalt` : Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
 
