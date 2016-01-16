@@ -1,6 +1,6 @@
 Package: ggalt
 Title: Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
-Version: 0.1.1.9000
+Version: 0.1.2.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
 Description: A compendium of 'geoms', 'coords' and 'stats' for 'ggplot2',
     including splines, 1d and 2d densities, univariate average shifted histograms

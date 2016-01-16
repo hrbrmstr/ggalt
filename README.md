@@ -26,13 +26,14 @@ The following functions are implemented:
 
 ### News
 
-- Version 0.1.1 released - CRAN!
-- Version 0.1.0.9000 released - Tweaks for ggplot2 2.0 release
-- Version 0.0.4.9000 released - `stat_ash`
-- Version 0.0.3.9000 released - `coord_proj`! (requires my github copy of ggplot2 for now)
-- Version 0.0.2.9005 released - cleanup before blog post
-- Version 0.0.2.9002 released - working 2D density plots
-- Version 0.0.2.9000 released
+- Version 0.1.2.9000 - Fixed bug with limits not working thx to @mstrimas 
+- Version 0.1.1 - CRAN!
+- Version 0.1.0.9000 - Tweaks for ggplot2 2.0 release
+- Version 0.0.4.9000 - `stat_ash`
+- Version 0.0.3.9000 - `coord_proj`! (requires my github copy of ggplot2 for now)
+- Version 0.0.2.9005 - cleanup before blog post
+- Version 0.0.2.9002 - working 2D density plots
+- Version 0.0.2.9000 initial release
 
 ### Installation
 
@@ -269,6 +270,10 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ```r
 world <- map_data("world")
+#> 
+#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
+#>  # Many country borders and names have changed since 1990. #
+#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()

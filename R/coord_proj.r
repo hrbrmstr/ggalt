@@ -132,7 +132,7 @@ CoordProj <- ggproto("CoordProj", Coord,
       if (is.null(limits)) {
         range <- scale$dimension(expand_default(scale))
       } else {
-        range <- range(scale_transform(scale, limits))
+        range <- range(scale$transform(limits))
       }
       ranges[[n]] <- range
     }
