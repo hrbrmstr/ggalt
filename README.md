@@ -23,9 +23,13 @@ The following functions are implemented:
 - `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
+- `scale_color_pokemon` :
+- `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
+
 
 ### News
 
+- Version 0.1.5.9000 - Pokemon discrete color scales!
 - Version 0.1.2.9000 - Fixed bug with limits not working thx to @mstrimas 
 - Version 0.1.1 - CRAN!
 - Version 0.1.0.9000 - Tweaks for ggplot2 2.0 release
@@ -57,7 +61,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.1.1.9000'
+#> [1] '0.1.5.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),

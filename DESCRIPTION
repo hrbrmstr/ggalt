@@ -1,8 +1,8 @@
 Package: ggalt
-Title: Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
-Version: 0.1.2.9000
+Title: Extra Coordinate Systems, Geoms, Statistical Transformations and Scales for 'ggplot2'
+Version: 0.1.5.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
-Description: A compendium of 'geoms', 'coords' and 'stats' for 'ggplot2',
+Description: A compendium of 'geoms', 'coords', 'stats' & scales for 'ggplot2',
     including splines, 1d and 2d densities, univariate average shifted histograms
     and a new map coordinate system based on the 'PROJ.4'-library.
 Depends:
@@ -31,6 +31,7 @@ Imports:
     gtable,
     ash,
     maps,
-    MASS
+    MASS,
+    ggplot2
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
