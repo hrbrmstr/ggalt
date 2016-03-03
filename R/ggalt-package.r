@@ -5,7 +5,7 @@
 #' @name ggalt
 #' @docType package
 #' @author Bob Rudis (@@hrbrmstr)
-#' @import ggplot2 graphics grDevices KernSmooth proj4 ash MASS
+#' @import maps ggplot2 graphics grDevices KernSmooth proj4 ash MASS
 #' @importFrom dplyr filter
 #' @importFrom scales rescale expand_range
 #' @importFrom grid grobName grobTree unit.c grobHeight grobWidth viewport

@@ -8,7 +8,6 @@
 #' @inheritParams pokemon_pal
 #' @family colour pokemon
 #' @rdname scale_pokemon
-#' @seealso \code{\link{theme_economist}} for examples.
 #' @export
 scale_colour_pokemon <- function(avatar="bulbasaur", ...) {
   discrete_scale("colour", "pokemon", pokemon_pal(avatar=avatar), ...)
