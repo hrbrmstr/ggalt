@@ -1,0 +1,4 @@
+0.1.5
+=====================
+* Pokemon discrete color scales!
+* `byte_format` (et al) scales (e.g. 10000 => 10 Kb)
