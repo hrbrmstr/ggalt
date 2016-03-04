@@ -1,5 +1,5 @@
 Package: ggalt
-Title: Extra Coordinate Systems, Geoms, Statistical Transformations and Scales for 'ggplot2'
+Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations and Scales for 'ggplot2'
 Version: 0.1.5.9000
 Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
 Description: A compendium of 'geoms', 'coords', 'stats' & scales for 'ggplot2',
@@ -31,7 +31,6 @@ Imports:
     gtable,
     ash,
     maps,
-    MASS,
-    ggplot2
+    MASS
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
