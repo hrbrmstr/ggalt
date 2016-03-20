@@ -16,7 +16,19 @@ state_tbl <- setNames(toupper(state.abb), tolower(state.name))
 #' the font on your system
 #' @export
 show_stateface <- function() {
-  system.file("fonts/", package="ggalt")
+
+  path = normalizePath(file.path(system.file("fonts/", package="ggalt")))
+
+  print(path)
+
+  if (.Platform$OS.type == "windows") {
+    shell(sprintf("explorer %s", path), intern=TRUE)
+  } else if(.Platform$OS.type == "unix") {
+    if (Sys.info()["sysname"] == "Darwin") {
+      system2("open", path)
+    }
+  }
+
 }
 
 #' Load stateface font
@@ -32,6 +44,18 @@ load_stateface <- function() {
 }
 
 #' Use ProPublica's StateFace font in ggplot2 plots
+#'
+#' The \code{label} parameter can be either a 2-letter state abbreviation
+#' or a full state name. \code{geom_stateface()} will take care of the
+#' translation to StateFace font glyph characters.
+#'
+#' The package will also take care of loading the StateFace font for
+#' PDF and other devices, but to use it with the on-screen ggplot2
+#' device, you'll need to install the font on your system.
+#'
+#' \code{ggalt} ships with a copy of the StateFace TTF font. You can
+#' run \code{show_stateface()} to get the filesystem location and then
+#' load the font manually from there.
 #'
 #' @inheritParams ggplot2::geom_text
 #' @export
@@ -71,48 +95,48 @@ geom_stateface <- function(mapping = NULL, data = NULL, stat = "identity",
 #' @usage NULL
 #' @export
 GeomStateface <- ggproto("GeomStateface", Geom,
-      required_aes = c("x", "y", "label"),
+                         required_aes = c("x", "y", "label"),
 
- default_aes = aes(
-   colour = "black", size = 3.88, angle = 0, hjust = 0.5,
-   vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2
- ),
+                         default_aes = aes(
+                           colour = "black", size = 3.88, angle = 0, hjust = 0.5,
+                           vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2
+                         ),
 
- draw_panel = function(data, panel_scales, coord, parse = FALSE,
-                       na.rm = FALSE, check_overlap = FALSE) {
-   lab <- data$label
+                         draw_panel = function(data, panel_scales, coord, parse = FALSE,
+                                               na.rm = FALSE, check_overlap = FALSE) {
+                           lab <- data$label
 
-   if (max(sapply(lab, nchar)) == 2) {
-     lab <- unname(state_trans[toupper(lab)])
-   } else {
-     lab <- unname(state_trans[state_tbl[tolower(lab)]])
-   }
+                           if (max(sapply(lab, nchar)) == 2) {
+                             lab <- unname(state_trans[toupper(lab)])
+                           } else {
+                             lab <- unname(state_trans[state_tbl[tolower(lab)]])
+                           }
 
-   data <- coord$transform(data, panel_scales)
-   if (is.character(data$vjust)) {
-     data$vjust <- compute_just(data$vjust, data$y)
-   }
-   if (is.character(data$hjust)) {
-     data$hjust <- compute_just(data$hjust, data$x)
-   }
+                           data <- coord$transform(data, panel_scales)
+                           if (is.character(data$vjust)) {
+                             data$vjust <- compute_just(data$vjust, data$y)
+                           }
+                           if (is.character(data$hjust)) {
+                             data$hjust <- compute_just(data$hjust, data$x)
+                           }
 
-   textGrob(
-     lab,
-     data$x, data$y, default.units = "native",
-     hjust = data$hjust, vjust = data$vjust,
-     rot = data$angle,
-     gp = gpar(
-       col = alpha(data$colour, data$alpha),
-       fontsize = data$size * .pt,
-       fontfamily = "StateFace",
-       fontface = data$fontface,
-       lineheight = data$lineheight
-     ),
-     check.overlap = check_overlap
-   )
- },
+                           textGrob(
+                             lab,
+                             data$x, data$y, default.units = "native",
+                             hjust = data$hjust, vjust = data$vjust,
+                             rot = data$angle,
+                             gp = gpar(
+                               col = alpha(data$colour, data$alpha),
+                               fontsize = data$size * .pt,
+                               fontfamily = "StateFace",
+                               fontface = data$fontface,
+                               lineheight = data$lineheight
+                             ),
+                             check.overlap = check_overlap
+                           )
+                         },
 
- draw_key = draw_key_text
+                         draw_key = draw_key_text
 )
 
 compute_just <- function(just, x) {

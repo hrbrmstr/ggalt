@@ -62,6 +62,17 @@ that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link{borders}}.}
 }
 \description{
-Use ProPublica's StateFace font in ggplot2 plots
+The \code{label} parameter can be either a 2-letter state abbreviation
+or a full state name. \code{geom_stateface()} will take care of the
+translation to StateFace font glyph characters.
+}
+\details{
+The package will also take care of loading the StateFace font for
+PDF and other devices, but to use it with the on-screen ggplot2
+device, you'll need to install the font on your system.
+
+\code{ggalt} ships with a copy of the StateFace TTF font. You can
+run \code{show_stateface()} to get the filesystem location and then
+load the font manually from there.
 }
 
