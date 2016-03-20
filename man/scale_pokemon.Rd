@@ -21,7 +21,10 @@ to control name, limits, breaks, labels and so forth.}
 \description{
 Color scales using the colors in the Pokemon characters
 }
-\details{
-Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
+\note{
+Pokémon & Pokémon character names are trademarks of Nintendo.
+}
+\references{
+\href{http://www.pokegraphs.com/}{Original JSON color list}.
 }
 

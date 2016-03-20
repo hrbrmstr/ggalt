@@ -7,9 +7,14 @@
 list_avatars()
 }
 \description{
-Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
+List Pokemon avatar names
 }
 \note{
-Warning: huge! list
+Warning: huge! list\cr
+  \cr
+  Pokémon & Pokémon character names are trademarks of Nintendo.
+}
+\references{
+\href{http://www.pokegraphs.com/}{Original JSON color list}.
 }
 

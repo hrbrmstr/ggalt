@@ -10,6 +10,12 @@ pokemon_pal(avatar = "bulbasaur")
 \item{avatar}{avatar name. Use \code{list_avatars()} to see them all!}
 }
 \description{
-Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
+Pick a Pokemon palette
+}
+\note{
+Pokémon & Pokémon character names are trademarks of Nintendo.
+}
+\references{
+\href{http://www.pokegraphs.com/}{Original JSON color list}.
 }
 

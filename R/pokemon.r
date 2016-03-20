@@ -2,8 +2,8 @@
 #'
 #' Color scales using the colors in the Pokemon characters
 #'
-#' Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
-#'
+#' @references \href{http://www.pokegraphs.com/}{Original JSON color list}.
+#' @note Pokémon & Pokémon character names are trademarks of Nintendo.
 #' @inheritParams ggplot2::scale_colour_hue
 #' @inheritParams pokemon_pal
 #' @family colour pokemon
@@ -23,11 +23,10 @@ scale_fill_pokemon <- function(avatar=FALSE, ...) {
   discrete_scale("fill", "pokemon", pokemon_pal(avatar=avatar), ...)
 }
 
-
 #' Pick a Pokemon palette
 #'
-#' Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
-#'
+#' @references \href{http://www.pokegraphs.com/}{Original JSON color list}.
+#' @note Pokémon & Pokémon character names are trademarks of Nintendo.
 #' @param avatar avatar name. Use \code{list_avatars()} to see them all!
 #' @export
 pokemon_pal <- function(avatar="bulbasaur") {
@@ -51,9 +50,10 @@ pokemon_pal <- function(avatar="bulbasaur") {
 
 #' List Pokemon avatar names
 #'
-#' Data taken from the hard work by the \href{http://www.pokegraphs.com/}{folks here}.
-#'
-#' @note Warning: huge! list
+#' @references \href{http://www.pokegraphs.com/}{Original JSON color list}.
+#' @note Warning: huge! list\cr
+#'   \cr
+#'   Pokémon & Pokémon character names are trademarks of Nintendo.
 #' @export
 list_avatars <- function() {
   sort(names(pokemon))

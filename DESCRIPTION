@@ -1,24 +1,30 @@
 Package: ggalt
-Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations and Scales for 'ggplot2'
-Version: 0.1.5.9000
-Authors@R: c(person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")))
-Description: A compendium of 'geoms', 'coords', 'stats' & scales for 'ggplot2',
-    including splines, 1d and 2d densities, univariate average shifted histograms
-    and a new map coordinate system based on the 'PROJ.4'-library.
-Depends:
-    R (>= 3.0.0),
-    ggplot2 (>= 2.0.0)
+Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales and
+    Fonts for 'ggplot2'
+Version: 0.2.0.9000
+Authors@R: c(
+      person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+      person("Ingemar", role="dtc", comment="Pokémon javascript color palette"),
+      person("ProPublica", role="dtc", comment="StateFace font")
+    )
+Description: A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2',
+    including splines, 1d and 2d densities, univariate average shifted histograms,
+    a new map coordinate system based on the 'PROJ.4'-library and the 'StateFace'
+    open source font 'ProPublica'.
 License: AGPL + file LICENSE
 LazyData: true
 URL: https://github.com/hrbrmstr/ggalt
 BugReports: https://github.com/hrbrmstr/ggalt/issues
+Encoding: UTF-8
+Depends:
+    R (>= 3.0.0),
+    ggplot2 (>= 2.0.0)
 Suggests:
     testthat,
     gridExtra,
     knitr,
     rmarkdown,
     ggthemes,
-Encoding: UTF-8
 Imports:
     graphics,
     grDevices,
@@ -31,6 +37,7 @@ Imports:
     gtable,
     ash,
     maps,
-    MASS
+    MASS,
+    extrafont
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
