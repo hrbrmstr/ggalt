@@ -43,8 +43,9 @@ to the paired geom/stat.}
 \item{parse}{If TRUE, the labels will be parsed into expressions and
 displayed as described in ?plotmath}
 
-\item{nudge_x}{Horizontal and vertical adjustment to nudge labels by.
-Useful for offsetting text from points, particularly on discrete scales.}
+\item{nudge_x, nudge_y}{Horizontal and vertical adjustment to nudge l
+abels by. Useful for offsetting text from points, particularly
+on discrete scales.}
 
 \item{check_overlap}{If \code{TRUE}, text that overlaps previous text in the
 same layer will not be plotted. A quick and dirty way}

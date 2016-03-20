@@ -57,6 +57,9 @@ load_stateface <- function() {
 #' run \code{show_stateface()} to get the filesystem location and then
 #' load the font manually from there.
 #'
+#' @param nudge_x,nudge_y Horizontal and vertical adjustment to nudge l
+#'        abels by. Useful for offsetting text from points, particularly
+#'        on discrete scales.
 #' @inheritParams ggplot2::geom_text
 #' @export
 geom_stateface <- function(mapping = NULL, data = NULL, stat = "identity",
