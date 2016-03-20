@@ -76,4 +76,24 @@ device, you'll need to install the font on your system.
 run \code{show_stateface()} to get the filesystem location and then
 load the font manually from there.
 }
+\examples{
+library(ggplot2)
+library(ggalt)
+
+# Run show_stateface() to see the location of the TTF StateFace font
+# You need to install it for it to work
+
+set.seed(1492)
+dat <- data.frame(state=state.abb,
+                  x=sample(100, 50),
+                  y=sample(100, 50),
+                  col=sample(c("#b2182b", "#2166ac"), 50, replace=TRUE),
+                  sz=sample(6:15, 50, replace=TRUE),
+                  stringsAsFactors=FALSE)
+gg <- ggplot(dat, aes(x=x, y=y))
+gg <- gg + geom_stateface(aes(label=state, color=col, size=sz))
+gg <- gg + scale_color_identity()
+gg <- gg + scale_size_identity()
+gg
+}
 
