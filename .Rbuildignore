@@ -4,6 +4,6 @@
 ^README-.*\.png$
 ^\.travis\.yml$
 ^CONDUCT\.md$
-^README\.md$
+^README\.Rmd$
 ^README_figs
 ^README\.html$

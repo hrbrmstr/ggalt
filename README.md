@@ -25,12 +25,13 @@ The following functions are implemented:
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 - `scale_color_pokemon` :
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
+- `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 
 
 ### News
 
 - Version 0.1.5.9000 - Pokemon discrete color scales!
-- Version 0.1.2.9000 - Fixed bug with limits not working thx to @mstrimas 
+- Version 0.1.2.9000 - Fixed bug with limits not working in coord_proj thx to @mstrimas 
 - Version 0.1.1 - CRAN!
 - Version 0.1.0.9000 - Tweaks for ggplot2 2.0 release
 - Version 0.0.4.9000 - `stat_ash`
@@ -61,7 +62,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.1.5.9000'
+#> [1] '0.2.0.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -269,7 +270,7 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 <img src="README_figs/README-bkde2d-2.png" title="" alt="" width="672" />
 
-### `coord_proj` LIVES! (still needs work)
+### `coord_proj` LIVES! (still needs a teensy bit of work)
 
 
 ```r
@@ -288,6 +289,29 @@ gg
 ```
 
 <img src="README_figs/README-coord_proj-1.png" title="" alt="" width="672" />
+
+### ProPublica StateFace
+
+
+```r
+# Run show_stateface() to see the location of the TTF StateFace font
+# You need to install it for it to work
+
+set.seed(1492)
+dat <- data.frame(state=state.abb,
+                  x=sample(100, 50),
+                  y=sample(100, 50),
+                  col=sample(c("#b2182b", "#2166ac"), 50, replace=TRUE),
+                  sz=sample(6:15, 50, replace=TRUE),
+                  stringsAsFactors=FALSE)
+gg <- ggplot(dat, aes(x=x, y=y))
+gg <- gg + geom_stateface(aes(label=state, color=col, size=sz))
+gg <- gg + scale_color_identity()
+gg <- gg + scale_size_identity()
+gg
+```
+
+<img src="README_figs/README-stateface-1.png" title="" alt="" width="672" />
 
 ### Code of Conduct
 

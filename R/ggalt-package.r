@@ -1,4 +1,4 @@
-#' Extra Geoms, Stats and Coords for 'ggplot2'
+#' Extra Geoms, Stats, Coords, Scales & Fonts for 'ggplot2'
 #'
 #' A package containing additional geoms, coords, stats, scales & fonts
 #' for ggplot2 2.0+
