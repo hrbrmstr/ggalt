@@ -39,12 +39,13 @@ The following functions are implemented:
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 - `scale_color_pokemon` :
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
+- `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 
 
 ### News
 
 - Version 0.1.5.9000 - Pokemon discrete color scales!
-- Version 0.1.2.9000 - Fixed bug with limits not working thx to @mstrimas 
+- Version 0.1.2.9000 - Fixed bug with limits not working in coord_proj thx to @mstrimas 
 - Version 0.1.1 - CRAN!
 - Version 0.1.0.9000 - Tweaks for ggplot2 2.0 release
 - Version 0.0.4.9000 - `stat_ash`
