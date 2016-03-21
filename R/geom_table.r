@@ -1,7 +1,7 @@
-#' @rdname ggalt-ggproto
-#' @format NULL
-#' @usage NULL
-#' @export
+# @rdname ggalt-ggproto
+# @format NULL
+# @usage NULL
+# @export
 GeomTable <- ggproto(
   "GeomTable",
   Geom,
@@ -75,9 +75,9 @@ facet_id <- local({
   }
 })
 
-#' Add a table to a ggplot2 plot
-#'
-#' @author Jan Schulz
+# Add a table to a ggplot2 plot
+#
+# @author Jan Schulz
 geom_table <- function(mapping = NULL, data = NULL, stat = "identity",
                        position = "identity", na.rm = FALSE,
                        show.legend = NA, inherit.aes = TRUE, ...) {

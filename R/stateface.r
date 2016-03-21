@@ -136,6 +136,9 @@ GeomStateface <- ggproto("GeomStateface", Geom,
 
   draw_panel = function(data, panel_scales, coord, parse = FALSE,
                        na.rm = FALSE, check_overlap = FALSE) {
+
+   load_stateface
+
    lab <- data$label
 
    if (max(sapply(lab, nchar)) == 2) {
