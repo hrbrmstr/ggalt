@@ -96,4 +96,8 @@ gg <- gg + scale_color_identity()
 gg <- gg + scale_size_identity()
 gg
 }
+\seealso{
+Other StateFace operations: \code{\link{load_stateface}},
+  \code{\link{show_stateface}}
+}
 

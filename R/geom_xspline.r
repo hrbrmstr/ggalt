@@ -73,6 +73,7 @@
 #'             Designed for the End User", in \emph{Proceedings of SIGGRAPH 95},
 #'             pp. 377-386. \url{http://dept-info.labri.fr/~schlick/DOC/sig1.html}
 #' @export
+#' @family xspline implementations
 #' @examples
 #' set.seed(1492)
 #' dat <- data.frame(x=c(1:10, 1:10, 1:10),

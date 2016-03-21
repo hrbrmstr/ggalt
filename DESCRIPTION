@@ -2,8 +2,11 @@ Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales and
     Fonts for 'ggplot2'
 Version: 0.2.0.9000
+Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+      person("Ben", "Bolder", role = c("aut", "ctb")),
+      person("Jan", "Schulz", role = c("aut", "ctb")),
       person("Ingemar", role="dtc", comment="Pokémon javascript color palette"),
       person("ProPublica", role="dtc", comment="StateFace font")
     )

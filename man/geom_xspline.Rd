@@ -189,5 +189,7 @@ Blanc, C. and Schlick, C. (1995), "X-splines : A Spline Model
  \code{\link[ggplot2]{geom_segment}}: Line segments;
  \code{\link[graphics]{xspline}};
  \code{\link[grid]{grid.xspline}}
+
+Other xspline implementations: \code{\link{geom_xspline2}}
 }
 

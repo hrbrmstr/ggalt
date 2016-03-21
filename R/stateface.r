@@ -14,12 +14,15 @@ state_tbl <- setNames(toupper(state.abb), tolower(state.name))
 #' Displays the path to the StateFace font. For the font to work
 #' in the on-screen plot device for ggplot2, you need to install
 #' the font on your system
+#'
+#' @family StateFace operations
 #' @export
 show_stateface <- function() {
 
-  path = normalizePath(file.path(system.file("fonts/", package="ggalt")))
-
+  path <- normalizePath(file.path(system.file("fonts/", package="ggalt")))
   print(path)
+
+  if (!interactive) return()
 
   if (.Platform$OS.type == "windows") {
     shell(sprintf("explorer %s", path), intern=TRUE)
@@ -33,6 +36,10 @@ show_stateface <- function() {
 
 #' Load stateface font
 #'
+#' Makes the ProPublica StateFace font available to PDF, PostScript,
+#' et. al. devices.
+#'
+#' @family StateFace operations
 #' @export
 load_stateface <- function() {
   if (interactive()) message("Loading stateface device fonts...")
@@ -62,6 +69,7 @@ load_stateface <- function() {
 #'        abels by. Useful for offsetting text from points, particularly
 #'        on discrete scales.
 #' @inheritParams ggplot2::geom_text
+#' @family StateFace operations
 #' @export
 #' @examples
 #' library(ggplot2)

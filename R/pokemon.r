@@ -6,7 +6,7 @@
 #' @note Pokémon & Pokémon character names are trademarks of Nintendo.
 #' @inheritParams ggplot2::scale_colour_hue
 #' @inheritParams pokemon_pal
-#' @family colour pokemon
+#' @family pokemon aeshetics
 #' @rdname scale_pokemon
 #' @export
 scale_colour_pokemon <- function(avatar="bulbasaur", ...) {
@@ -28,6 +28,7 @@ scale_fill_pokemon <- function(avatar=FALSE, ...) {
 #' @references \href{http://www.pokegraphs.com/}{Original JSON color list}.
 #' @note Pokémon & Pokémon character names are trademarks of Nintendo.
 #' @param avatar avatar name. Use \code{list_avatars()} to see them all!
+#' @family pokemon aeshetics
 #' @export
 pokemon_pal <- function(avatar="bulbasaur") {
 
@@ -54,6 +55,7 @@ pokemon_pal <- function(avatar="bulbasaur") {
 #' @note Warning: huge! list\cr
 #'   \cr
 #'   Pokémon & Pokémon character names are trademarks of Nintendo.
+#' @family pokemon aeshetics
 #' @export
 list_avatars <- function() {
   sort(names(pokemon))

@@ -1,3 +1,7 @@
+#' @rdname ggalt-ggproto
+#' @format NULL
+#' @usage NULL
+#' @export
 GeomXSpline2 <- ggproto("GeomXSpline", Geom,
   required_aes = c("x", "y"),
   default_aes = aes(colour = "black", s_shape=1, s_open=FALSE),
@@ -14,24 +18,18 @@ GeomXSpline2 <- ggproto("GeomXSpline", Geom,
   }
 )
 
-##' Xspline
-##'
-##' @title xsplines
-##' @param mapping mapping
-##' @param data data
-##' @param stat stat
-##' @param position position
-##' @param na.rm na.rm
-##' @param show.legend show.legend 
-##' @param inherit.aes inherit.aes
-##' @param ... stuff
-##' @return creates a spline curve
-##' @author Ben Bolker
+#' Alternative implemenation for connecting  control points/observations
+#' with an X-spline
+#'
+#' @inheritParams geom_xspline
+#' @return creates a spline curve
+#' @author Ben Bolker
+#' @family xspline implementations
 geom_xspline2 <- function(mapping = NULL, data = NULL, stat = "identity",
                          position = "identity", na.rm = FALSE, show.legend = NA,
                                inherit.aes = TRUE, ...) {
   layer(
-    geom = GeomXSpline2, mapping = mapping,  data = data, stat = stat, 
+    geom = GeomXSpline2, mapping = mapping,  data = data, stat = stat,
     position = position, show.legend = show.legend, inherit.aes = inherit.aes,
     params = list(na.rm = na.rm, ...)
   )

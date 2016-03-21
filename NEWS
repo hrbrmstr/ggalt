@@ -1,6 +1,7 @@
 0.2.0
 =====================
 * Incorporated ProPublica StateFace font
+* `geom_encircle()` contributed by Ben Bolker
 
 0.1.5
 =====================
