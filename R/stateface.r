@@ -71,7 +71,7 @@ load_stateface <- function() {
 #' @inheritParams ggplot2::geom_text
 #' @family StateFace operations
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' library(ggplot2)
 #' library(ggalt)
 #'
@@ -90,6 +90,7 @@ load_stateface <- function() {
 #' gg <- gg + scale_color_identity()
 #' gg <- gg + scale_size_identity()
 #' gg
+#' }
 geom_stateface <- function(mapping = NULL, data = NULL, stat = "identity",
                            position = "identity", ..., parse = FALSE,
                            nudge_x = 0, nudge_y = 0, check_overlap = FALSE,

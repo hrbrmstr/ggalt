@@ -77,6 +77,7 @@ run \code{show_stateface()} to get the filesystem location and then
 load the font manually from there.
 }
 \examples{
+\dontrun{
 library(ggplot2)
 library(ggalt)
 
@@ -95,6 +96,7 @@ gg <- gg + geom_stateface(aes(label=state, color=col, size=sz))
 gg <- gg + scale_color_identity()
 gg <- gg + scale_size_identity()
 gg
+}
 }
 \seealso{
 Other StateFace operations: \code{\link{load_stateface}},
