@@ -7,11 +7,9 @@
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
-`ggalt` : Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
+`ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts for 'ggplot2'
 
-A compendium of 'geoms', 'coords' and 'stats' for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms and a new map coordinate system based on the 'PROJ.4'-library.
-
-The first three forays into this brave, new `ggplot2` world are _splines_! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots and an initial port of the (still needing work) `coord_proj`.
+A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, a new map coordinate system based on the 'PROJ.4'-library and the 'StateFace' open source font 'ProPublica'.
 
 The following functions are implemented:
 
@@ -19,26 +17,14 @@ The following functions are implemented:
 - `geom_xspline` : Connect control points/observations with an X-spline
 - `stat_xspline` : Connect control points/observations with an X-spline
 - `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
+-- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
 - `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
-- `scale_color_pokemon` :
+-- `geom_encircle`:	Automatically enclose points in a polygon
+ `scale_color_pokemon` :
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
 - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
-
-
-### News
-
-- Version 0.1.5.9000 - Pokemon discrete color scales!
-- Version 0.1.2.9000 - Fixed bug with limits not working in coord_proj thx to @mstrimas 
-- Version 0.1.1 - CRAN!
-- Version 0.1.0.9000 - Tweaks for ggplot2 2.0 release
-- Version 0.0.4.9000 - `stat_ash`
-- Version 0.0.3.9000 - `coord_proj`! (requires my github copy of ggplot2 for now)
-- Version 0.0.2.9005 - cleanup before blog post
-- Version 0.0.2.9002 - working 2D density plots
-- Version 0.0.2.9000 initial release
 
 ### Installation
 

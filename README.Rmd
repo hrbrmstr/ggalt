@@ -21,11 +21,9 @@ fig.retina = 2,
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
-`ggalt` : Extra Coordinate Systems, Geoms and Statistical Transformations for 'ggplot2'
+`ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts for 'ggplot2'
 
-A compendium of 'geoms', 'coords' and 'stats' for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms and a new map coordinate system based on the 'PROJ.4'-library.
-
-The first three forays into this brave, new `ggplot2` world are _splines_! and being able to use the (much better) `KernSmooth::bkde` and `KernSmooth::bkde2D` for density plots and an initial port of the (still needing work) `coord_proj`.
+A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, a new map coordinate system based on the 'PROJ.4'-library and the 'StateFace' open source font 'ProPublica'.
 
 The following functions are implemented:
 
