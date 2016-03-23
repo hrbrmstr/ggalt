@@ -51,7 +51,6 @@ Collate:
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'
-    'geom_col.r'
     'geom_encircle.r'
     'geom_table.r'
     'geom_xspline.r'
