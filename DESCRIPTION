@@ -28,6 +28,7 @@ Suggests:
     knitr,
     rmarkdown,
     ggthemes,
+    plotly
 Imports:
     graphics,
     grDevices,
@@ -48,6 +49,7 @@ Collate:
     'a-pokemon-colors.r'
     'coord_proj.r'
     'formatters.r'
+    'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'
