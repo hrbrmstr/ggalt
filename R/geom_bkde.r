@@ -146,7 +146,7 @@ StatBkde <- ggproto("StatBkde", Stat,
                            bandwidth=NULL, gridsize=410, range.x=NULL,
                            truncate=TRUE, na.rm = TRUE) {
 
-    # KernSmooth::dpik uses a generated normal distribution as part of it's
+    # KernSmooth::dpik uses a generated normal distribution as part of its
     # operation but doesn't do this seed save/create/restore. When bandwidth
     # is NULL the only way to produce consistency in calculated resuts is to use
     # a dedicated random seed. This might be a candidate for parameterization.
