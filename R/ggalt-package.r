@@ -10,7 +10,8 @@
 #' @importFrom dplyr filter
 #' @importFrom scales rescale expand_range
 #' @importFrom grid grobName grobTree unit.c grobHeight grobWidth viewport
-#'                  grid.draw grobX grobY gTree gList textGrob gpar
+#'                  grid.draw grobX grobY gTree gList textGrob gpar pointsGrob
+#'                  segmentsGrob
 #' @importFrom gtable gtable_col gtable_height gtable_width gtable_row gtable_col
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom extrafont loadfonts fonts ttf_import

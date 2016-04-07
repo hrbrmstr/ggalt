@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.2.0.9000
+Version: 0.3.0.9000
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
@@ -59,6 +59,7 @@ Collate:
     'geom_xspline2.r'
     'ggalt-package.r'
     'grob_absolute.r'
+    'geom_lollipop.r'
     'guide_axis.r'
     'pokemon.r'
     'stateface.r'
