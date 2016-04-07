@@ -22,7 +22,7 @@ show_stateface <- function() {
   path <- normalizePath(file.path(system.file("fonts/", package="ggalt")))
   print(path)
 
-  if (!interactive) return()
+  if (!interactive()) return()
 
   if (.Platform$OS.type == "windows") {
     shell(sprintf("explorer %s", path), intern=TRUE)
