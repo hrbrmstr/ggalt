@@ -7,6 +7,7 @@ Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
       person("Ben", "Bolder", role = c("aut", "ctb")),
       person("Jan", "Schulz", role = c("aut", "ctb")),
+      person("Rosen", "Matev", role="ctb", comment="Original annotate_textp implementation on stackoverflow"),
       person("Ingemar", role="dtc", comment="Pokémon javascript color palette"),
       person("ProPublica", role="dtc", comment="StateFace font")
     )
@@ -56,6 +57,7 @@ Collate:
     'geom_encircle.r'
     'geom_table.r'
     'geom_xspline.r'
+    'annotate_textp.r'
     'geom_xspline2.r'
     'ggalt-package.r'
     'grob_absolute.r'
