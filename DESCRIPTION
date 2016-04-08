@@ -28,7 +28,7 @@ Suggests:
     knitr,
     rmarkdown,
     ggthemes,
-    plotly
+    plotly (>= 3.4.1)
 Imports:
     graphics,
     grDevices,
