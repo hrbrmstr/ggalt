@@ -27,8 +27,7 @@ Suggests:
     gridExtra,
     knitr,
     rmarkdown,
-    ggthemes,
-    plotly (>= 3.4.1)
+    ggthemes
 Imports:
     graphics,
     grDevices,
@@ -42,7 +41,8 @@ Imports:
     ash,
     maps,
     MASS,
-    extrafont
+    extrafont,
+    plotly (>= 3.4.1)
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 Collate:
