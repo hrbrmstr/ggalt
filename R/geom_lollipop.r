@@ -6,9 +6,8 @@
 #' are a combination of a thin segment, starting at with a dot at the top and are a
 #' suitable alternative to or replacement for bar charts.
 #'
-#' The \emph{bubblechart} is a scatterplot with a third variable mapped to
-#' the size of points.  There are no special names for scatterplots where
-#' another variable is mapped to point shape or colour, however.
+#' Use the \code{horizontal} parameter to abate the need for \code{coord_flip()}
+#' (see the \code{Arguments} section for details).
 #'
 #' @section Aesthetics:
 #' \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "point")}
@@ -23,11 +22,19 @@
 #'   will draw the lollipops up from the X axis (i.e. it will set \code{xend}
 #'   to \code{x} & \code{yend} to \code{0}). If \code{TRUE}, it wiill set
 #'   \code{yend} to \code{y} & \code{xend} to \code{0}). Make sure you map the
-#'   \code{x} & \code{y} aesthetics accordingly.
+#'   \code{x} & \code{y} aesthetics accordingly. This parameter helps avoid
+#'   the need for \code{coord_flip()}.
 #' @param point.size the size of the point
 #' @param point.colour the colour of the point
 #' @inheritParams ggplot2::layer
 #' @export
+#' @examples
+#' df <- data.frame(trt=LETTERS[1:10],
+#'                  value=seq(100, 10, by=-10))
+#'
+#' ggplot(df, aes(trt, value)) + geom_lollipop()
+#'
+#' ggplot(df, aes(value, trt)) + geom_lollipop(horizontal=TRUE)
 geom_lollipop <- function(mapping = NULL, data = NULL, ...,
                           horizontal = FALSE,
                           point.colour = NULL, point.size = NULL,
