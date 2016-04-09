@@ -74,13 +74,13 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #' \if{html}{
 #' A sample of the output from \code{geom_bkde2d()}:
 #'
-#' \figure{geom_bkde2d_01.png}{options: width="100\%" alt="Figure: geom_bkde2d_01.png"}
+#' \figure{geombkde2d01.png}{options: width="100\%" alt="Figure: geombkde2d01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_bkde2d()}:
 #'
-#' \figure{geombkde2d01.pdf}{options: width=10cm}
+#' \figure{geombkde2d01.png}{options: width=10cm}
 #' }
 #'
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see

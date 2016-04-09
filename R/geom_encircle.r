@@ -142,9 +142,20 @@ if (FALSE) {
 
 }
 
-
-
 #' Automatically enclose points in a polygon
+#'
+#' @details
+#' \if{html}{
+#' A sample of the output from \code{geom_encircle()}:
+#'
+#' \figure{geomencircle01.png}{options: width="100\%" alt="Figure: geomencircle01.png"}
+#' }
+#'
+#' \if{latex}{
+#' A sample of the output from \code{geom_encircle()}:
+#'
+#' \figure{geomencircle01.png}{options: width=10cm}
+#' }
 #'
 #' @param mapping mapping
 #' @param data  data

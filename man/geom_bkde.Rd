@@ -79,20 +79,20 @@ specified by range.x are ignored. see \code{\link[KernSmooth]{bkde}}
 for details}
 }
 \description{
-A kernel density estimate, useful for display the distribution of variables
-with underlying smoothness.
+A kernel density estimate, useful for displaying the distribution of
+variables with underlying smoothness.
 }
 \details{
 \if{html}{
 A sample of the output from \code{geom_bkde()}:
 
-\figure{geom_bkde_01.png}{options: width="100\%" alt="Figure: geom_bkde_01.png"}
+\figure{geombkde01.png}{options: width="100\%" alt="Figure: geombkde01.png"}
 }
 
 \if{latex}{
 A sample of the output from \code{geom_bkde()}:
 
-\figure{geombkde01.pdf}{options: width=10cm}
+\figure{geombkde01.png}{options: width=10cm}
 }
 }
 \section{Aesthetics}{

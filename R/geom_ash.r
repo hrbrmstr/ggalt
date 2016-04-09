@@ -5,13 +5,13 @@
 #' \if{html}{
 #' A sample of the output from \code{stat_ash()}:
 #'
-#' \figure{stat_ash_01.png}{options: width="100\%" alt="Figure: stat_ash_01.png"}
+#' \figure{statash01.png}{options: width="100\%" alt="Figure: statash01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{stat_ash()}:
 #'
-#' \figure{statash01.pdf}{options: width=10cm}
+#' \figure{statash01.png}{options: width=10cm}
 #' }
 #'
 #' @inheritParams ggplot2::geom_area

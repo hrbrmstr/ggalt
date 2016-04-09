@@ -9,13 +9,13 @@
 #' \if{html}{
 #' A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
 #'
-#' \figure{coord_proj_01.png}{options: width="100\%" alt="Figure: coord_proj_01.png"}
+#' \figure{coordproj01.png}{options: width="100\%" alt="Figure: coordproj01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
 #'
-#' \figure{coordproj01.pdf}{options: width=10cm}
+#' \figure{coordproj01.png}{options: width=10cm}
 #' }
 #'
 #' @param proj projection definition. If left \code{NULL} will default to
