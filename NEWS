@@ -1,3 +1,7 @@
+0.3.0
+=====================
+* Added `geom_lollipop()` to make it easer to create lollipop charts
+
 0.2.0
 =====================
 * Incorporated ProPublica StateFace font

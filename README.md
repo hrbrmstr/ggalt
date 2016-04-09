@@ -13,7 +13,7 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
-- `coord_proj` : Like `coord_map` only better 😜
+- `coord_proj` : Like `coord_map`, only better 😜
 - `geom_xspline` : Connect control points/observations with an X-spline
 - `stat_xspline` : Connect control points/observations with an X-spline
 - `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
@@ -25,6 +25,7 @@ The following functions are implemented:
  `scale_color_pokemon` :
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
 - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+- `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 
 ### Installation
 
@@ -48,7 +49,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.2.0.9000'
+#> [1] '0.3.0.9000'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -262,9 +263,8 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ```r
 world <- map_data("world")
 #> 
-#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
-#>  # Many country borders and names have changed since 1990. #
-#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
+#>  # maps v3.1: updated 'world': all lakes moved to separate new #
+#>  # 'lakes' database. Type '?world' or 'news(package="maps")'.  #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
@@ -361,6 +361,59 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
 ```
 
 <img src="README_figs/README-encircle-7.png" title="" alt="" width="672" />
+
+### Lollipop charts
+
+
+```r
+df <- read.csv(text="category,pct
+Other,0.09
+South Asian/South Asian Americans,0.12
+Interngenerational/Generational,0.21
+S Asian/Asian Americans,0.25
+Muslim Observance,0.29
+Africa/Pan Africa/African Americans,0.34
+Gender Equity,0.34
+Disability Advocacy,0.49
+European/European Americans,0.52
+Veteran,0.54
+Pacific Islander/Pacific Islander Americans,0.59
+Non-Traditional Students,0.61
+Religious Equity,0.64
+Caribbean/Caribbean Americans,0.67
+Latino/Latina,0.69
+Middle Eastern Heritages and Traditions,0.73
+Trans-racial Adoptee/Parent,0.76
+LBGTQ/Ally,0.79
+Mixed Race,0.80
+Jewish Heritage/Observance,0.85
+International Students,0.87", stringsAsFactors=FALSE, sep=",", header=TRUE)
+ 
+library(ggplot2)
+library(ggalt)
+library(scales)
+ 
+gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
+gg <- gg + geom_lollipop(point.colour="steelblue", point.size=3, horizontal=TRUE)
+gg <- gg + scale_x_continuous(expand=c(0,0), labels=percent,
+                              breaks=seq(0, 1, by=0.2), limits=c(0, 1))
+gg <- gg + labs(x=NULL, y=NULL, 
+                title="SUNY Cortland Multicultural Alumni survey results",
+                subtitle="Ranked by race, ethnicity, home land and orientation\namong the top areas of concern",
+                caption="Data from http://stephanieevergreen.com/lollipop/")
+gg <- gg + theme_minimal(base_family="Arial Narrow")
+gg <- gg + theme(panel.grid.major.y=element_blank())
+gg <- gg + theme(panel.grid.minor=element_blank())
+gg <- gg + theme(axis.line.y=element_line(color="#2b2b2b", size=0.15))
+gg <- gg + theme(axis.text.y=element_text(margin=margin(r=-5, l=0)))
+gg <- gg + theme(plot.margin=unit(rep(30, 4), "pt"))
+gg <- gg + theme(plot.title=element_text(face="bold"))
+gg <- gg + theme(plot.subtitle=element_text(margin=margin(b=10)))
+gg <- gg + theme(plot.caption=element_text(size=8, margin=margin(t=10)))
+gg
+```
+
+<img src="README_figs/README-lollipop-1.png" title="" alt="" width="672" />
 
 ### Code of Conduct
 
