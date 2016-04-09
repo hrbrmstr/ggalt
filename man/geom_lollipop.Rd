@@ -4,9 +4,9 @@
 \alias{geom_lollipop}
 \title{Lollipop charts}
 \usage{
-geom_lollipop(mapping = NULL, data = NULL, ..., point.colour = NULL,
-  point.size = NULL, na.rm = FALSE, show.legend = NA,
-  inherit.aes = TRUE)
+geom_lollipop(mapping = NULL, data = NULL, ..., horizontal = FALSE,
+  point.colour = NULL, point.size = NULL, na.rm = FALSE,
+  show.legend = NA, inherit.aes = TRUE)
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link{aes}} or
@@ -48,6 +48,12 @@ a warning.  If \code{TRUE} silently removes missing values.}
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link{borders}}.}
+
+\item{If}{\code{horizontal} is \code{FALSE} (the default), the function
+will draw the lollipops up from the X axis (i.e. it will set \code{xend}
+to \code{x} & \code{yend} to \code{0}). If \code{TRUE}, it wiill set
+\code{yend} to \code{y} & \code{xend} to \code{0}). Make sure you map the
+\code{x} & \code{y} aesthetics accordingly.}
 }
 \description{
 The lollipop geom is used to create lollipop charts.
