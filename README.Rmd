@@ -1,9 +1,5 @@
 ---
-output:
-  html_document:
-    keep_md: true
-  md_document:
-    variant: markdown_github
+output: rmarkdown::github_document
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -291,7 +287,7 @@ gg <- gg + theme(plot.caption=element_text(size=8, margin=margin(t=10)))
 gg
 ```
 
-```{r dumbbell}
+```{r dumbbell, message=FALSE}
 library(dplyr)
 library(tidyr)
 library(scales)

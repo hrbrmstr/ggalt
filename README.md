@@ -1,11 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
-[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) [![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
 `ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts for 'ggplot2'
 
@@ -13,37 +8,30 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
-- `coord_proj` : Like `coord_map`, only better 😜
-- `geom_xspline` : Connect control points/observations with an X-spline
-- `stat_xspline` : Connect control points/observations with an X-spline
-- `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
--- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
-- `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
-- `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
--- `geom_encircle`:	Automatically enclose points in a polygon
- `scale_color_pokemon` :
-- `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
-- `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
-- `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
-- `geom_dumbberll()` : Dead easy dumbbell plots
+-   `coord_proj` : Like `coord_map`, only better 😜
+-   `geom_xspline` : Connect control points/observations with an X-spline
+-   `stat_xspline` : Connect control points/observations with an X-spline
+-   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`) -- `geom_stateface`: Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
+-   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+-   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+-   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`) -- `geom_encircle`: Automatically enclose points in a polygon `scale_color_pokemon` :
+-   `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
+-   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+-   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
+-   `geom_dumbberll()` : Dead easy dumbbell plots
 
 ### Installation
 
-
-```r
+``` r
 # you'll want to see the vignettes, trust me
 install.packages("ggplot2")
 install.packages("ggalt")
 # OR: devtools::install_github("hrbrmstr/ggalt")
 ```
 
-
-
 ### Usage
 
-
-```r
+``` r
 library(ggplot2)
 library(gridExtra)
 library(ggalt)
@@ -61,8 +49,7 @@ dat <- data.frame(x=c(1:10, 1:10, 1:10),
 
 ### Splines!
 
-
-```r
+``` r
 ggplot(dat, aes(x, y, group=group, color=group)) +
   geom_point() +
   geom_line()
@@ -70,7 +57,7 @@ ggplot(dat, aes(x, y, group=group, color=group)) +
 
 <img src="README_figs/README-splines-1.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
@@ -80,7 +67,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-2.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -90,7 +77,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-3.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -100,7 +87,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-4.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -110,7 +97,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-5.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -120,7 +107,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-6.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -130,7 +117,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 <img src="README_figs/README-splines-7.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
@@ -142,8 +129,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 #### Alternate (better) density plots
 
-
-```r
+``` r
 # bkde
 
 data(geyser, package="MASS")
@@ -155,7 +141,7 @@ ggplot(geyser, aes(x=duration)) +
 
 <img src="README_figs/README-bkde_ash-1.png" width="672" />
 
-```r
+``` r
 
 ggplot(geyser, aes(x=duration)) +
   geom_bkde(alpha=1/2)
@@ -164,7 +150,7 @@ ggplot(geyser, aes(x=duration)) +
 
 <img src="README_figs/README-bkde_ash-2.png" width="672" />
 
-```r
+``` r
 
 ggplot(geyser, aes(x=duration)) + 
   stat_bkde(bandwidth=0.25)
@@ -172,7 +158,7 @@ ggplot(geyser, aes(x=duration)) +
 
 <img src="README_figs/README-bkde_ash-3.png" width="672" />
 
-```r
+``` r
 
 ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
@@ -180,7 +166,7 @@ ggplot(geyser, aes(x=duration)) +
 
 <img src="README_figs/README-bkde_ash-4.png" width="672" />
 
-```r
+``` r
 
 set.seed(1492)
 dat <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
@@ -193,7 +179,7 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
 
 <img src="README_figs/README-bkde_ash-5.png" width="672" />
 
-```r
+``` r
 
 ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 #> Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
@@ -202,7 +188,7 @@ ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 
 <img src="README_figs/README-bkde_ash-6.png" width="672" />
 
-```r
+``` r
 
 # ash
 
@@ -218,7 +204,7 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
 
 <img src="README_figs/README-bkde_ash-7.png" width="672" />
 
-```r
+``` r
 
 cols <- RColorBrewer::brewer.pal(3, "Dark2")
 ggplot(dat, aes(x)) + 
@@ -239,8 +225,7 @@ ggplot(dat, aes(x)) +
 
 ### Alternate 2D density plots
 
-
-```r
+``` r
 m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
        geom_point() +
        xlim(0.5, 6) +
@@ -251,7 +236,7 @@ m + geom_bkde2d(bandwidth=c(0.5, 4))
 
 <img src="README_figs/README-bkde2d-1.png" width="672" />
 
-```r
+``` r
 
 m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ```
@@ -260,8 +245,7 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ### `coord_proj` LIVES! (still needs a teensy bit of work)
 
-
-```r
+``` r
 world <- map_data("world")
 #> 
 #>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
@@ -280,8 +264,7 @@ gg
 
 ### ProPublica StateFace
 
-
-```r
+``` r
 # Run show_stateface() to see the location of the TTF StateFace font
 # You need to install it for it to work
 
@@ -303,8 +286,7 @@ gg
 
 ### Encircling points automagically
 
-
-```r
+``` r
 d <- data.frame(x=c(1,1,2),y=c(1,2,2)*100)
 
 gg <- ggplot(d,aes(x,y))
@@ -316,21 +298,21 @@ gg + geom_encircle(s_shape=1, expand=0) + geom_point()
 
 <img src="README_figs/README-encircle-1.png" width="672" />
 
-```r
+``` r
 
 gg + geom_encircle(s_shape=1, expand=0.1, colour="red") + geom_point()
 ```
 
 <img src="README_figs/README-encircle-2.png" width="672" />
 
-```r
+``` r
 
 gg + geom_encircle(s_shape=0.5, expand=0.1, colour="purple") + geom_point()
 ```
 
 <img src="README_figs/README-encircle-3.png" width="672" />
 
-```r
+``` r
 
 gg + geom_encircle(data=subset(d, x==1), colour="blue", spread=0.02) +
   geom_point()
@@ -338,7 +320,7 @@ gg + geom_encircle(data=subset(d, x==1), colour="blue", spread=0.02) +
 
 <img src="README_figs/README-encircle-4.png" width="672" />
 
-```r
+``` r
 
 gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) + 
   geom_point()
@@ -346,7 +328,7 @@ gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) +
 
 <img src="README_figs/README-encircle-5.png" width="672" />
 
-```r
+``` r
 
 gg <- ggplot(mpg, aes(displ, hwy))
 gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
@@ -354,7 +336,7 @@ gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
 
 <img src="README_figs/README-encircle-6.png" width="672" />
 
-```r
+``` r
 
 ss <- subset(mpg,hwy>31 & displ<2)
 
@@ -366,8 +348,7 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
 
 ### Lollipop charts
 
-
-```r
+``` r
 df <- read.csv(text="category,pct
 Other,0.09
 South Asian/South Asian Americans,0.12
@@ -417,17 +398,8 @@ gg
 
 <img src="README_figs/README-lollipop-1.png" width="672" />
 
-
-```r
+``` r
 library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
 library(tidyr)
 library(scales)
 library(ggplot2)
@@ -470,5 +442,4 @@ gg
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
