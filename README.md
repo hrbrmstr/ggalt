@@ -26,6 +26,7 @@ The following functions are implemented:
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
 - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
+- `geom_dumbberll()` : Dead easy dumbbell plots
 
 ### Installation
 
@@ -67,7 +68,7 @@ ggplot(dat, aes(x, y, group=group, color=group)) +
   geom_line()
 ```
 
-<img src="README_figs/README-splines-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-1.png" width="672" />
 
 ```r
 
@@ -77,7 +78,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
 ```
 
-<img src="README_figs/README-splines-2.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-2.png" width="672" />
 
 ```r
 
@@ -87,7 +88,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(size=0.5)
 ```
 
-<img src="README_figs/README-splines-3.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-3.png" width="672" />
 
 ```r
 
@@ -97,7 +98,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=-0.4, size=0.5)
 ```
 
-<img src="README_figs/README-splines-4.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-4.png" width="672" />
 
 ```r
 
@@ -107,7 +108,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=0.4, size=0.5)
 ```
 
-<img src="README_figs/README-splines-5.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-5.png" width="672" />
 
 ```r
 
@@ -117,7 +118,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=1, size=0.5)
 ```
 
-<img src="README_figs/README-splines-6.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-6.png" width="672" />
 
 ```r
 
@@ -127,7 +128,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=0, size=0.5)
 ```
 
-<img src="README_figs/README-splines-7.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-7.png" width="672" />
 
 ```r
 
@@ -137,7 +138,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_xspline(spline_shape=-1, size=0.5)
 ```
 
-<img src="README_figs/README-splines-8.png" title="" alt="" width="672" />
+<img src="README_figs/README-splines-8.png" width="672" />
 
 #### Alternate (better) density plots
 
@@ -152,7 +153,7 @@ ggplot(geyser, aes(x=duration)) +
 #> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-1.png" width="672" />
 
 ```r
 
@@ -161,7 +162,7 @@ ggplot(geyser, aes(x=duration)) +
 #> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-2.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-2.png" width="672" />
 
 ```r
 
@@ -169,7 +170,7 @@ ggplot(geyser, aes(x=duration)) +
   stat_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-bkde_ash-3.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-3.png" width="672" />
 
 ```r
 
@@ -177,7 +178,7 @@ ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-bkde_ash-4.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-4.png" width="672" />
 
 ```r
 
@@ -190,7 +191,7 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
 #> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-5.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-5.png" width="672" />
 
 ```r
 
@@ -199,7 +200,7 @@ ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 #> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-6.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-6.png" width="672" />
 
 ```r
 
@@ -215,7 +216,7 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
 #> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-7.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-7.png" width="672" />
 
 ```r
 
@@ -234,7 +235,7 @@ ggplot(dat, aes(x)) +
 #> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-8.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde_ash-8.png" width="672" />
 
 ### Alternate 2D density plots
 
@@ -248,14 +249,14 @@ m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
 m + geom_bkde2d(bandwidth=c(0.5, 4))
 ```
 
-<img src="README_figs/README-bkde2d-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde2d-1.png" width="672" />
 
 ```r
 
 m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ```
 
-<img src="README_figs/README-bkde2d-2.png" title="" alt="" width="672" />
+<img src="README_figs/README-bkde2d-2.png" width="672" />
 
 ### `coord_proj` LIVES! (still needs a teensy bit of work)
 
@@ -263,8 +264,9 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ```r
 world <- map_data("world")
 #> 
-#>  # maps v3.1: updated 'world': all lakes moved to separate new #
-#>  # 'lakes' database. Type '?world' or 'news(package="maps")'.  #
+#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
+#>  # Many country borders and names have changed since 1990. #
+#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
@@ -274,7 +276,7 @@ gg <- gg + coord_proj("+proj=wintri")
 gg
 ```
 
-<img src="README_figs/README-coord_proj-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-coord_proj-1.png" width="672" />
 
 ### ProPublica StateFace
 
@@ -295,9 +297,428 @@ gg <- gg + geom_stateface(aes(label=state, color=col, size=sz))
 gg <- gg + scale_color_identity()
 gg <- gg + scale_size_identity()
 gg
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
+
+#> Warning in grid.Call.graphics(L_text, as.graphicsAnnot(x$label), x$x, x$y, : no font could be found for family
+#> "StateFace"
 ```
 
-<img src="README_figs/README-stateface-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-stateface-1.png" width="672" />
 
 ### Encircling points automagically
 
@@ -312,21 +733,21 @@ gg <- gg + scale_y_continuous(expand=c(0.5,1))
 gg + geom_encircle(s_shape=1, expand=0) + geom_point()
 ```
 
-<img src="README_figs/README-encircle-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-1.png" width="672" />
 
 ```r
 
 gg + geom_encircle(s_shape=1, expand=0.1, colour="red") + geom_point()
 ```
 
-<img src="README_figs/README-encircle-2.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-2.png" width="672" />
 
 ```r
 
 gg + geom_encircle(s_shape=0.5, expand=0.1, colour="purple") + geom_point()
 ```
 
-<img src="README_figs/README-encircle-3.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-3.png" width="672" />
 
 ```r
 
@@ -334,7 +755,7 @@ gg + geom_encircle(data=subset(d, x==1), colour="blue", spread=0.02) +
   geom_point()
 ```
 
-<img src="README_figs/README-encircle-4.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-4.png" width="672" />
 
 ```r
 
@@ -342,7 +763,7 @@ gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) +
   geom_point()
 ```
 
-<img src="README_figs/README-encircle-5.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-5.png" width="672" />
 
 ```r
 
@@ -350,7 +771,7 @@ gg <- ggplot(mpg, aes(displ, hwy))
 gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
 ```
 
-<img src="README_figs/README-encircle-6.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-6.png" width="672" />
 
 ```r
 
@@ -360,7 +781,7 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
   geom_point() + geom_point(data=ss, colour="blue")
 ```
 
-<img src="README_figs/README-encircle-7.png" title="" alt="" width="672" />
+<img src="README_figs/README-encircle-7.png" width="672" />
 
 ### Lollipop charts
 
@@ -413,7 +834,58 @@ gg <- gg + theme(plot.caption=element_text(size=8, margin=margin(t=10)))
 gg
 ```
 
-<img src="README_figs/README-lollipop-1.png" title="" alt="" width="672" />
+<img src="README_figs/README-lollipop-1.png" width="672" />
+
+
+```r
+library(dplyr)
+#> 
+#> Attaching package: 'dplyr'
+#> The following objects are masked from 'package:stats':
+#> 
+#>     filter, lag
+#> The following objects are masked from 'package:base':
+#> 
+#>     intersect, setdiff, setequal, union
+library(tidyr)
+library(scales)
+library(ggplot2)
+library(ggalt) # devtools::install_github("hrbrmstr/ggalt")
+
+health <- read.csv("https://gist.githubusercontent.com/hrbrmstr/0d206070cea01bcb0118/raw/0ea32190a8b2f54b5a9770cb6582007132571c98/zhealth.csv", stringsAsFactors=FALSE, 
+                   header=FALSE, col.names=c("pct", "area_id"))
+
+areas <- read.csv("https://gist.githubusercontent.com/hrbrmstr/0d206070cea01bcb0118/raw/0ea32190a8b2f54b5a9770cb6582007132571c98/zarea_trans.csv", stringsAsFactors=FALSE, header=TRUE)
+
+health %>% 
+  mutate(area_id=trunc(area_id)) %>% 
+  arrange(area_id, pct) %>% 
+  mutate(year=rep(c("2014", "2013"), 26),
+         pct=pct/100) %>% 
+  left_join(areas, "area_id") %>% 
+  mutate(area_name=factor(area_name, levels=unique(area_name))) -> health
+
+setNames(bind_cols(filter(health, year==2014), filter(health, year==2013))[,c(4,1,5)],
+         c("area_name", "pct_2014", "pct_2013")) -> health
+
+
+gg <- ggplot(health, aes(x=pct_2013, xend=pct_2014, y=area_name, group=area_name))
+gg <- gg + geom_dumbbell(color="#a3c4dc", size=0.75, point.colour.l="#0e668b")
+gg <- gg + scale_x_continuous(label=percent)
+gg <- gg + labs(x=NULL, y=NULL)
+gg <- gg + theme_bw()
+gg <- gg + theme(plot.background=element_rect(fill="#f7f7f7"))
+gg <- gg + theme(panel.background=element_rect(fill="#f7f7f7"))
+gg <- gg + theme(panel.grid.minor=element_blank())
+gg <- gg + theme(panel.grid.major.y=element_blank())
+gg <- gg + theme(panel.grid.major.x=element_line())
+gg <- gg + theme(axis.ticks=element_blank())
+gg <- gg + theme(legend.position="top")
+gg <- gg + theme(panel.border=element_blank())
+gg
+```
+
+<img src="README_figs/README-dumbbell-1.png" width="672" />
 
 ### Code of Conduct
 

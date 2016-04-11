@@ -62,6 +62,7 @@ Collate:
     'ggalt-package.r'
     'grob_absolute.r'
     'geom_lollipop.r'
+    'geom_dumbbell.R'
     'guide_axis.r'
     'pokemon.r'
     'stateface.r'
