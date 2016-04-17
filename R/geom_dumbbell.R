@@ -3,15 +3,10 @@
 #' The dumbbell geom is used to create dumbbell charts.
 #'
 #' Dumbbell dot plots — dot plots with two or more series of data — are an
-#' alternative to the clustered bar chart or slope graph.\cr
-#' \cr
-#' Use these dot plots to visualize two or three different points in time. Or,
-#' use them to triangulate different viewpoints (e.g., one dot for Republicans
-#' and another dot for Democrats, or one dot for principals and another dot for
-#' teachers).
+#' alternative to the clustered bar chart or slope graph.
 #'
 #' @section Aesthetics:
-#' \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "point")}
+#' \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "segment")}
 #' @inheritParams ggplot2::layer
 #' @param na.rm If \code{FALSE} (the default), removes missing values with
 #'    a warning.  If \code{TRUE} silently removes missing values.
@@ -26,12 +21,11 @@
 #' @inheritParams ggplot2::layer
 #' @export
 #' @examples
-#' df <- data.frame(trt=LETTERS[1:10],
-#'                  value=seq(100, 10, by=-10))
+#' df <- data.frame(trt=LETTERS[1:5],
+#'                  l=c(20, 40, 10, 30, 50),
+#'                  r=c(70, 50, 30, 60, 80))
 #'
-#' ggplot(df, aes(trt, value)) + geom_lollipop()
-#'
-#' ggplot(df, aes(value, trt)) + geom_lollipop(horizontal=TRUE)
+#' ggplot(df, aes(y=trt, x=l, xend=r)) + geom_dumbbell()
 geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
                           point.colour.l = NULL, point.size.l = NULL,
                           point.colour.r = NULL, point.size.r = NULL,
@@ -78,14 +72,14 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
                         point.colour.l = NULL, point.size.l = NULL,
                         point.colour.r = NULL, point.size.r = NULL) {
 
-    points.r <- data
-    points.r$colour <- point.colour.r %||% data$colour
-    points.r$size <- point.size.r %||% (data$size * 2.5)
-
     points.l <- data
-    points.l$x <- points.l$xend
     points.l$colour <- point.colour.l %||% data$colour
     points.l$size <- point.size.l %||% (data$size * 2.5)
+
+    points.r <- data
+    points.r$x <- points.r$xend
+    points.r$colour <- point.colour.r %||% data$colour
+    points.r$size <- point.size.r %||% (data$size * 2.5)
 
     gList(
       ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),

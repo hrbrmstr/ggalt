@@ -58,23 +58,17 @@ The dumbbell geom is used to create dumbbell charts.
 }
 \details{
 Dumbbell dot plots — dot plots with two or more series of data — are an
-alternative to the clustered bar chart or slope graph.\cr
-\cr
-Use these dot plots to visualize two or three different points in time. Or,
-use them to triangulate different viewpoints (e.g., one dot for Republicans
-and another dot for Democrats, or one dot for principals and another dot for
-teachers).
+alternative to the clustered bar chart or slope graph.
 }
 \section{Aesthetics}{
 
-\Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "point")}
+\Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "segment")}
 }
 \examples{
-df <- data.frame(trt=LETTERS[1:10],
-                 value=seq(100, 10, by=-10))
+df <- data.frame(trt=LETTERS[1:5],
+                 l=c(20, 40, 10, 30, 50),
+                 r=c(70, 50, 30, 60, 80))
 
-ggplot(df, aes(trt, value)) + geom_lollipop()
-
-ggplot(df, aes(value, trt)) + geom_lollipop(horizontal=TRUE)
+ggplot(df, aes(y=trt, x=l, xend=r)) + geom_dumbbell()
 }
 
