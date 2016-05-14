@@ -66,5 +66,7 @@ Collate:
     'guide_axis.r'
     'pokemon.r'
     'stateface.r'
+    'stat_fill_labels.R'
+    'stat_stack_labels.R'
     'utils.r'
     'zzz.r'
