@@ -1,3 +1,13 @@
+draw_key_hack <- function(data, params, size) {
+  data$fill <- alpha(data$fill, data$alpha)
+  data$alpha <- 1
+
+  grobTree(
+    if (!is.na(data$fill)) grid::rectGrob(gp = gpar(col = NA, fill = data$fill)),
+    draw_key_path(data, params)
+  )
+}
+
 #' @rdname ggalt-ggproto
 #' @format NULL
 #' @usage NULL
@@ -5,15 +15,18 @@
 GeomEncircle <- ggproto("GeomEncircle", Geom,
   required_aes = c("x", "y"),
   default_aes = aes(colour = "black",
+                    fill = NA, ## ???
+                    alpha = 1,
                     linetype=1,
                     size=1,
                     s_shape=0.5,  ## corresponds to default shape in xspline of -0.5
                     s_open=FALSE,
                     expand=0.05,
                     spread=0.1),
-  draw_key = draw_key_point,
+  draw_key = draw_key_hack, ## ???
 
   draw_group = function(data, panel_scales, coord) {
+    ## browser()
     coords <- coord$transform(data, panel_scales)
     first_row <- coords[1, , drop = FALSE]
     rownames(first_row) <- NULL ## prevent warning later
@@ -78,6 +91,12 @@ GeomEncircle <- ggproto("GeomEncircle", Geom,
 
     disp <- normFun(coords,m)
 
+    ## browser()
+
+    gp <- grid::get.gpar()
+    pars1 <- c("colour","linetype","alpha","fill","size")
+    pars2 <- c("col","lty","alpha","fill","lwd")
+    gp[pars2] <- first_row[pars1]
     grid::xsplineGrob(
         with(coords,unit(x,"npc")+disp$x*unit(expand,"snpc")),
         with(coords,unit(y,"npc")+disp$y*unit(expand,"snpc")),
@@ -85,9 +104,7 @@ GeomEncircle <- ggproto("GeomEncircle", Geom,
         ## coords$y,
       shape = coords$s_shape-1,  ## kluge!
       open = first_row$s_open,
-      gp = with(first_row,
-                grid::gpar(col = colour, lty=linetype))
-    )
+      gp = gp)
   }
 )
 
@@ -189,6 +206,11 @@ if (FALSE) {
 #'
 #' gg <- ggplot(mpg, aes(displ, hwy))
 #' gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
+#' gg + geom_encircle(aes(group=manufacturer)) + geom_point()
+#' gg + geom_encircle(aes(group=manufacturer,fill=manufacturer),alpha=0.4)+
+#'        geom_point()
+#' gg + geom_encircle(aes(group=manufacturer,colour=manufacturer))+
+#'        geom_point()
 #'
 #' ss <- subset(mpg,hwy>31 & displ<2)
 #'
@@ -203,3 +225,4 @@ geom_encircle <- function(mapping = NULL, data = NULL, stat = "identity",
     params = list(na.rm = na.rm, ...)
   )
 }
+
