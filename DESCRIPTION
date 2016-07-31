@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.3.0.9000
+Version: 0.3.1.9000
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
@@ -48,21 +48,24 @@ RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 Collate:
     'a-pokemon-colors.r'
+    'annotate_textp.r'
     'coord_proj.r'
     'formatters.r'
+    'fortify.r'
     'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'
+    'geom_dumbbell.R'
     'geom_encircle.r'
+    'geom_lollipop.r'
     'geom_table.r'
+    'geom_twoway_bar.r'
     'geom_xspline.r'
-    'annotate_textp.r'
     'geom_xspline2.r'
+    'stat-stepribbon.r'
     'ggalt-package.r'
     'grob_absolute.r'
-    'geom_lollipop.r'
-    'geom_dumbbell.R'
     'guide_axis.r'
     'pokemon.r'
     'stateface.r'

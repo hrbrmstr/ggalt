@@ -65,6 +65,11 @@ gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) +
 
 gg <- ggplot(mpg, aes(displ, hwy))
 gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
+gg + geom_encircle(aes(group=manufacturer)) + geom_point()
+gg + geom_encircle(aes(group=manufacturer,fill=manufacturer),alpha=0.4)+
+       geom_point()
+gg + geom_encircle(aes(group=manufacturer,colour=manufacturer))+
+       geom_point()
 
 ss <- subset(mpg,hwy>31 & displ<2)
 

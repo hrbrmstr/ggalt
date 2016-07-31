@@ -36,7 +36,8 @@ The following functions are implemented:
 - `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
 - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
-- `geom_dumbberll()` : Dead easy dumbbell plots
+- `geom_dumbbell()` : Dead easy dumbbell plots
+- `geom_stepribbon()` : Step ribbons
 
 ### Installation
 
@@ -235,6 +236,26 @@ ss <- subset(mpg,hwy>31 & displ<2)
 
 gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
   geom_point() + geom_point(data=ss, colour="blue")
+```
+
+### Step ribbons
+
+```{r stepribbon}
+x <- 1:10
+df <- data.frame(x=x, y=x+10, ymin=x+7, ymax=x+12)
+
+gg <- ggplot(df, aes(x, y))
+gg <- gg + geom_ribbon(aes(ymin=ymin, ymax=ymax),
+                      stat="stepribbon", fill="#b2b2b2")
+gg <- gg + geom_step(color="#2b2b2b")
+gg
+
+gg <- ggplot(df, aes(x, y))
+gg <- gg + geom_ribbon(aes(ymin=ymin, ymax=ymax),
+                      stat="stepribbon", fill="#b2b2b2",
+                      direction="vh")
+gg <- gg + geom_step(color="#2b2b2b")
+gg
 ```
 
 ### Lollipop charts

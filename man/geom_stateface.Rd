@@ -48,7 +48,7 @@ abels by. Useful for offsetting text from points, particularly
 on discrete scales.}
 
 \item{check_overlap}{If \code{TRUE}, text that overlaps previous text in the
-same layer will not be plotted. A quick and dirty way}
+same layer will not be plotted.}
 
 \item{na.rm}{If \code{FALSE} (the default), removes missing values with
 a warning.  If \code{TRUE} silently removes missing values.}

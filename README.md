@@ -18,7 +18,8 @@ The following functions are implemented:
 -   `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
 -   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 -   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
--   `geom_dumbberll()` : Dead easy dumbbell plots
+-   `geom_dumbbell()` : Dead easy dumbbell plots
+-   `geom_stepribbon()` : Step ribbons
 
 ### Installation
 
@@ -248,9 +249,8 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ``` r
 world <- map_data("world")
 #> 
-#>  # ATTENTION: maps v3.0 has an updated 'world' map.        #
-#>  # Many country borders and names have changed since 1990. #
-#>  # Type '?world' or 'news(package="maps")'. See README_v3. #
+#>  # maps v3.1: updated 'world': all lakes moved to separate new #
+#>  # 'lakes' database. Type '?world' or 'news(package="maps")'.  #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
@@ -345,6 +345,33 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
 ```
 
 <img src="README_figs/README-encircle-7.png" width="672" />
+
+### Step ribbons
+
+``` r
+x <- 1:10
+df <- data.frame(x=x, y=x+10, ymin=x+7, ymax=x+12)
+
+gg <- ggplot(df, aes(x, y))
+gg <- gg + geom_ribbon(aes(ymin=ymin, ymax=ymax),
+                      stat="stepribbon", fill="#b2b2b2")
+gg <- gg + geom_step(color="#2b2b2b")
+gg
+```
+
+<img src="README_figs/README-stepribbon-1.png" width="672" />
+
+``` r
+
+gg <- ggplot(df, aes(x, y))
+gg <- gg + geom_ribbon(aes(ymin=ymin, ymax=ymax),
+                      stat="stepribbon", fill="#b2b2b2",
+                      direction="vh")
+gg <- gg + geom_step(color="#2b2b2b")
+gg
+```
+
+<img src="README_figs/README-stepribbon-2.png" width="672" />
 
 ### Lollipop charts
 
