@@ -27,8 +27,8 @@
 #'
 #' ggplot(df, aes(y=trt, x=l, xend=r)) + geom_dumbbell()
 geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
-                          point.colour.l = NULL, point.size.l = NULL,
-                          point.colour.r = NULL, point.size.r = NULL,
+                          point.colour.l = NULL, point.size.l = NULL, point.shape.l = NULL,
+                          point.colour.r = NULL, point.size.r = NULL, point.shape.r = NULL,
                           na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) {
 
   layer(
@@ -43,8 +43,10 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
       na.rm = na.rm,
       point.colour.l = point.colour.l,
       point.size.l = point.size.l,
+      point.shape.l = point.shape.l,
       point.colour.r = point.colour.r,
       point.size.r = point.size.r,
+      point.shape.r = point.shape.r,
       ...
     )
   )
@@ -56,9 +58,9 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
 #' @export
 GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   required_aes = c("x", "xend", "y"),
-  non_missing_aes = c("size", "shape",
-                      "point.colour.l", "point.size.l",
-                      "point.colour.r", "point.size.r"),
+  non_missing_aes = c("size",
+                      "point.colour.l", "point.size.l", "point.shape.l",
+                      "point.colour.r", "point.size.r", "point.shape.r"),
   default_aes = aes(
     shape = 19, colour = "black", size = 0.5, fill = NA,
     alpha = NA, stroke = 0.5
@@ -69,17 +71,19 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   },
 
   draw_group = function(data, panel_scales, coord,
-                        point.colour.l = NULL, point.size.l = NULL,
-                        point.colour.r = NULL, point.size.r = NULL) {
+                        point.colour.l = NULL, point.size.l = NULL, point.shape.l = NULL,
+                        point.colour.r = NULL, point.size.r = NULL, point.shape.r = NULL) {
 
     points.l <- data
     points.l$colour <- point.colour.l %||% data$colour
     points.l$size <- point.size.l %||% (data$size * 2.5)
+    points.l$shape <- point.shape.l %||% data$shape
 
     points.r <- data
     points.r$x <- points.r$xend
     points.r$colour <- point.colour.r %||% data$colour
     points.r$size <- point.size.r %||% (data$size * 2.5)
+    points.r$shape <- point.shape.r %||% data$shape
 
     gList(
       ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
