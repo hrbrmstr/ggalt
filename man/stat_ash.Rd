@@ -45,8 +45,8 @@ interval.}
 to \emph{( 1 - abs(i/m)^kopt(1) )i^kopt(2)}; (2,2)=biweight (default);
  (0,0)=uniform; (1,0)=triangle; (2,1)=Epanechnikov; (2,3)=triweight.}
 
-\item{na.rm}{If \code{FALSE} (the default), removes missing values with
-a warning.  If \code{TRUE} silently removes missing values.}
+\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
+a warning. If \code{TRUE}, missing values are silently removed.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
