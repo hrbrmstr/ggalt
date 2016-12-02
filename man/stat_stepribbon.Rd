@@ -31,8 +31,8 @@ plot. You must supply \code{mapping} if there is no plot mapping.}
 \item{position}{Position adjustment, either as a string, or the result of
 a call to a position adjustment function.}
 
-\item{na.rm}{If \code{FALSE} (the default), removes missing values with
-a warning.  If \code{TRUE} silently removes missing values.}
+\item{na.rm}{If \code{FALSE}, the default, missing values are removed with
+a warning. If \code{TRUE}, missing values are silently removed.}
 
 \item{show.legend}{logical. Should this layer be included in the legends?
 \code{NA}, the default, includes if any aesthetics are mapped.
@@ -55,7 +55,8 @@ to the paired geom/stat.}
 Provides stairstep values for ribbon plots
 }
 \examples{
-df <- data.frame(x=1:10, y=x+10, ymin=x+7, ymax=x+12)
+x <- 1:10
+df <- data.frame(x=x, y=x+10, ymin=x+7, ymax=x+12)
 
 gg <- ggplot(df, aes(x, y))
 gg <- gg + geom_ribbon(aes(ymin=ymin, ymax=ymax),
