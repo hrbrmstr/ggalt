@@ -1,6 +1,10 @@
-#' Polygons from a reference map
+#' Map polygons layer enabling the display of show statistical information
 #'
-#' This is pure annotation, so does not affect position scales.
+#' This replicates the old behaviour of \code{geom_map()}, enabling specifying of
+#' \code{x} and \code{y} aesthetics.
+#'
+#' @section Aesthetics:
+#' \aesthetics{geom}{cartogram}
 #'
 #' @export
 #' @param map Data frame that contains the map coordinates.  This will
@@ -9,6 +13,59 @@
 #'   \code{y}, \code{lat} or \code{latitude} and \code{region} or \code{id}.
 #' @inheritParams ggplot2::layer
 #' @inheritParams ggplot2::geom_point
+#' @examples
+#' # When using geom_polygon, you will typically need two data frames:
+#' # one contains the coordinates of each polygon (positions),  and the
+#' # other the values associated with each polygon (values).  An id
+#' # variable links the two together
+#'
+#' ids <- factor(c("1.1", "2.1", "1.2", "2.2", "1.3", "2.3"))
+#'
+#' values <- data.frame(
+#'   id = ids,
+#'   value = c(3, 3.1, 3.1, 3.2, 3.15, 3.5)
+#' )
+#'
+#' positions <- data.frame(
+#'   id = rep(ids, each = 4),
+#'   x = c(2, 1, 1.1, 2.2, 1, 0, 0.3, 1.1, 2.2, 1.1, 1.2, 2.5, 1.1, 0.3,
+#'   0.5, 1.2, 2.5, 1.2, 1.3, 2.7, 1.2, 0.5, 0.6, 1.3),
+#'   y = c(-0.5, 0, 1, 0.5, 0, 0.5, 1.5, 1, 0.5, 1, 2.1, 1.7, 1, 1.5,
+#'   2.2, 2.1, 1.7, 2.1, 3.2, 2.8, 2.1, 2.2, 3.3, 3.2)
+#' )
+#'
+#' ggplot() +
+#'   geom_cartogram(aes(x, y, map_id = id), map = positions, data=positions)
+#'
+#' ggplot() +
+#'   geom_cartogram(aes(x, y, map_id = id), map = positions, data=positions) +
+#'   geom_cartogram(data=values, map=positions, aes(fill = value, map_id=id))
+#'
+#' ggplot() +
+#'   geom_cartogram(aes(x, y, map_id = id), map = positions, data=positions) +
+#'   geom_cartogram(data=values, map=positions, aes(fill = value, map_id=id)) +
+#'   ylim(0, 3)
+#'
+#' # Better example
+#' crimes <- data.frame(state = tolower(rownames(USArrests)), USArrests)
+#' crimesm <- reshape2::melt(crimes, id = 1)
+#'
+#' if (require(maps)) {
+#'
+#'   states_map <- map_data("state")
+#'
+#'   ggplot() +
+#'     geom_cartogram(aes(long, lat, map_id = region), map = states_map, data=states_map) +
+#'     geom_cartogram(aes(fill = Murder, map_id = state), map=states_map, data=crimes)
+#'
+#'   last_plot() + coord_map("polyconic")
+#'
+#'   ggplot() +
+#'     geom_cartogram(aes(long, lat, map_id=region), map = states_map, data=states_map) +
+#'     geom_cartogram(aes(fill = value, map_id=state), map = states_map, data=crimesm) +
+#'     coord_map("polyconic") +
+#'     facet_wrap( ~ variable)
+#' }
 geom_cartogram <- function(mapping = NULL, data = NULL,
                      stat = "identity",
                      ...,
@@ -77,5 +134,7 @@ GeomCartogram <- ggproto("GeomCartogram", GeomPolygon,
     )
   },
 
-  required_aes = c("x", "y", "map_id")
+  optional_aes = c("x", "y"),
+  required_aes = c("map_id")
+
 )

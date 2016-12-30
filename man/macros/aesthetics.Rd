@@ -1,1 +1,1 @@
-\newcommand{\aesthetics}{\Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("#1", "#2")}}
+\newcommand{\aesthetics}{\Sexpr[results=rd,stage=build]{ggalt:::alt_aesthetics("#1", "#2")}}
