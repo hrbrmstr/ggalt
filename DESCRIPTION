@@ -57,6 +57,7 @@ Collate:
     'geom_bkde.r'
     'geom_bkde2d.r'
     'geom_dumbbell.R'
+    'geom_cartogram.r'
     'geom_encircle.r'
     'geom_lollipop.r'
     'geom_table.r'
