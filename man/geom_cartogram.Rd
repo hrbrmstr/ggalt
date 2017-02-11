@@ -58,7 +58,18 @@ This replicates the old behaviour of \code{geom_map()}, enabling specifying of
 }
 \section{Aesthetics}{
 
-\aesthetics{geom}{cartogram}
+\code{geom_cartogram} understands the following aesthetics (required aesthetics are in bold):
+\itemize{
+  \item \code{\strong{map_id}}
+  \item \code{alpha}
+  \item \code{colour}
+  \item \code{fill}
+  \item \code{group}
+  \item \code{linetype}
+  \item \code{size}
+  \item \code{x}
+  \item \code{y}
+}
 }
 
 \examples{

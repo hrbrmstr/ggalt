@@ -62,7 +62,7 @@ world <- map_data("world")
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
-gg <- gg + geom_map(data=world, map=world,
+gg <- gg + geom_cartogram(data=world, map=world,
                     aes(x=long, y=lat, map_id=region))
 gg <- gg + coord_proj("+proj=wintri")
 gg
@@ -72,7 +72,7 @@ usa <- world[world$region == "USA",]
 usa <- usa[!(usa$subregion \%in\% c("Alaska", "Hawaii")),]
 
 gg <- ggplot()
-gg <- gg + geom_map(data=usa, map=usa,
+gg <- gg + geom_cartogram(data=usa, map=usa,
                     aes(x=long, y=lat, map_id=region))
 gg <- gg + coord_proj(
              paste0("+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96",
@@ -83,7 +83,7 @@ gg
 greenland <- world[world$region == "Greenland",]
 
 gg <- ggplot()
-gg <- gg + geom_map(data=greenland, map=greenland,
+gg <- gg + geom_cartogram(data=greenland, map=greenland,
                     aes(x=long, y=lat, map_id=region))
 gg <- gg + coord_proj(
              paste0("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=-45 +k=1 +x_0=0",
