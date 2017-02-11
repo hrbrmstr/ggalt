@@ -8,4 +8,3 @@
 Geom Cartogram
 }
 \keyword{datasets}
-

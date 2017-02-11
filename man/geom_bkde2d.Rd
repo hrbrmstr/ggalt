@@ -109,6 +109,7 @@ A sample of the output from \code{geom_bkde2d()}:
 
 Same as \code{\link{stat_contour}}
 }
+
 \examples{
 m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
        geom_point() +
@@ -139,4 +140,3 @@ d + stat_bkde2d(bandwidth=c(0.5, 0.5), geom = "point",
 \code{\link{geom_contour}} for contour drawing geom,
  \code{\link{stat_sum}} for another way of dealing with overplotting
 }
-

@@ -64,6 +64,7 @@ alternative to the clustered bar chart or slope graph.
 
 \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "segment")}
 }
+
 \examples{
 df <- data.frame(trt=LETTERS[1:5],
                  l=c(20, 40, 10, 30, 50),
@@ -71,4 +72,3 @@ df <- data.frame(trt=LETTERS[1:5],
 
 ggplot(df, aes(y=trt, x=l, xend=r)) + geom_dumbbell()
 }
-

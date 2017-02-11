@@ -12,4 +12,3 @@ for ggplot2 2.0+
 \author{
 Bob Rudis (@hrbrmstr)
 }
-

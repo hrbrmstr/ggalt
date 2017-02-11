@@ -98,6 +98,7 @@ are in bold):
   \item{\code{density}}{ash density estimate}
 }
 }
+
 \examples{
 # compare
 library(gridExtra)
@@ -127,4 +128,3 @@ David Scott (1992), \emph{"Multivariate Density Estimation,"}
             B. W. Silverman (1986), \emph{"Density Estimation for Statistics
             and Data Analysis,"} Chapman & Hall.
 }
-

@@ -74,4 +74,3 @@ gg
 \references{
 \url{https://groups.google.com/forum/?fromgroups=#!topic/ggplot2/9cFWHaH1CPs}
 }
-

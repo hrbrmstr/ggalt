@@ -45,7 +45,7 @@ A sample of the output from \code{coord_proj()} using the Winkel-Tripel projecti
 
 \if{latex}{
 A sample of the output from \code{coord_proj()} using the Winkel-Tripel projection:
-
+``
 \figure{coordproj01.png}{options: width=10cm}
 }
 }
@@ -90,4 +90,3 @@ gg <- gg + coord_proj(
                     " +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
 gg
 }
-

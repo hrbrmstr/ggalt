@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.3.1.9000
+Version: 0.4
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
@@ -44,7 +44,7 @@ Imports:
     MASS,
     extrafont,
     plotly (>= 3.4.1)
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.0
 VignetteBuilder: knitr
 Collate:
     'a-pokemon-colors.r'

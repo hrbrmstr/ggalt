@@ -83,6 +83,7 @@ A sample of the output from \code{geom_lollipop()}:
 
 \Sexpr[results=rd,stage=build]{ggplot2:::rd_aesthetics("geom", "point")}
 }
+
 \examples{
 df <- data.frame(trt=LETTERS[1:10],
                  value=seq(100, 10, by=-10))
@@ -91,4 +92,3 @@ ggplot(df, aes(trt, value)) + geom_lollipop()
 
 ggplot(df, aes(value, trt)) + geom_lollipop(horizontal=TRUE)
 }
-

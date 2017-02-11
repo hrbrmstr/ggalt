@@ -130,6 +130,7 @@ are in bold):
   \item{y}
 }
 }
+
 \examples{
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -192,4 +193,3 @@ Blanc, C. and Schlick, C. (1995), "X-splines : A Spline Model
 
 Other xspline implementations: \code{\link{geom_xspline2}}
 }
-

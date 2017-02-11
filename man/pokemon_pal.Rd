@@ -22,4 +22,3 @@ Pokémon & Pokémon character names are trademarks of Nintendo.
 Other pokemon aeshetics: \code{\link{list_avatars}},
   \code{\link{scale_colour_pokemon}}
 }
-

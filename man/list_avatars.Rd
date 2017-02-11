@@ -21,4 +21,3 @@ Warning: huge! list\cr
 Other pokemon aeshetics: \code{\link{pokemon_pal}},
   \code{\link{scale_colour_pokemon}}
 }
-

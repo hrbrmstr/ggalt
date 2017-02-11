@@ -60,6 +60,7 @@ This replicates the old behaviour of \code{geom_map()}, enabling specifying of
 
 \aesthetics{geom}{cartogram}
 }
+
 \examples{
 # When using geom_polygon, you will typically need two data frames:
 # one contains the coordinates of each polygon (positions),  and the
@@ -114,4 +115,3 @@ if (require(maps)) {
     facet_wrap( ~ variable)
 }
 }
-

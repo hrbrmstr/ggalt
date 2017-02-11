@@ -14,4 +14,3 @@ et. al. devices.
 Other StateFace operations: \code{\link{geom_stateface}},
   \code{\link{show_stateface}}
 }
-

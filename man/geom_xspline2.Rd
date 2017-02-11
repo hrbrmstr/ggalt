@@ -59,10 +59,9 @@ creates a spline curve
 Alternative implemenation for connecting  control points/observations
 with an X-spline
 }
-\author{
-Ben Bolker
-}
 \seealso{
 Other xspline implementations: \code{\link{geom_xspline}}
 }
-
+\author{
+Ben Bolker
+}

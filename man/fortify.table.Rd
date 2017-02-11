@@ -16,4 +16,3 @@
 \description{
 Fortify contingency tables
 }
-

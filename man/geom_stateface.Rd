@@ -114,4 +114,3 @@ gg
 Other StateFace operations: \code{\link{load_stateface}},
   \code{\link{show_stateface}}
 }
-

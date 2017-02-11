@@ -79,4 +79,3 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
 \author{
 Ben Bolker
 }
-

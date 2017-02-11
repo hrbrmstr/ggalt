@@ -39,7 +39,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.3.0.9000'
+#> [1] '0.4'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -64,6 +64,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
   geom_line() +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-2.png" width="672" />
@@ -74,6 +75,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-3.png" width="672" />
@@ -84,6 +86,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-0.4, size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-4.png" width="672" />
@@ -94,6 +97,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0.4, size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-5.png" width="672" />
@@ -104,6 +108,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=1, size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-6.png" width="672" />
@@ -114,6 +119,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0, size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-7.png" width="672" />
@@ -124,6 +130,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
+#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-8.png" width="672" />
@@ -248,13 +255,10 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ``` r
 world <- map_data("world")
-#> 
-#>  # maps v3.1: updated 'world': all lakes moved to separate new #
-#>  # 'lakes' database. Type '?world' or 'news(package="maps")'.  #
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
-gg <- gg + geom_map(data=world, map=world,
+gg <- gg + geom_cartogram(data=world, map=world,
                     aes(x=long, y=lat, map_id=region))
 gg <- gg + coord_proj("+proj=wintri")
 gg

@@ -119,6 +119,7 @@ are in bold):
   \item{scaled}{density estimate, scaled to maximum of 1}
 }
 }
+
 \examples{
 data(geyser, package="MASS")
 
@@ -139,4 +140,3 @@ See \code{\link{geom_histogram}}, \code{\link{geom_freqpoly}} for
   other methods of displaying continuous distribution.
   See \code{\link{geom_violin}} for a compact density display.
 }
-
