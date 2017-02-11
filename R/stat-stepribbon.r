@@ -2,8 +2,10 @@
 #'
 #' Provides stairstep values for ribbon plots
 #'
+#' @md
 #' @inheritParams ggplot2::geom_ribbon
-#' @param direction \code{hv} for horizontal-veritcal steps, \code{vh} for
+#' @param geom which geom to use; defaults to "`ribbon`"
+#' @param direction \code{hv} for horizontal-veritcal steps, `vh`` for
 #'   vertical-horizontal steps
 #' @references \url{https://groups.google.com/forum/?fromgroups=#!topic/ggplot2/9cFWHaH1CPs}
 #' @export

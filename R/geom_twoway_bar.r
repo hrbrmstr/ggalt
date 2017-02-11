@@ -1,3 +1,6 @@
+#' Two-way bar chart
+#'
+#' @inheritParams ggplot2::geom_bar
 #' @export
 geom_twoway_bar <- function(mapping = NULL, data = NULL,
                      stat = "identity",

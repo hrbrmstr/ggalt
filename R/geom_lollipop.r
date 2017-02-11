@@ -30,7 +30,7 @@
 #'   often aesthetics, used to set an aesthetic to a fixed value, like
 #'   \code{color = "red"} or \code{size = 3}. They may also be parameters
 #'   to the paired geom/stat.
-#' @param If \code{horizontal} is \code{FALSE} (the default), the function
+#' @param horizontal \code{horizontal} is \code{FALSE} (the default), the function
 #'   will draw the lollipops up from the X axis (i.e. it will set \code{xend}
 #'   to \code{x} & \code{yend} to \code{0}). If \code{TRUE}, it wiill set
 #'   \code{yend} to \code{y} & \code{xend} to \code{0}). Make sure you map the

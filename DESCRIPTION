@@ -1,10 +1,10 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.4
+Version: 0.4.0
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
-      person("Bob", "Rudis", email = "bob@rudis.net", role = c("aut", "cre")),
+      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre")),
       person("Ben", "Bolder", role = c("aut", "ctb")),
       person("Jan", "Schulz", role = c("aut", "ctb")),
       person("Rosen", "Matev", role="ctb", comment="Original annotate_textp implementation on stackoverflow"),
@@ -13,8 +13,13 @@ Authors@R: c(
     )
 Description: A compendium of 'geoms', 'coords', 'stats', scales and fonts for
     'ggplot2', including splines, 1d and 2d densities, univariate average shifted
-    histograms, a new map coordinate system based on the 'PROJ.4'-library and the
-    'StateFace' open source font 'ProPublica'.
+    histograms, a new map coordinate system based on the 'PROJ.4'-library along 
+    with a cartogram 'geom' that mimics the original functionality of 
+    'geom_map', formatters for "bytes", a two-way bar 'geom' along with a
+    'stepribbon' 'geom', increased 'plotly' compatibility and  the 'StateFace' 
+    open source font 'ProPublica'. Further new functionality includes lollipop charts,
+    dumbbell charts, the ability to "encircle" points and coordinate-system-based
+    text annotations.
 License: AGPL + file LICENSE
 LazyData: true
 URL: https://github.com/hrbrmstr/ggalt
@@ -28,8 +33,10 @@ Suggests:
     gridExtra,
     knitr,
     rmarkdown,
-    ggthemes
+    ggthemes,
+    reshape2
 Imports:
+    utils,
     graphics,
     grDevices,
     dplyr,
@@ -43,11 +50,11 @@ Imports:
     maps,
     MASS,
     extrafont,
+    tibble,
     plotly (>= 3.4.1)
 RoxygenNote: 6.0.0
 VignetteBuilder: knitr
 Collate:
-    'a-pokemon-colors.r'
     'annotate_textp.r'
     'coord_proj.r'
     'formatters.r'
@@ -68,7 +75,6 @@ Collate:
     'ggalt-package.r'
     'grob_absolute.r'
     'guide_axis.r'
-    'pokemon.r'
     'stateface.r'
     'utils.r'
     'zzz.r'

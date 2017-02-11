@@ -22,6 +22,8 @@ to the bounding box}
 
 \item{color, }{alpha, family, size, fontface, lineheight font properties}
 
+\item{alpha, family, size, fontface, lineheight}{standard aesthetic customizations}
+
 \item{box_just}{placement of the bounding box for the text relative to x,y
 coordinates. Per default, the box is placed to the center of the plot. Be
 aware that parts of the box which are outside of the visible region of the

@@ -1,3 +1,5 @@
+globalVariables(c("Stepribbon"))
+
 #' Text annotations in plot coordinate system
 #'
 #' Annotates the plot with text. Compared to \code{annotate("text",...)}, the
@@ -16,6 +18,7 @@
 #'   aware that parts of the box which are outside of the visible region of the
 #'   plot will not be shown.
 #' @param margin margins of the bounding box
+#' @param alpha,family,size,fontface,lineheight standard aesthetic customizations
 #' @examples
 #' p <- ggplot(mtcars, aes(x = wt, y = mpg)) + geom_point()
 #' p <- p + geom_smooth(method = "lm", se = FALSE)

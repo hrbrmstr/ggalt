@@ -33,6 +33,13 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 
+\item{horizontal}{\code{horizontal} is \code{FALSE} (the default), the function
+will draw the lollipops up from the X axis (i.e. it will set \code{xend}
+to \code{x} & \code{yend} to \code{0}). If \code{TRUE}, it wiill set
+\code{yend} to \code{y} & \code{xend} to \code{0}). Make sure you map the
+\code{x} & \code{y} aesthetics accordingly. This parameter helps avoid
+the need for \code{coord_flip()}.}
+
 \item{point.colour}{the colour of the point}
 
 \item{point.size}{the size of the point}
@@ -48,13 +55,6 @@ a warning.  If \code{TRUE} silently removes missing values.}
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link{borders}}.}
-
-\item{If}{\code{horizontal} is \code{FALSE} (the default), the function
-will draw the lollipops up from the X axis (i.e. it will set \code{xend}
-to \code{x} & \code{yend} to \code{0}). If \code{TRUE}, it wiill set
-\code{yend} to \code{y} & \code{xend} to \code{0}). Make sure you map the
-\code{x} & \code{y} aesthetics accordingly. This parameter helps avoid
-the need for \code{coord_flip()}.}
 }
 \description{
 The lollipop geom is used to create lollipop charts.
