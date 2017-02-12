@@ -57,6 +57,7 @@ When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
       to this new \code{coord_} are planned.
 }
 \examples{
+\dontrun{
 # World in Winkel-Tripel
 world <- map_data("world")
 world <- world[world$region != "Antarctica",]
@@ -89,4 +90,5 @@ gg <- gg + coord_proj(
              paste0("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=-45 +k=1 +x_0=0",
                     " +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
 gg
+}
 }

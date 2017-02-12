@@ -39,7 +39,7 @@
 #'       all longitude & latitude input to fit within these ranges. More updates
 #'       to this new \code{coord_} are planned.
 #' @export
-#' @examples
+#' @examples \dontrun{
 #' # World in Winkel-Tripel
 #' world <- map_data("world")
 #' world <- world[world$region != "Antarctica",]
@@ -72,6 +72,7 @@
 #'              paste0("+proj=stere +lat_0=90 +lat_ts=70 +lon_0=-45 +k=1 +x_0=0",
 #'                     " +y_0=0 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"))
 #' gg
+#' }
 coord_proj <- function(proj=NULL, inverse = FALSE, degrees = TRUE,
                        ellps.default="sphere", xlim = NULL, ylim = NULL) {
 
