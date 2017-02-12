@@ -60,7 +60,7 @@ This replicates the old behaviour of \code{geom_map()}, enabling specifying of
 
 \code{geom_cartogram} understands the following aesthetics (required aesthetics are in bold):
 \itemize{
-  \item \code{\strong{map_id}}
+  \item \code{map_id}
   \item \code{alpha}
   \item \code{colour}
   \item \code{fill}
@@ -73,6 +73,7 @@ This replicates the old behaviour of \code{geom_map()}, enabling specifying of
 }
 
 \examples{
+\dontrun{
 # When using geom_polygon, you will typically need two data frames:
 # one contains the coordinates of each polygon (positions),  and the
 # other the values associated with each polygon (values).  An id
@@ -124,5 +125,6 @@ if (require(maps)) {
     geom_cartogram(aes(fill = value, map_id=state), map = states_map, data=crimesm) +
     coord_map("polyconic") +
     facet_wrap( ~ variable)
+}
 }
 }

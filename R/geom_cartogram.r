@@ -6,7 +6,7 @@
 #' @section Aesthetics:
 #' \code{geom_cartogram} understands the following aesthetics (required aesthetics are in bold):
 #' \itemize{
-#'   \item \code{\strong{map_id}}
+#'   \item \code{map_id}
 #'   \item \code{alpha}
 #'   \item \code{colour}
 #'   \item \code{fill}
@@ -24,7 +24,7 @@
 #'   \code{y}, \code{lat} or \code{latitude} and \code{region} or \code{id}.
 #' @inheritParams ggplot2::layer
 #' @inheritParams ggplot2::geom_point
-#' @examples
+#' @examples \dontrun{
 #' # When using geom_polygon, you will typically need two data frames:
 #' # one contains the coordinates of each polygon (positions),  and the
 #' # other the values associated with each polygon (values).  An id
@@ -76,6 +76,7 @@
 #'     geom_cartogram(aes(fill = value, map_id=state), map = states_map, data=crimesm) +
 #'     coord_map("polyconic") +
 #'     facet_wrap( ~ variable)
+#' }
 #' }
 geom_cartogram <- function(mapping = NULL, data = NULL,
                      stat = "identity",
