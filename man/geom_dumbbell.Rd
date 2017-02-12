@@ -4,9 +4,9 @@
 \alias{geom_dumbbell}
 \title{Dumbell charts}
 \usage{
-geom_dumbbell(mapping = NULL, data = NULL, ..., point.colour.l = NULL,
-  point.size.l = NULL, point.colour.r = NULL, point.size.r = NULL,
-  dot_guide = FALSE, dot_guide_size = NULL, dot_guide_color = NULL,
+geom_dumbbell(mapping = NULL, data = NULL, ..., colour_x = NULL,
+  size_x = NULL, colour_xend = NULL, size_xend = NULL,
+  dot_guide = FALSE, dot_guide_size = NULL, dot_guide_colour = NULL,
   na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
 }
 \arguments{
@@ -34,13 +34,13 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 
-\item{point.colour.l}{the colour of the left point}
+\item{colour_x}{the colour of the start point}
 
-\item{point.size.l}{the size of the left point}
+\item{size_x}{the size of the start point}
 
-\item{point.colour.r}{the colour of the right point}
+\item{colour_xend}{the colour of the end point}
 
-\item{point.size.r}{the size of the right point}
+\item{size_xend}{the size of the end point}
 
 \item{dot_guide}{if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point}
 

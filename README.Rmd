@@ -19,7 +19,7 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
-- `coord_proj` : Like `coord_map`, only better 😜 (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
+- `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
 - `geom_xspline` : Connect control points/observations with an X-spline
 - `stat_xspline` : Connect control points/observations with an X-spline
 - `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
@@ -284,7 +284,7 @@ library(ggalt)
 library(scales)
  
 gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
-gg <- gg + geom_lollipop(point.colour="steelblue", point.size=3, horizontal=TRUE)
+gg <- gg + geom_lollipop(point.colour="steelblue", point.size=2, horizontal=TRUE)
 gg <- gg + scale_x_continuous(expand=c(0,0), labels=percent,
                               breaks=seq(0, 1, by=0.2), limits=c(0, 1))
 gg <- gg + labs(x=NULL, y=NULL, 
@@ -295,7 +295,7 @@ gg <- gg + theme_minimal(base_family="Arial Narrow")
 gg <- gg + theme(panel.grid.major.y=element_blank())
 gg <- gg + theme(panel.grid.minor=element_blank())
 gg <- gg + theme(axis.line.y=element_line(color="#2b2b2b", size=0.15))
-gg <- gg + theme(axis.text.y=element_text(margin=margin(r=-5, l=0)))
+gg <- gg + theme(axis.text.y=element_text(margin=margin(r=0, l=0)))
 gg <- gg + theme(plot.margin=unit(rep(30, 4), "pt"))
 gg <- gg + theme(plot.title=element_text(face="bold"))
 gg <- gg + theme(plot.subtitle=element_text(margin=margin(b=10)))
@@ -326,9 +326,9 @@ health %>%
 setNames(bind_cols(filter(health, year==2014), filter(health, year==2013))[,c(4,1,5)],
          c("area_name", "pct_2014", "pct_2013")) -> health
 
-
-gg <- ggplot(health, aes(x=pct_2013, xend=pct_2014, y=area_name, group=area_name))
-gg <- gg + geom_dumbbell(color="#a3c4dc", size=0.75, point.colour.l="#0e668b")
+gg <- ggplot(health, aes(x=pct_2014, xend=pct_2013, y=area_name, group=area_name))
+gg <- gg + geom_dumbbell(colour="#a3c4dc", size=1.5, colour_xend="#0e668b", 
+                         dot_guide=TRUE, dot_guide_size=0.15)
 gg <- gg + scale_x_continuous(label=percent)
 gg <- gg + labs(x=NULL, y=NULL)
 gg <- gg + theme_bw()
@@ -350,8 +350,8 @@ df <- data.frame(trt=LETTERS[1:5], l=c(20, 40, 10, 30, 50), r=c(70, 50, 30, 60, 
 
 ggplot(df, aes(y=trt, x=l, xend=r)) + 
   geom_dumbbell(size=3, color="#e3e2e1", 
-                point.colour.l = "#5b8124", point.colour.r = "#bad744",
-                dot_guide=TRUE, dot_guide_size=0.75) +
+                colour_x = "#5b8124", colour_xend = "#bad744",
+                dot_guide=TRUE, dot_guide_size=0.25) +
   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
   theme_ipsum_rc(grid="X") +
   theme(panel.grid.major.x=element_line(size=0.05))

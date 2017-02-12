@@ -14,10 +14,10 @@
 #'   often aesthetics, used to set an aesthetic to a fixed value, like
 #'   \code{color = "red"} or \code{size = 3}. They may also be parameters
 #'   to the paired geom/stat.
-#' @param point.size.l the size of the left point
-#' @param point.colour.l the colour of the left point
-#' @param point.size.r the size of the right point
-#' @param point.colour.r the colour of the right point
+#' @param size_x the size of the start point
+#' @param colour_x the colour of the start point
+#' @param size_xend the size of the end point
+#' @param colour_xend the colour of the end point
 #' @param dot_guide if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point
 #' @param dot_guide_size,dot_guide_color singe-value aesthetics for \code{dot_guide}
 #' @inheritParams ggplot2::layer
@@ -29,10 +29,10 @@
 #'
 #' ggplot(df, aes(y=trt, x=l, xend=r)) + geom_dumbbell()
 geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
-                          point.colour.l = NULL, point.size.l = NULL,
-                          point.colour.r = NULL, point.size.r = NULL,
+                          colour_x = NULL, size_x = NULL,
+                          colour_xend = NULL, size_xend = NULL,
                           dot_guide = FALSE, dot_guide_size = NULL,
-                          dot_guide_color = NULL,
+                          dot_guide_colour = NULL,
                           na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) {
 
   layer(
@@ -45,13 +45,13 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
     inherit.aes = inherit.aes,
     params = list(
       na.rm = na.rm,
-      point.colour.l = point.colour.l,
-      point.size.l = point.size.l,
-      point.colour.r = point.colour.r,
-      point.size.r = point.size.r,
+      colour_x = colour_x,
+      size_x = size_x,
+      colour_xend = colour_xend,
+      size_xend = size_xend,
       dot_guide = dot_guide,
       dot_guide_size = dot_guide_size,
-      dot_guide_color = dot_guide_color,
+      dot_guide_colour = dot_guide_colour,
       ...
     )
   )
@@ -64,9 +64,9 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
 GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   required_aes = c("x", "xend", "y"),
   non_missing_aes = c("size", "shape",
-                      "point.colour.l", "point.size.l",
-                      "point.colour.r", "point.size.r",
-                      "dot_guide", "dot_guide_size", "dot_guide_color"),
+                      "colour_x", "size_x",
+                      "colour_xend", "size_xend",
+                      "dot_guide", "dot_guide_size", "dot_guide_colour"),
   default_aes = aes(
     shape = 19, colour = "black", size = 0.5, fill = NA,
     alpha = NA, stroke = 0.5
@@ -77,33 +77,35 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   },
 
   draw_group = function(data, panel_scales, coord,
-                        point.colour.l = NULL, point.size.l = NULL,
-                        point.colour.r = NULL, point.size.r = NULL,
+                        colour_x = NULL, size_x = NULL,
+                        colour_xend = NULL, size_xend = NULL,
                         dot_guide = NULL, dot_guide_size = NULL,
-                        dot_guide_color = NULL) {
+                        dot_guide_colour = NULL) {
 
-    points.l <- data
-    points.l$colour <- point.colour.l %||% data$colour
-    points.l$size <- point.size.l %||% (data$size * 1.2)
+    points.x <- data
+    points.x$colour <- colour_x %||% data$colour
+    points.x$xend <- NULL
+    points.x$size <- size_x %||% (data$size * 1.2)
 
-    points.r <- data
-    points.r$x <- points.r$xend
-    points.r$colour <- point.colour.r %||% data$colour
-    points.r$size <- point.size.r %||% (data$size * 1.25)
+    points.xend <- data
+    points.xend$x <- points.xend$xend
+    points.xend$xend <- NULL
+    points.xend$colour <- colour_xend %||% data$colour
+    points.xend$size <- size_xend %||% (data$size * 1.25)
 
     dot_df <- data
     dot_df$xend <- ifelse(data$xend < data$x, data$xend, data$x)
     dot_df$x <- -Inf
     dot_df$linetype <- "11"
     dot_df$size <- dot_guide_size %||% (data$size * 0.5)
-    dot_df$color <- dot_guide_color %||% "#5b5b5b"
+    dot_df$colour <- dot_guide_colour %||% "#5b5b5b"
 
     if (is.null(dot_guide) | !dot_guide) {
 
       gList(
         ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.l, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.r, panel_scales, coord)
+        ggplot2::GeomPoint$draw_panel(points.x, panel_scales, coord),
+        ggplot2::GeomPoint$draw_panel(points.xend, panel_scales, coord)
       )
 
     } else {
@@ -111,8 +113,8 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
       gList(
         ggplot2::GeomSegment$draw_panel(dot_df, panel_scales, coord),
         ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.l, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.r, panel_scales, coord)
+        ggplot2::GeomPoint$draw_panel(points.x, panel_scales, coord),
+        ggplot2::GeomPoint$draw_panel(points.xend, panel_scales, coord)
       )
 
     }
