@@ -19,7 +19,7 @@
 #' @param size_xend the size of the end point
 #' @param colour_xend the colour of the end point
 #' @param dot_guide if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point
-#' @param dot_guide_size,dot_guide_color singe-value aesthetics for \code{dot_guide}
+#' @param dot_guide_size,dot_guide_colour singe-value aesthetics for \code{dot_guide}
 #' @inheritParams ggplot2::layer
 #' @export
 #' @examples

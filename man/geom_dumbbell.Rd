@@ -44,7 +44,7 @@ to the paired geom/stat.}
 
 \item{dot_guide}{if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point}
 
-\item{dot_guide_size, dot_guide_color}{singe-value aesthetics for \code{dot_guide}}
+\item{dot_guide_size, dot_guide_colour}{singe-value aesthetics for \code{dot_guide}}
 
 \item{na.rm}{If \code{FALSE} (the default), removes missing values with
 a warning.  If \code{TRUE} silently removes missing values.}
