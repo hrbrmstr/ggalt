@@ -6,6 +6,7 @@
 \usage{
 geom_dumbbell(mapping = NULL, data = NULL, ..., point.colour.l = NULL,
   point.size.l = NULL, point.colour.r = NULL, point.size.r = NULL,
+  dot_guide = FALSE, dot_guide_size = NULL, dot_guide_color = NULL,
   na.rm = FALSE, show.legend = NA, inherit.aes = TRUE)
 }
 \arguments{
@@ -40,6 +41,10 @@ to the paired geom/stat.}
 \item{point.colour.r}{the colour of the right point}
 
 \item{point.size.r}{the size of the right point}
+
+\item{dot_guide}{if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point}
+
+\item{dot_guide_size, dot_guide_color}{singe-value aesthetics for \code{dot_guide}}
 
 \item{na.rm}{If \code{FALSE} (the default), removes missing values with
 a warning.  If \code{TRUE} silently removes missing values.}

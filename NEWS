@@ -2,6 +2,7 @@
 =====================
 * Fixed `coord_proj()`
 * Removed pokemon colors (et al)
+* Added dotted-gridline guide for `geom_dumbbell()`
 
 0.3.0
 =====================

@@ -8,18 +8,17 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
--   `coord_proj` : Like `coord_map`, only better 😜
+-   `coord_proj` : Like `coord_map`, only better 😜 (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
 -   `geom_xspline` : Connect control points/observations with an X-spline
 -   `stat_xspline` : Connect control points/observations with an X-spline
 -   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`) -- `geom_stateface`: Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
 -   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 -   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
--   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`) -- `geom_encircle`: Automatically enclose points in a polygon `scale_color_pokemon` :
--   `scale_fill_pokemon` : discrete pokemon scales (data taken from the hard work by the <http://www.pokegraphs.com/>)
--   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+-   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`) -- `geom_encircle`: Automatically enclose points in a polygon `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 -   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 -   `geom_dumbbell()` : Dead easy dumbbell plots
 -   `geom_stepribbon()` : Step ribbons
+-   plotly integration for a few of the ^^ geoms
 
 ### Installation
 
@@ -39,7 +38,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-#> [1] '0.4'
+## [1] '0.4.0'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -64,7 +63,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
   geom_line() +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-2.png" width="672" />
@@ -75,7 +74,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-3.png" width="672" />
@@ -86,7 +85,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-0.4, size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-4.png" width="672" />
@@ -97,7 +96,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0.4, size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-5.png" width="672" />
@@ -108,7 +107,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=1, size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-6.png" width="672" />
@@ -119,7 +118,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0, size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-7.png" width="672" />
@@ -130,7 +129,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
-#> `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-8.png" width="672" />
@@ -144,7 +143,7 @@ data(geyser, package="MASS")
 
 ggplot(geyser, aes(x=duration)) + 
   stat_bkde(alpha=1/2)
-#> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-1.png" width="672" />
@@ -153,7 +152,7 @@ ggplot(geyser, aes(x=duration)) +
 
 ggplot(geyser, aes(x=duration)) +
   geom_bkde(alpha=1/2)
-#> Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-2.png" width="672" />
@@ -181,8 +180,8 @@ dat <- data.frame(cond = factor(rep(c("A","B"), each=200)),
                    rating = c(rnorm(200),rnorm(200, mean=.8)))
 
 ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
-#> Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
-#> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-5.png" width="672" />
@@ -190,8 +189,8 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
 ``` r
 
 ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
-#> Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
-#> Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.36', via KernSmooth::dpik.
+## Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-6.png" width="672" />
@@ -206,8 +205,8 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
              ggplot(dat, aes(x)) + stat_bkde(),
              ggplot(dat, aes(x)) + stat_density(),
              nrow=3)
-#> Estimate nonzero outside interval ab.
-#> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
+## Estimate nonzero outside interval ab.
+## Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-7.png" width="672" />
@@ -225,8 +224,8 @@ ggplot(dat, aes(x)) +
   theme_bw() +
   theme(panel.grid=element_blank()) +
   theme(panel.border=element_blank())
-#> Estimate nonzero outside interval ab.
-#> Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
+## Estimate nonzero outside interval ab.
+## Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
 <img src="README_figs/README-bkde_ash-8.png" width="672" />
@@ -470,6 +469,22 @@ gg
 ```
 
 <img src="README_figs/README-dumbbell-1.png" width="672" />
+
+``` r
+library(hrbrthemes)
+
+df <- data.frame(trt=LETTERS[1:5], l=c(20, 40, 10, 30, 50), r=c(70, 50, 30, 60, 80))
+
+ggplot(df, aes(y=trt, x=l, xend=r)) + 
+  geom_dumbbell(size=3, color="#e3e2e1", 
+                point.colour.l = "#5b8124", point.colour.r = "#bad744",
+                dot_guide=TRUE, dot_guide_size=0.75) +
+  labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
+  theme_ipsum_rc(grid="X") +
+  theme(panel.grid.major.x=element_line(size=0.05))
+```
+
+<img src="README_figs/README-dumbbell2-1.png" width="672" />
 
 ### Code of Conduct
 
