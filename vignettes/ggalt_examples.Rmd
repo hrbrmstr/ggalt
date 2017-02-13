@@ -15,6 +15,7 @@ knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=1, fig.height=6, f
 library(ggplot2)
 library(gridExtra)
 library(ggalt)
+library(scales)
 
 # current verison
 packageVersion("ggalt")
@@ -132,19 +133,6 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ```
 
-### `coord_proj` LIVES! (still needs a teensy bit of work)
-
-```{r coord_proj}
-world <- map_data("world")
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_cartogram(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-```
-
 ### ProPublica StateFace
 
 ```{r stateface}
@@ -240,11 +228,7 @@ LBGTQ/Ally,0.79
 Mixed Race,0.80
 Jewish Heritage/Observance,0.85
 International Students,0.87", stringsAsFactors=FALSE, sep=",", header=TRUE)
- 
-library(ggplot2)
-library(ggalt)
-library(scales)
- 
+
 gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
 gg <- gg + geom_lollipop(point.colour="steelblue", point.size=2, horizontal=TRUE)
 gg <- gg + scale_x_continuous(expand=c(0,0), labels=percent,
@@ -276,5 +260,6 @@ ggplot(df, aes(y=trt, x=l, xend=r)) +
                 dot_guide=TRUE, dot_guide_size=0.25) +
   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
   theme_minimal() +
-  theme(panel.grid.major.x=element_line(size=0.05))
+  theme(panel.grid.major.x=element_line(size=0.05)) +
+  theme(panel.grid.major.y=element_blank())
 ```
