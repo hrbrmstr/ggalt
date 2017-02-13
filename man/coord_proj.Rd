@@ -50,6 +50,8 @@ A sample of the output from \code{coord_proj()} using the Winkel-Tripel projecti
 }
 }
 \note{
+It is recommended that you use \code{geom_cartogram} with this coordinate system
+
 When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
       large assumption that the coordinates being transformed are within
       -180:180 (longitude) and -90:90 (latitude). As such, it truncates
@@ -59,14 +61,6 @@ When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
 \examples{
 \dontrun{
 # World in Winkel-Tripel
-world <- map_data("world")
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_cartogram(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
 
 # U.S.A. Albers-style
 usa <- world[world$region == "USA",]

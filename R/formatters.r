@@ -18,6 +18,9 @@
 #' @examples
 #' byte_format()(sample(3000000000, 10))
 #' bytes(sample(3000000000, 10))
+#' Kb(sample(3000000000, 10))
+#' Mb(sample(3000000000, 10))
+#' Gb(sample(3000000000, 10))
 byte_format <- function(symbol="auto", units="binary") {
   function(x) bytes(x, symbol, units)
 }
@@ -58,25 +61,25 @@ bytes <- function(x, symbol="auto", units=c("binary", "si")) {
   }
 
   switch(symbol,
-	   "b" =,  "B"  = paste(x,                  "bytes"),
+	   "b" =,  "B"  = paste(x,                                 "bytes"),
 
-	   "Kb" =, "KB" = paste(round(x/(base^1), 1L), "Kb"),
-	   "Mb" =, "MB" = paste(round(x/(base^2), 1L), "Mb"),
-	   "Gb" =, "GB" = paste(round(x/(base^3), 1L), "Gb"),
-	   "Tb" =, "TB" = paste(round(x/(base^4), 1L), "Tb"),
-	   "Pb" =, "PB" = paste(round(x/(base^5), 1L), "Pb"),
-	   "Eb" =, "EB" = paste(round(x/(base^6), 1L), "Eb"),
-	   "Zb" =, "ZB" = paste(round(x/(base^7), 1L), "Zb"),
-	   "Yb" =, "YB" = paste(round(x/(base^8), 1L), "Yb"),
+	   "Kb" =, "KB" = paste(scales::comma(round(x/(base^1), 1L)), "Kb"),
+	   "Mb" =, "MB" = paste(scales::comma(round(x/(base^2), 1L)), "Mb"),
+	   "Gb" =, "GB" = paste(scales::comma(round(x/(base^3), 1L)), "Gb"),
+	   "Tb" =, "TB" = paste(scales::comma(round(x/(base^4), 1L)), "Tb"),
+	   "Pb" =, "PB" = paste(scales::comma(round(x/(base^5), 1L)), "Pb"),
+	   "Eb" =, "EB" = paste(scales::comma(round(x/(base^6), 1L)), "Eb"),
+	   "Zb" =, "ZB" = paste(scales::comma(round(x/(base^7), 1L)), "Zb"),
+	   "Yb" =, "YB" = paste(scales::comma(round(x/(base^8), 1L)), "Yb"),
 
-	   "KiB"        = paste(round(x/(base^1), 1L), "KiB"),
-	   "MiB"        = paste(round(x/(base^2), 1L), "MiB"),
-	   "GiB"        = paste(round(x/(base^3), 1L), "GiB"),
-	   "TiB"        = paste(round(x/(base^4), 1L), "TiB"),
-	   "PiB"        = paste(round(x/(base^5), 1L), "PiB"),
-	   "EiB"        = paste(round(x/(base^6), 1L), "EiB"),
-	   "ZiB"        = paste(round(x/(base^7), 1L), "ZiB"),
-	   "YiB"        = paste(round(x/(base^8), 1L), "YiB")
+	   "KiB"        = paste(scales::comma(round(x/(base^1), 1L)), "KiB"),
+	   "MiB"        = paste(scales::comma(round(x/(base^2), 1L)), "MiB"),
+	   "GiB"        = paste(scales::comma(round(x/(base^3), 1L)), "GiB"),
+	   "TiB"        = paste(scales::comma(round(x/(base^4), 1L)), "TiB"),
+	   "PiB"        = paste(scales::comma(round(x/(base^5), 1L)), "PiB"),
+	   "EiB"        = paste(scales::comma(round(x/(base^6), 1L)), "EiB"),
+	   "ZiB"        = paste(scales::comma(round(x/(base^7), 1L)), "ZiB"),
+	   "YiB"        = paste(scales::comma(round(x/(base^8), 1L)), "YiB")
   )
 
 }

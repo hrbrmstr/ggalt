@@ -5,21 +5,20 @@ Version: 0.4.0
 Maintainer: Bob Rudis <bob@rudis.net>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre")),
-      person("Ben", "Bolder", role = c("aut", "ctb")),
-      person("Jan", "Schulz", role = c("aut", "ctb")),
+      person("Ben", "Bolker", comment="Encircling & additional splines", role = c("aut", "ctb")),
+      person("Ben", "Marwick", comment="General codebase cleanup", role = c("ctb")),
+      person("Jan", "Schulz", comment="Annotations", role = c("aut", "ctb")),
       person("Rosen", "Matev", role="ctb", comment="Original annotate_textp implementation on stackoverflow"),
-      person("Ingemar", role="dtc", comment="Pokémon javascript color palette"),
       person("ProPublica", role="dtc", comment="StateFace font")
     )
 Description: A compendium of 'geoms', 'coords', 'stats', scales and fonts for
     'ggplot2', including splines, 1d and 2d densities, univariate average shifted
     histograms, a new map coordinate system based on the 'PROJ.4'-library along 
     with a cartogram 'geom' that mimics the original functionality of 
-    'geom_map', formatters for "bytes", a two-way bar 'geom' along with a
-    'stepribbon' 'geom', increased 'plotly' compatibility and  the 'StateFace' 
-    open source font 'ProPublica'. Further new functionality includes lollipop charts,
-    dumbbell charts, the ability to "encircle" points and coordinate-system-based
-    text annotations.
+    'geom_map', formatters for "bytes", a 'stepribbon' 'stat', increased 'plotly'
+    compatibility and  the 'StateFace' open source font 'ProPublica'. Further new 
+    functionality includes lollipop charts, dumbbell charts, the ability to "encircle" 
+    points and coordinate-system-based text annotations.
 License: AGPL + file LICENSE
 LazyData: true
 URL: https://github.com/hrbrmstr/ggalt
