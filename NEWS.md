@@ -2,8 +2,10 @@
 =====================
 * Fixed `coord_proj()`
 * Removed pokemon colors (et al)
-* Added dotted-gridline guide for `geom_dumbbell()`
-* Complete parameter rewrite to
+* Added dotted-gridline guide for `geom\_dumbbell()`
+* Complete parameter re-write to `geom\_dumbbell()`
+* New geoms & stats by Ben Bolker, Jan Schulz and Carson Sievert
+* Ben Marwick also did his best to keep up with my fat-fingering but I'm snuck a few in before the release
 
 0.3.0
 =====================

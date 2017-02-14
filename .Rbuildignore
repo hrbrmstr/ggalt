@@ -7,3 +7,4 @@
 ^README_figs
 ^README\.html$
 ^cran-comments\.md$
+^revdep$

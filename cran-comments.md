@@ -5,14 +5,18 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 0 notes
+0 errors | 0 warnings | 1 note
 
 ## Reverse dependencies
 
-This is a new release, so there are no reverse dependencies.
+GSODR & spbabel have been rev-dep checked:
+
+- Checked GSODR  : 0 errors | 0 warnings | 0 notes
+- Checked spbabel: 0 errors | 0 warnings | 0 notes
 
 ---
 
+* Modified DESCRIPTION errors per CRAN team feedback
 * E-mail change (old one is nigh dead and I need to update my other pkgs)
 * Fixes errors in the CRAN checks after the ggplot2 2.2.1 release
 * Adds substantial new functionality (many new geoms and stats)
