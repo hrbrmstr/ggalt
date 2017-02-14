@@ -11,10 +11,13 @@ The following functions are implemented:
 -   `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
 -   `geom_xspline` : Connect control points/observations with an X-spline
 -   `stat_xspline` : Connect control points/observations with an X-spline
--   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`) -- `geom_stateface`: Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
+-   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
+-   `geom_stateface`: Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
 -   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 -   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
--   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`) -- `geom_encircle`: Automatically enclose points in a polygon `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+-   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
+-   `geom_encircle`: Automatically enclose points in a polygon
+-   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 -   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 -   `geom_dumbbell()` : Dead easy dumbbell plots
 -   `stat_stepribbon()` : Step ribbons
@@ -435,10 +438,10 @@ library(scales)
 library(ggplot2)
 library(ggalt) # devtools::install_github("hrbrmstr/ggalt")
 
-health <- read.csv("https://gist.githubusercontent.com/hrbrmstr/0d206070cea01bcb0118/raw/0ea32190a8b2f54b5a9770cb6582007132571c98/zhealth.csv", stringsAsFactors=FALSE, 
+health <- read.csv("https://rud.is/dl/zhealth.csv", stringsAsFactors=FALSE, 
                    header=FALSE, col.names=c("pct", "area_id"))
 
-areas <- read.csv("https://gist.githubusercontent.com/hrbrmstr/0d206070cea01bcb0118/raw/0ea32190a8b2f54b5a9770cb6582007132571c98/zarea_trans.csv", stringsAsFactors=FALSE, header=TRUE)
+areas <- read.csv("https://rud.is/dl/zarea_trans.csv", stringsAsFactors=FALSE, header=TRUE)
 
 health %>% 
   mutate(area_id=trunc(area_id)) %>% 

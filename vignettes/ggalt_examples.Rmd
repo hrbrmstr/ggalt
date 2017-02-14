@@ -1,58 +1,21 @@
 ---
-output: rmarkdown::github_document
+title: "ggalt examples"
+author: "Bob Rudis"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ggalt examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-```{r, echo = FALSE}
-knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=2, fig.path = "README_figs/README-")
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=1, fig.height=6, fig.width=8)
 ```
-
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
-[![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) 
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](http://cran.r-project.org/web/packages/ggalt) 
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
-
-`ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts for 'ggplot2'
-
-A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, a new map coordinate system based on the 'PROJ.4'-library and the 'StateFace' open source font 'ProPublica'.
-
-The following functions are implemented:
-
-- `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
-- `geom_xspline` : Connect control points/observations with an X-spline
-- `stat_xspline` : Connect control points/observations with an X-spline
-- `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
-- `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
-- `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
-- `geom_encircle`:	Automatically enclose points in a polygon
-- `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
-- `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
-- `geom_dumbbell()` : Dead easy dumbbell plots
-- `stat_stepribbon()` : Step ribbons
-- plotly integration for a few of the ^^ geoms
-
-### Installation
-
-```{r eval=FALSE}
-# you'll want to see the vignettes, trust me
-install.packages("ggplot2")
-install.packages("ggalt")
-# OR: devtools::install_github("hrbrmstr/ggalt")
-```
-
-```{r echo=FALSE, message=FALSE, warning=FALSE, error=FALSE}
-options(width=120)
-```
-
-### Usage
-
 ```{r}
 library(ggplot2)
 library(gridExtra)
 library(ggalt)
+library(scales)
 
 # current verison
 packageVersion("ggalt")
@@ -170,19 +133,6 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ```
 
-### `coord_proj` LIVES! (still needs a teensy bit of work)
-
-```{r coord_proj}
-world <- map_data("world")
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_cartogram(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-```
-
 ### ProPublica StateFace
 
 ```{r stateface}
@@ -278,11 +228,7 @@ LBGTQ/Ally,0.79
 Mixed Race,0.80
 Jewish Heritage/Observance,0.85
 International Students,0.87", stringsAsFactors=FALSE, sep=",", header=TRUE)
- 
-library(ggplot2)
-library(ggalt)
-library(scales)
- 
+
 gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
 gg <- gg + geom_lollipop(point.colour="steelblue", point.size=2, horizontal=TRUE)
 gg <- gg + scale_x_continuous(expand=c(0,0), labels=percent,
@@ -291,7 +237,7 @@ gg <- gg + labs(x=NULL, y=NULL,
                 title="SUNY Cortland Multicultural Alumni survey results",
                 subtitle="Ranked by race, ethnicity, home land and orientation\namong the top areas of concern",
                 caption="Data from http://stephanieevergreen.com/lollipop/")
-gg <- gg + theme_minimal(base_family="Arial Narrow")
+gg <- gg + theme_minimal()
 gg <- gg + theme(panel.grid.major.y=element_blank())
 gg <- gg + theme(panel.grid.minor=element_blank())
 gg <- gg + theme(axis.line.y=element_line(color="#2b2b2b", size=0.15))
@@ -303,49 +249,9 @@ gg <- gg + theme(plot.caption=element_text(size=8, margin=margin(t=10)))
 gg
 ```
 
-```{r dumbbell, message=FALSE}
-library(dplyr)
-library(tidyr)
-library(scales)
-library(ggplot2)
-library(ggalt) # devtools::install_github("hrbrmstr/ggalt")
-
-health <- read.csv("https://rud.is/dl/zhealth.csv", stringsAsFactors=FALSE, 
-                   header=FALSE, col.names=c("pct", "area_id"))
-
-areas <- read.csv("https://rud.is/dl/zarea_trans.csv", stringsAsFactors=FALSE, header=TRUE)
-
-health %>% 
-  mutate(area_id=trunc(area_id)) %>% 
-  arrange(area_id, pct) %>% 
-  mutate(year=rep(c("2014", "2013"), 26),
-         pct=pct/100) %>% 
-  left_join(areas, "area_id") %>% 
-  mutate(area_name=factor(area_name, levels=unique(area_name))) -> health
-
-setNames(bind_cols(filter(health, year==2014), filter(health, year==2013))[,c(4,1,5)],
-         c("area_name", "pct_2014", "pct_2013")) -> health
-
-gg <- ggplot(health, aes(x=pct_2014, xend=pct_2013, y=area_name, group=area_name))
-gg <- gg + geom_dumbbell(colour="#a3c4dc", size=1.5, colour_xend="#0e668b", 
-                         dot_guide=TRUE, dot_guide_size=0.15)
-gg <- gg + scale_x_continuous(label=percent)
-gg <- gg + labs(x=NULL, y=NULL)
-gg <- gg + theme_bw()
-gg <- gg + theme(plot.background=element_rect(fill="#f7f7f7"))
-gg <- gg + theme(panel.background=element_rect(fill="#f7f7f7"))
-gg <- gg + theme(panel.grid.minor=element_blank())
-gg <- gg + theme(panel.grid.major.y=element_blank())
-gg <- gg + theme(panel.grid.major.x=element_line())
-gg <- gg + theme(axis.ticks=element_blank())
-gg <- gg + theme(legend.position="top")
-gg <- gg + theme(panel.border=element_blank())
-gg
-```
+### Dumbbell charts
 
 ```{r dumbbell2, message=FALSE, fig.width=7, fig.height=2.5}
-library(hrbrthemes)
-
 df <- data.frame(trt=LETTERS[1:5], l=c(20, 40, 10, 30, 50), r=c(70, 50, 30, 60, 80))
 
 ggplot(df, aes(y=trt, x=l, xend=r)) + 
@@ -353,11 +259,7 @@ ggplot(df, aes(y=trt, x=l, xend=r)) +
                 colour_x = "#5b8124", colour_xend = "#bad744",
                 dot_guide=TRUE, dot_guide_size=0.25) +
   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
-  theme_ipsum_rc(grid="X") +
-  theme(panel.grid.major.x=element_line(size=0.05))
+  theme_minimal() +
+  theme(panel.grid.major.x=element_line(size=0.05)) +
+  theme(panel.grid.major.y=element_blank())
 ```
-
-### Code of Conduct
-
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). 
-By participating in this project you agree to abide by its terms.

@@ -18,6 +18,7 @@
 #' \figure{coordproj01.png}{options: width=10cm}
 #' }
 #'
+#' @note It is recommended that you use \code{geom_cartogram} with this coordinate system
 #' @param proj projection definition. If left \code{NULL} will default to
 #'        a Robinson projection
 #' @param inverse	if \code{TRUE} inverse projection is performed (from a
@@ -41,14 +42,14 @@
 #' @export
 #' @examples \dontrun{
 #' # World in Winkel-Tripel
-#' world <- map_data("world")
-#' world <- world[world$region != "Antarctica",]
-#'
-#' gg <- ggplot()
-#' gg <- gg + geom_cartogram(data=world, map=world,
-#'                     aes(x=long, y=lat, map_id=region))
-#' gg <- gg + coord_proj("+proj=wintri")
-#' gg
+# world <- map_data("world")
+# world <- world[world$region != "Antarctica",]
+#
+# gg <- ggplot()
+# gg <- gg + geom_cartogram(data=world, map=world,
+#                     aes(x=long, y=lat, map_id=region))
+# gg <- gg + coord_proj("+proj=wintri")
+# gg
 #'
 #' # U.S.A. Albers-style
 #' usa <- world[world$region == "USA",]

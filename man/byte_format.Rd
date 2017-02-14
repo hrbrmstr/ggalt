@@ -42,6 +42,9 @@ Bytes formatter: convert to byte measurement and display symbol.
 \examples{
 byte_format()(sample(3000000000, 10))
 bytes(sample(3000000000, 10))
+Kb(sample(3000000000, 10))
+Mb(sample(3000000000, 10))
+Gb(sample(3000000000, 10))
 }
 \references{
 Units of Information (Wikipedia) :
