@@ -13,5 +13,7 @@ This is a new release, so there are no reverse dependencies.
 
 ---
 
+* E-mail change (old one is nigh dead and I need to update my other pkgs)
 * Fixes errors in the CRAN checks after the ggplot2 2.2.1 release
-* Adds new functionality (new geoms and stats and scales)
+* Adds substantial new functionality (many new geoms and stats)
+* Includes a new basic vignette
