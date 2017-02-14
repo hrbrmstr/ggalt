@@ -2,7 +2,7 @@ Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
 Version: 0.4.0
-Maintainer: Bob Rudis <bob@rudis.net>
+Maintainer: Bob Rudis <bob@rud.ist>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre")),
       person("Ben", "Bolder", role = c("aut", "ctb")),

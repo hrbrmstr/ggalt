@@ -17,7 +17,7 @@ The following functions are implemented:
 -   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`) -- `geom_encircle`: Automatically enclose points in a polygon `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 -   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 -   `geom_dumbbell()` : Dead easy dumbbell plots
--   `geom_stepribbon()` : Step ribbons
+-   `stat_stepribbon()` : Step ribbons
 -   plotly integration for a few of the ^^ geoms
 
 ### Installation

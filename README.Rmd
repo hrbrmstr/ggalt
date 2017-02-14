@@ -31,7 +31,7 @@ The following functions are implemented:
   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
 - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 - `geom_dumbbell()` : Dead easy dumbbell plots
-- `geom_stepribbon()` : Step ribbons
+- `stat_stepribbon()` : Step ribbons
 - plotly integration for a few of the ^^ geoms
 
 ### Installation
