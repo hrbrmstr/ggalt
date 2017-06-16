@@ -123,6 +123,55 @@ CoordProj <- ggproto("CoordProj", Coord,
     diff(ranges$y.proj) / diff(ranges$x.proj)
   },
 
+ train = function(self, scale_details) {
+
+    # range in scale
+    ranges <- list()
+    for (n in c("x", "y")) {
+
+      scale <- scale_details[[n]]
+      limits <- self$limits[[n]]
+
+      if (is.null(limits)) {
+        range <- scale$dimension(expand_default(scale))
+      } else {
+        range <- range(scale$transform(limits))
+      }
+      ranges[[n]] <- range
+    }
+
+    orientation <- self$orientation %||% c(90, 0, mean(ranges$x))
+
+    # Increase chances of creating valid boundary region
+    grid <- expand.grid(
+      x = seq(ranges$x[1], ranges$x[2], length.out = 50),
+      y = seq(ranges$y[1], ranges$y[2], length.out = 50)
+    )
+
+    ret <- list(x = list(), y = list())
+
+    # range in map
+    proj <- project4(self, grid$x, grid$y)$range
+    ret$x$proj <- proj[1:2]
+    ret$y$proj <- proj[3:4]
+
+    for (n in c("x", "y")) {
+      out <- scale_details[[n]]$break_info(ranges[[n]])
+      ret[[n]]$range <- out$range
+      ret[[n]]$major <- out$major_source
+      ret[[n]]$minor <- out$minor_source
+      ret[[n]]$labels <- out$labels
+    }
+
+    details <- list(
+      orientation = orientation,
+      x.range = ret$x$range, y.range = ret$y$range,
+      x.proj = ret$x$proj, y.proj = ret$y$proj,
+      x.major = ret$x$major, x.minor = ret$x$minor, x.labels = ret$x$labels,
+      y.major = ret$y$major, y.minor = ret$y$minor, y.labels = ret$y$labels
+    )
+    details
+  },
   setup_panel_params = function(self, scale_x, scale_y, params = list()) {
 
     # range in scale
