@@ -9,7 +9,9 @@ Authors@R: c(
       person("Ben", "Marwick", comment="General codebase cleanup", role = c("ctb")),
       person("Jan", "Schulz", comment="Annotations", role = c("aut", "ctb")),
       person("Rosen", "Matev", role="ctb", comment="Original annotate_textp implementation on stackoverflow"),
-      person("ProPublica", role="dtc", comment="StateFace font")
+      person("ProPublica", role="dtc", comment="StateFace font"),
+      person("Aditya", "Kothari", role=c("aut", "ctb"), comment="Core functionality of horizon plots"),
+      person("Ather", role="dtc", comment="Core functionality of horizon plots")
     )
 Description: A compendium of new geometries, coordinate systems, statistical 
     transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, 
@@ -19,7 +21,7 @@ Description: A compendium of new geometries, coordinate systems, statistical
     compatibility and the 'StateFace' open source font 'ProPublica'. Further new 
     functionality includes lollipop charts, dumbbell charts, the ability to encircle
     points and coordinate-system-based text annotations.
-License: AGPL + file LICENSE
+License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/hrbrmstr/ggalt
 BugReports: https://github.com/hrbrmstr/ggalt/issues
@@ -65,6 +67,7 @@ Collate:
     'geom_dumbbell.R'
     'geom_cartogram.r'
     'geom_encircle.r'
+    'geom_horizon.r'
     'geom_lollipop.r'
     'geom_table.r'
     'geom_twoway_bar.r'

@@ -8,6 +8,7 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
+-   `geom_horizon` : Horizon charts (modified from <https://github.com/AtherEnergy/ggTimeSeries>)
 -   `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
 -   `geom_xspline` : Connect control points/observations with an X-spline
 -   `stat_xspline` : Connect control points/observations with an X-spline
@@ -50,6 +51,54 @@ dat <- data.frame(x=c(1:10, 1:10, 1:10),
 )
 ```
 
+### Horzon Chart
+
+Example carved from: <https://github.com/halhen/viz-pub/blob/master/sports-time-of-day/2_gen_chart.R>
+
+``` r
+library(hrbrthemes)
+library(ggalt)
+library(tidyverse)
+
+sports <- read_tsv("https://github.com/halhen/viz-pub/raw/master/sports-time-of-day/activity.tsv")
+
+sports %>%
+  group_by(activity) %>% 
+  filter(max(p) > 3e-04, 
+         !grepl('n\\.e\\.c', activity)) %>% 
+  arrange(time) %>%
+  mutate(p_peak = p / max(p), 
+         p_smooth = (lag(p_peak) + p_peak + lead(p_peak)) / 3,
+         p_smooth = coalesce(p_smooth, p_peak)) %>% 
+  ungroup() %>%
+  do({ 
+    rbind(.,
+          filter(., time == 0) %>%
+            mutate(time = 24*60))
+  }) %>%
+  mutate(time = ifelse(time < 3 * 60, time + 24 * 60, time)) %>%
+  mutate(activity = reorder(activity, p_peak, FUN=which.max)) %>% 
+  arrange(activity) %>%
+  mutate(activity.f = reorder(as.character(activity), desc(activity))) -> sports
+
+sports <- mutate(sports, time2 = time/60)
+
+ggplot(sports, aes(time2, p_smooth)) +
+  geom_horizon(bandwidth=0.1) +
+  facet_grid(activity.f~.) +
+  scale_x_continuous(expand=c(0,0), breaks=seq(from = 3, to = 27, by = 3), labels = function(x) {sprintf("%02d:00", as.integer(x %% 24))}) +
+  viridis::scale_fill_viridis(name = "Activity relative to peak", discrete=TRUE,
+                              labels=scales::percent(seq(0, 1, 0.1)+0.1)) +
+  labs(x=NULL, y=NULL, title="Peak time of day for sports and leisure",
+       subtitle="Number of participants throughout the day compared to peak popularity.\nNote the morning-and-evening everyday workouts, the midday hobbies,\nand the evenings/late nights out.") +
+  theme_ipsum_rc(grid="") +
+  theme(panel.spacing.y=unit(-0.05, "lines")) +
+  theme(strip.text.y = element_text(hjust=0, angle=360)) +
+  theme(axis.text.y=element_blank())
+```
+
+<img src="README_figs/README-horizon-1.png" width="912" />
+
 ### Splines!
 
 ``` r
@@ -66,7 +115,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
   geom_line() +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-2.png" width="672" />
@@ -77,7 +126,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-3.png" width="672" />
@@ -88,7 +137,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-0.4, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-4.png" width="672" />
@@ -99,7 +148,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0.4, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-5.png" width="672" />
@@ -110,7 +159,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=1, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-6.png" width="672" />
@@ -121,7 +170,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-7.png" width="672" />
@@ -132,7 +181,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="README_figs/README-splines-8.png" width="672" />
@@ -257,6 +306,11 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 ``` r
 world <- map_data("world")
+## 
+## Attaching package: 'maps'
+## The following object is masked from 'package:purrr':
+## 
+##     map
 world <- world[world$region != "Antarctica",]
 
 gg <- ggplot()
@@ -408,6 +462,14 @@ International Students,0.87", stringsAsFactors=FALSE, sep=",", header=TRUE)
 library(ggplot2)
 library(ggalt)
 library(scales)
+## 
+## Attaching package: 'scales'
+## The following object is masked from 'package:purrr':
+## 
+##     discard
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
  
 gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
 gg <- gg + geom_lollipop(point.colour="steelblue", point.size=2, horizontal=TRUE)
