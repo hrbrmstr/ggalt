@@ -8,6 +8,7 @@ A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', incl
 
 The following functions are implemented:
 
+-   `geom_ubar` : Uniform width bar charts
 -   `geom_horizon` : Horizon charts (modified from <https://github.com/AtherEnergy/ggTimeSeries>)
 -   `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
 -   `geom_xspline` : Connect control points/observations with an X-spline
@@ -42,7 +43,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.4.0'
+## [1] '0.5.0'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
