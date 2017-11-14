@@ -33,7 +33,7 @@ stat_stepribbon <- function(mapping=NULL, data=NULL, geom="ribbon",
   ggplot2::layer(
     data = data,
     mapping = mapping,
-    stat = Stepribbon,
+    stat = StatStepribbon,
     geom = geom,
     position = position,
     show.legend = show.legend,
@@ -53,7 +53,7 @@ stat_stepribbon <- function(mapping=NULL, data=NULL, geom="ribbon",
 #' @export
 StatStepribbon <-
   ggproto(
-    "StepRibbon", Stat,
+    "StatStepRibbon", Stat,
 
     required_aes = c("x", "ymin", "ymax"),
 
