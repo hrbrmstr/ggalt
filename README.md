@@ -23,6 +23,7 @@ The following functions are implemented:
 -   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 -   `geom_dumbbell()` : Dead easy dumbbell plots
 -   `stat_stepribbon()` : Step ribbons
+-   `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other.
 -   plotly integration for a few of the ^^ geoms
 
 ### Installation
@@ -551,6 +552,37 @@ ggplot(df, aes(y=trt, x=l, xend=r)) +
 ```
 
 <img src="README_figs/README-dumbbell2-1.png" width="672" />
+
+``` r
+p <- ggplot(msleep, aes(bodywt, brainwt)) + geom_point()
+
+# add identity scale minor ticks on y axis
+p + annotation_ticks(sides = 'l')
+## Warning: Removed 27 rows containing missing values (geom_point).
+```
+
+<img src="README_figs/README-annoticks-1.png" width="672" />
+
+``` r
+
+# add identity scale minor ticks on x,y axis
+p + annotation_ticks(sides = 'lb')
+## Warning: Removed 27 rows containing missing values (geom_point).
+```
+
+<img src="README_figs/README-annoticks-2.png" width="672" />
+
+``` r
+
+# log10 scale
+p1 <- p + scale_x_log10()
+
+# add minor ticks on both scales
+p1 + annotation_ticks(sides = 'lb', scale = c('identity','log10'))
+## Warning: Removed 27 rows containing missing values (geom_point).
+```
+
+<img src="README_figs/README-annoticks-3.png" width="672" />
 
 ### Code of Conduct
 

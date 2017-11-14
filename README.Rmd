@@ -34,6 +34,7 @@ The following functions are implemented:
 - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 - `geom_dumbbell()` : Dead easy dumbbell plots
 - `stat_stepribbon()` : Step ribbons
+- `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other.  
 - plotly integration for a few of the ^^ geoms
 
 ### Installation
