@@ -11,7 +11,8 @@ Authors@R: c(
       person("Rosen", "Matev", role="ctb", comment="Original annotate_textp implementation on stackoverflow"),
       person("ProPublica", role="dtc", comment="StateFace font"),
       person("Aditya", "Kothari", role=c("aut", "ctb"), comment="Core functionality of horizon plots"),
-      person("Ather", role="dtc", comment="Core functionality of horizon plots")
+      person("Ather", role="dtc", comment="Core functionality of horizon plots"),
+      person("Jonathan","Sidi", role=c("aut","ctb"), comment="Annotation ticks")
     )
 Description: A compendium of new geometries, coordinate systems, statistical 
     transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, 
@@ -57,6 +58,7 @@ RoxygenNote: 6.0.1
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
+    'annotation_ticks.r'
     'coord_proj.r'
     'formatters.r'
     'fortify.r'
