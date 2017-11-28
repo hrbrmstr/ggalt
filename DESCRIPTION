@@ -82,7 +82,5 @@ Collate:
     'grob_absolute.r'
     'guide_axis.r'
     'stateface.r'
-    'stat_fill_labels.R'
-    'stat_stack_labels.R'
     'utils.r'
     'zzz.r'
