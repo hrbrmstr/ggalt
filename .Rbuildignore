@@ -8,3 +8,4 @@
 ^README\.html$
 ^cran-comments\.md$
 ^revdep$
+^appveyor\.yml$
