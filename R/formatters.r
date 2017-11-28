@@ -41,19 +41,19 @@ Gb <- byte_format("Gb", "binary")
 
 #' @export
 #' @rdname byte_format
-bytes <- function (x, symbol = 'auto', units = c('binary', 'si'),
+bytes <- function (x, symbol = "auto", units = c("binary", "si"),
                    only_highest = FALSE) {
   bin_names <- c("bytes", "Kb", "Mb", "Gb", "Tb", "Pb", "Eb", "Zb", "Yb")
   si_names  <- c("bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB")
   units     <- match.arg(units, c("binary", "si"))
-  valid_names <- c('auto', if (units == 'binary') {
+  valid_names <- c("auto", if (units == "binary") {
     c(bin_names, toupper(bin_names))
   } else {
     si_names
   })
   symbol    <- valid_names[pmatch(symbol, valid_names, duplicates.ok = TRUE)]
   if (any(is.na(symbol))) {
-    stop(gettextf('Symbol must be one of %s', paste(dQuote(valid_names), collapse = ', ')))
+    stop(gettextf("Symbol must be one of %s", paste(dQuote(valid_names), collapse = ", ")))
   }
   base      <- switch(units, binary = 1024,      si = 1000)
   out_names <- switch(units, binary = bin_names, si = si_names)
@@ -64,7 +64,7 @@ bytes <- function (x, symbol = 'auto', units = c('binary', 'si'),
     sym_len <- inp_len
   }
   if (sym_len != inp_len) {
-    stop('Symbols argument must be either long 1 or of the same length as the input vector.')
+    stop("Symbols argument must be either long 1 or of the same length as the input vector.")
   }
   symbol <- ifelse(symbol == "auto",
     pmax(floor(log(x, base)), 0),
