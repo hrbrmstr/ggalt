@@ -12,7 +12,8 @@ Authors@R: c(
       person("ProPublica", role="dtc", comment="StateFace font"),
       person("Aditya", "Kothari", role=c("aut", "ctb"), comment="Core functionality of horizon plots"),
       person("Ather", role="dtc", comment="Core functionality of horizon plots"),
-      person("Jonathan","Sidi", role=c("aut","ctb"), comment="Annotation ticks")
+      person("Jonathan","Sidi", role=c("aut","ctb"), comment="Annotation ticks"),
+      person("Tarcisio","Fedrizzi", role="ctb", comment="Bytes formatter")
     )
 Description: A compendium of new geometries, coordinate systems, statistical 
     transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, 
