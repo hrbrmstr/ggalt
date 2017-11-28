@@ -48,7 +48,7 @@ load_stateface <- function() {
       system.file("fonts/", package="ggalt"),
       prompt=FALSE, pattern="*.ttf", recursive=FALSE)))
   }
-  tmp <- capture.output(suppressWarnings(extrafont::loadfonts(quiet=TRUE)))
+  tmp <- utils::capture.output(suppressWarnings(extrafont::loadfonts(quiet=TRUE)))
 }
 
 #' Use ProPublica's StateFace font in ggplot2 plots

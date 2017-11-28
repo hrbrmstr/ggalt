@@ -25,8 +25,9 @@ The following functions are implemented:
 - `geom_xspline` : Connect control points/observations with an X-spline
 - `stat_xspline` : Connect control points/observations with an X-spline
 - `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots
+- `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
 - `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 - `geom_encircle`:	Automatically enclose points in a polygon
