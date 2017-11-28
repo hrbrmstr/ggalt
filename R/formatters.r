@@ -13,7 +13,7 @@
 #' @param units which unit base to use, "\code{binary}" (1024 base) or
 #'   "\code{si}" (1000 base) for ISI units.
 #' @param only_highest Whether to use the unit of the highest number or
-#'   each number uses its own base.
+#'   each number uses its own unit.
 #' @references Units of Information (Wikipedia) :
 #'   \url{http://en.wikipedia.org/wiki/Units_of_information}
 #' @export
