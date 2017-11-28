@@ -8,7 +8,7 @@
 \alias{bytes}
 \title{Bytes formatter: convert to byte measurement and display symbol.}
 \usage{
-byte_format(symbol = "auto", units = "binary")
+byte_format(symbol = "auto", units = "binary", only_highest = TRUE)
 
 Kb(x)
 
@@ -16,7 +16,7 @@ Mb(x)
 
 Gb(x)
 
-bytes(x, symbol = "auto", units = c("binary", "si"))
+bytes(x, symbol = "auto", units = c("binary", "si"), only_highest = FALSE)
 }
 \arguments{
 \item{symbol}{byte symbol to use. If "\code{auto}" the symbol used will be
@@ -28,13 +28,16 @@ equivalents and "\code{iB}" equivalents.}
 \item{units}{which unit base to use, "\code{binary}" (1024 base) or
 "\code{si}" (1000 base) for ISI units.}
 
+\item{only_highest}{Whether to use the unit of the highest number or
+each number uses its own unit.}
+
 \item{x}{a numeric vector to format}
 }
 \value{
 a function with three parameters, \code{x}, a numeric vector that
-  returns a character vector, \code{symbol} the byte symbol (e.g. "\code{Kb}")
-  desired and the measurement \code{units} (traditional \code{binary} or
-  \code{si} for ISI metric units).
+  returns a character vector, \code{symbol} a single or a vector of byte
+symbol(s) (e.g. "\code{Kb}") desired and the measurement \code{units}
+(traditional \code{binary} or \code{si} for ISI metric units).
 }
 \description{
 Bytes formatter: convert to byte measurement and display symbol.
