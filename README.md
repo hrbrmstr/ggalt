@@ -1,30 +1,52 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) [![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggalt)](https://CRAN.R-project.org/package=ggalt) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
-`ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations, Scales & Fonts for 'ggplot2'
+[![Project Status: Active - The project has reached a stable, usable
+state and is being actively
+developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
+[![Travis-CI Build
+Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggalt)](https://CRAN.R-project.org/package=ggalt)
+![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
-A compendium of 'geoms', 'coords', 'stats', scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, a new map coordinate system based on the 'PROJ.4'-library and the 'StateFace' open source font 'ProPublica'.
+`ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations,
+Scales & Fonts for ‘ggplot2’
+
+A compendium of ‘geoms’, ‘coords’, ‘stats’, scales and fonts for
+‘ggplot2’, including splines, 1d and 2d densities, univariate average
+shifted histograms, a new map coordinate system based on the
+‘PROJ.4’-library and the ‘StateFace’ open source font ‘ProPublica’.
 
 The following functions are implemented:
 
--   `geom_ubar` : Uniform width bar charts
--   `geom_horizon` : Horizon charts (modified from <https://github.com/AtherEnergy/ggTimeSeries>)
--   `coord_proj` : Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)
--   `geom_xspline` : Connect control points/observations with an X-spline
--   `stat_xspline` : Connect control points/observations with an X-spline
--   `geom_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
--   `geom_stateface`: Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` : Display a smooth density estimate (uses `KernSmooth::bkde`)
--   `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
--   `stat_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
--   `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
--   `geom_encircle`: Automatically enclose points in a polygon
--   `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
--   `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
--   `geom_dumbbell()` : Dead easy dumbbell plots
--   `stat_stepribbon()` : Step ribbons
--   `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other.
--   plotly integration for a few of the ^^ geoms
+  - `geom_ubar` : Uniform width bar charts
+  - `geom_horizon` : Horizon charts (modified from
+    <https://github.com/AtherEnergy/ggTimeSeries>)
+  - `coord_proj` : Like `coord_map`, only better (prbly shld use this
+    with `geom_cartogram` as `geom_map`’s new defaults are ugh)
+  - `geom_xspline` : Connect control points/observations with an
+    X-spline
+  - `stat_xspline` : Connect control points/observations with an
+    X-spline
+  - `geom_bkde` : Display a smooth density estimate (uses
+    `KernSmooth::bkde`)
+  - `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots
+  - `geom_bkde2d` : Contours from a 2d density estimate. (uses
+    `KernSmooth::bkde2D`)
+  - `stat_bkde` : Display a smooth density estimate (uses
+    `KernSmooth::bkde`)
+  - `stat_bkde2d` : Contours from a 2d density estimate. (uses
+    `KernSmooth::bkde2D`)
+  - `stat_ash` : Compute and display a univariate averaged shifted
+    histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
+  - `geom_encircle`: Automatically enclose points in a polygon
+  - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+  - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
+  - `geom_dumbbell()` : Dead easy dumbbell plots
+  - `stat_stepribbon()` : Step ribbons
+  - `annotation_ticks()` : Add minor ticks to identity, exp(1) and
+    exp(10) axis scales independently of each other.  
+  - plotly integration for a few of the ^^ geoms
 
 ### Installation
 
@@ -55,7 +77,8 @@ dat <- data.frame(x=c(1:10, 1:10, 1:10),
 
 ### Horzon Chart
 
-Example carved from: <https://github.com/halhen/viz-pub/blob/master/sports-time-of-day/2_gen_chart.R>
+Example carved from:
+<https://github.com/halhen/viz-pub/blob/master/sports-time-of-day/2_gen_chart.R>
 
 ``` r
 library(hrbrthemes)
@@ -101,7 +124,7 @@ ggplot(sports, aes(time2, p_smooth)) +
 
 <img src="README_figs/README-horizon-1.png" width="912" />
 
-### Splines!
+### Splines\!
 
 ``` r
 ggplot(dat, aes(x, y, group=group, color=group)) +
@@ -117,7 +140,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
   geom_line() +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-2.png" width="672" />
@@ -128,7 +151,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-3.png" width="672" />
@@ -139,7 +162,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-0.4, size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-4.png" width="672" />
@@ -150,7 +173,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0.4, size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-5.png" width="672" />
@@ -161,7 +184,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=1, size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-6.png" width="672" />
@@ -172,7 +195,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0, size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-7.png" width="672" />
@@ -183,7 +206,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
-## `geom_smooth()` using method = 'loess'
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
 ```
 
 <img src="README_figs/README-splines-8.png" width="672" />
@@ -304,7 +327,7 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 
 <img src="README_figs/README-bkde2d-2.png" width="672" />
 
-### `coord_proj` LIVES! (still needs a teensy bit of work)
+### `coord_proj` LIVES\! (still needs a teensy bit of work)
 
 ``` r
 world <- map_data("world")
@@ -586,4 +609,6 @@ p1 + annotation_ticks(sides = 'lb', scale = c('identity','log10'))
 
 ### Code of Conduct
 
-Please note that this project is released with a [Contributor Code of Conduct](CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of
+Conduct](CONDUCT.md). By participating in this project you agree to
+abide by its terms.
