@@ -45,9 +45,16 @@ bytes <- function (x, symbol = 'auto', units = c('binary', 'si'),
                    only_highest = FALSE) {
   bin_names <- c("bytes", "Kb", "Mb", "Gb", "Tb", "Pb", "Eb", "Zb", "Yb")
   si_names  <- c("bytes", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB")
-  symbol    <- match.arg(symbol, unique(c("auto", bin_names, toupper(bin_names),
-                                          si_names)), several.ok = TRUE)
   units     <- match.arg(units, c("binary", "si"))
+  valid_names <- c('auto', if (units == 'binary') {
+    c(bin_names, toupper(bin_names))
+  } else {
+    si_names
+  })
+  symbol    <- valid_names[pmatch(symbol, valid_names, duplicates.ok = TRUE)]
+  if (any(is.na(symbol))) {
+    stop(gettextf('Symbol must be one of %s', paste(dQuote(valid_names), collapse = ', ')))
+  }
   base      <- switch(units, binary = 1024,      si = 1000)
   out_names <- switch(units, binary = bin_names, si = si_names)
   sym_len   <- length(symbol)
@@ -69,4 +76,5 @@ bytes <- function (x, symbol = 'auto', units = c('binary', 'si'),
                out_names[symbol + 1])
   ifelse(!is.na(x), res, x)
 }
+
 
