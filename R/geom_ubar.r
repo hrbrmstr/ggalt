@@ -27,11 +27,11 @@
 #' @inheritParams ggplot2::layer
 #' @export
 #' @examples
-# library(ggplot2)
-#
-# data(economics)
-# ggplot(economics, aes(date, uempmed)) +
-#   geom_ubar()
+#' library(ggplot2)
+#'
+#' data(economics)
+#' ggplot(economics, aes(date, uempmed)) +
+#'   geom_ubar()
 geom_ubar <- function(mapping = NULL, data = NULL, stat = "identity",
                       position = "identity", ...,
                       na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) {

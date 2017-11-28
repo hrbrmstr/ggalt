@@ -4,7 +4,8 @@ Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
 Version: 0.6.0
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
-      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre")),
+      person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
+             comment = c(ORCID = "0000-0001-5670-2640")),
       person("Ben", "Bolker", comment="Encircling & additional splines", role = c("aut", "ctb")),
       person("Ben", "Marwick", comment="General codebase cleanup", role = c("ctb")),
       person("Jan", "Schulz", comment="Annotations", role = c("aut", "ctb")),
