@@ -20,6 +20,8 @@
 #' @param colour_xend the colour of the end point
 #' @param dot_guide if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point
 #' @param dot_guide_size,dot_guide_colour singe-value aesthetics for \code{dot_guide}
+#' @param position Position adjustment, either as a string, or the result of a
+#'   call to a position adjustment function.
 #' @inheritParams ggplot2::layer
 #' @export
 #' @examples
@@ -34,19 +36,34 @@
 #'   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
 #'   theme_minimal() +
 #'   theme(panel.grid.major.x=element_line(size=0.05))
+#'
+#' ## with vertical dodging
+#' df2 <- data.frame(trt = c(LETTERS[1:5], "D"),
+#'                  l = c(20, 40, 10, 30, 50, 40),
+#'                  r = c(70, 50, 30, 60, 80, 70))
+#'
+#' ggplot(df2, aes(y=trt, x=l, xend=r)) +
+#'   geom_dumbbell(size=3, color="#e3e2e1",
+#'                 colour_x = "#5b8124", colour_xend = "#bad744",
+#'                 dot_guide=TRUE, dot_guide_size=0.25,
+#'                 position=position_dodgev(height=0.4)) +
+#'   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
+#'   theme_minimal() +
+#'   theme(panel.grid.major.x=element_line(size=0.05))
 geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
                           colour_x = NULL, size_x = NULL,
                           colour_xend = NULL, size_xend = NULL,
                           dot_guide = FALSE, dot_guide_size = NULL,
                           dot_guide_colour = NULL,
-                          na.rm = FALSE, show.legend = NA, inherit.aes = TRUE) {
+                          na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
+                          position = "identity") {
 
   layer(
     data = data,
     mapping = mapping,
     stat = "identity",
     geom = GeomDumbbell,
-    position = "identity",
+    position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,
     params = list(

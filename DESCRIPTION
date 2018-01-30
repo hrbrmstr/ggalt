@@ -43,6 +43,7 @@ Imports:
     utils,
     graphics,
     grDevices,
+    plyr,
     dplyr,
     RColorBrewer,
     KernSmooth,
@@ -64,6 +65,7 @@ Collate:
     'coord_proj.r'
     'formatters.r'
     'fortify.r'
+    'position-dodgev.R'
     'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'
