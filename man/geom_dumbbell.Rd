@@ -2,7 +2,7 @@
 % Please edit documentation in R/geom_dumbbell.R
 \name{geom_dumbbell}
 \alias{geom_dumbbell}
-\title{Dumbell charts}
+\title{Dumbbell charts}
 \usage{
 geom_dumbbell(mapping = NULL, data = NULL, ..., colour_x = NULL,
   size_x = NULL, colour_xend = NULL, size_xend = NULL,
