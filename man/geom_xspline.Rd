@@ -62,7 +62,7 @@ closed shape.}
 first and last control points should be replicated for drawing the
 curve. Ignored for closed X-splines.}
 
-\item{...}{other arguments passed on to \code{\link[=layer]{layer()}}. These are
+\item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
@@ -195,3 +195,4 @@ Blanc, C. and Schlick, C. (1995), "X-splines : A Spline Model
 
 Other xspline implementations: \code{\link{geom_xspline2}}
 }
+\concept{xspline implementations}

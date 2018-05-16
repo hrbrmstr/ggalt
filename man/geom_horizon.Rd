@@ -25,8 +25,6 @@ A horizon plot breaks the Y dimension down using colours. This is useful
 when visualising y values spanning a vast range and / or trying to highlight
 outliers without losing context of the rest of the data.\cr \cr Horizon
 plots are best viewed in an apsect ratio of very low vertical length.
-
-Transforms data for a horizon plot
 }
 \section{Aesthetics}{
  \code{x}, \code{y}, \code{fill}. \code{fill} defaults to \code{..band..} which is

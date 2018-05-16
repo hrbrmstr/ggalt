@@ -1,6 +1,6 @@
 0.5.0
 =====================
-* `geom_ubar()` : unform bar charts based on `geom_segment()`
+* `geom_ubar()` : uniform bar charts based on `geom_segment()`
 
 0.4.0
 =====================

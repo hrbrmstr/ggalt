@@ -56,7 +56,7 @@ Imports:
     extrafont,
     tibble,
     plotly (>= 3.4.1)
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'

@@ -15,3 +15,4 @@ the font on your system
 Other StateFace operations: \code{\link{geom_stateface}},
   \code{\link{load_stateface}}
 }
+\concept{StateFace operations}

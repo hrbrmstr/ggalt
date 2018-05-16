@@ -50,14 +50,14 @@ results. see \code{\link[KernSmooth]{bkde2D}} for details}
 minimum and maximum values of x at which to compute the estimate for
 each direction. see \code{\link[KernSmooth]{bkde2D}} for details}
 
-\item{lineend}{Line end style (round, butt, square)}
+\item{lineend}{Line end style (round, butt, square).}
 
 \item{contour}{If \code{TRUE}, contour the results of the 2d density
 estimation}
 
-\item{linejoin}{Line join style (round, mitre, bevel)}
+\item{linejoin}{Line join style (round, mitre, bevel).}
 
-\item{linemitre}{Line mitre limit (number greater than 1)}
+\item{linemitre}{Line mitre limit (number greater than 1).}
 
 \item{na.rm}{If \code{FALSE}, the default, missing values are removed with
 a warning. If \code{TRUE}, missing values are silently removed.}
@@ -73,7 +73,7 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
 
-\item{...}{other arguments passed on to \code{\link[=layer]{layer()}}. These are
+\item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
@@ -89,8 +89,6 @@ specified by range.x are ignored. see \code{\link[KernSmooth]{bkde2D}}
 for details}
 }
 \description{
-Contours from a 2d density estimate.
-
 Perform a 2D kernel density estimation using \code{bkde2D} and display the
 results with contours. This can be useful for dealing with overplotting
 }
