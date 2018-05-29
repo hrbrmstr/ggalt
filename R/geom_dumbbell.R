@@ -1,4 +1,4 @@
-#' Dumbell charts
+#' Dumbbell charts
 #'
 #' The dumbbell geom is used to create dumbbell charts.
 #'
