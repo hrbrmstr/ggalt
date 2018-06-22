@@ -7,7 +7,7 @@
 \alias{stat_horizon}
 \alias{StatHorizon}
 \title{Plot a time series as a horizon plot}
-\format{An object of class \code{GeomHorizon} (inherits from \code{GeomArea}, \code{GeomRibbon}, \code{Geom}, \code{ggproto}) of length 4.}
+\format{An object of class \code{GeomHorizon} (inherits from \code{GeomArea}, \code{GeomRibbon}, \code{Geom}, \code{ggproto}, \code{gg}) of length 4.}
 \usage{
 geom_horizon(mapping = NULL, data = NULL, show.legend = TRUE,
   inherit.aes = TRUE, na.rm = TRUE, bandwidth = NULL, ...)
@@ -25,8 +25,6 @@ A horizon plot breaks the Y dimension down using colours. This is useful
 when visualising y values spanning a vast range and / or trying to highlight
 outliers without losing context of the rest of the data.\cr \cr Horizon
 plots are best viewed in an apsect ratio of very low vertical length.
-
-Transforms data for a horizon plot
 }
 \section{Aesthetics}{
  \code{x}, \code{y}, \code{fill}. \code{fill} defaults to \code{..band..} which is
