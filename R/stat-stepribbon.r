@@ -5,9 +5,9 @@
 #' @md
 #' @inheritParams ggplot2::geom_ribbon
 #' @param geom which geom to use; defaults to "`ribbon`"
-#' @param direction \code{hv} for horizontal-veritcal steps, `vh`` for
+#' @param direction `hv` for horizontal-veritcal steps, `vh` for
 #'   vertical-horizontal steps
-#' @references \url{https://groups.google.com/forum/?fromgroups=#!topic/ggplot2/9cFWHaH1CPs}
+#' @references [https://groups.google.com/forum/?fromgroups=#!topic/ggplot2/9cFWHaH1CPs]()
 #' @export
 #' @examples
 #' x <- 1:10

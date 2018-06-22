@@ -80,3 +80,6 @@ ggrepel::geom_label_repel(data = mtcars[mtcars$carb==4,],aes(label = name))
 }
 
 }
+\author{
+Jonathan Sidi
+}

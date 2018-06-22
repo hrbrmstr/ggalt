@@ -10,6 +10,7 @@ knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=2, fig.path = "REA
 
 [![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active) 
 [![Travis-CI Build Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt) 
+[![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/ggalt?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/ggalt) 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/ggalt)](https://CRAN.R-project.org/package=ggalt) 
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
@@ -25,8 +26,9 @@ The following functions are implemented:
 - `geom_xspline` : Connect control points/observations with an X-spline
 - `stat_xspline` : Connect control points/observations with an X-spline
 - `geom_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
-- `geom_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+- `geom_stateface`:	Use ProPublica's StateFace font in ggplot2 plots
+- `geom_bkde2d` : Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
+- `stat_bkde` :	Display a smooth density estimate (uses `KernSmooth::bkde`)
 - `stat_bkde2d` :	Contours from a 2d density estimate. (uses `KernSmooth::bkde2D`)
 - `stat_ash` : Compute and display a univariate averaged shifted histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
 - `geom_encircle`:	Automatically enclose points in a polygon

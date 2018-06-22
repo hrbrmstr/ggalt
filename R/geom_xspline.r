@@ -132,11 +132,13 @@ geom_xspline <- function(mapping = NULL, data = NULL, stat = "xspline",
     position = position,
     show.legend = show.legend,
     inherit.aes = inherit.aes,
-    params = list(spline_shape=spline_shape,
-                  open=open,
-                  na.rm = na.rm,
-                  rep_ends=rep_ends,
-                  ...)
+    params = list(
+      spline_shape = spline_shape,
+      open = open,
+      na.rm = na.rm,
+      rep_ends = rep_ends,
+      ...
+    )
   )
 }
 
@@ -188,6 +190,7 @@ StatXspline <- ggproto("StatXspline", Stat,
 
   compute_group = function(self, data, scales, params,
                            spline_shape=-0.25, open=TRUE, rep_ends=TRUE) {
+
     tf <- tempfile(fileext=".png")
     png(tf)
     plot.new()
@@ -197,4 +200,5 @@ StatXspline <- ggproto("StatXspline", Stat,
 
     data.frame(x=tmp$x, y=tmp$y)
   }
+
 )

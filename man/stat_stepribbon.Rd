@@ -47,7 +47,7 @@ rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
 the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
 
-\item{direction}{\code{hv} for horizontal-veritcal steps, `vh`` for
+\item{direction}{\code{hv} for horizontal-veritcal steps, \code{vh} for
 vertical-horizontal steps}
 
 \item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}. These are

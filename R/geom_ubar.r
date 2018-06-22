@@ -5,9 +5,6 @@
 #' constant without any tricks and you have granular control over the
 #' segment width. I decided it was time to make a `geom`.
 #'
-#' Dumbbell dot plots — dot plots with two or more series of data — are an
-#' alternative to the clustered bar chart or slope graph.
-#'
 #' @md
 #' @section Aesthetics:
 #' `geom_ubar`` understands the following aesthetics (required aesthetics are in bold):

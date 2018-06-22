@@ -6,6 +6,8 @@ state and is being actively
 developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
 [![Travis-CI Build
 Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/ggalt?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/ggalt)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggalt)](https://CRAN.R-project.org/package=ggalt)
 ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
 
@@ -36,12 +38,13 @@ The following functions are implemented:
   - `geom_bkde` : Display a smooth density estimate (uses
     `KernSmooth::bkde`)
 
-  - `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots-
-    `stat_bkde` : Display a smooth density estimate (uses
-    `KernSmooth::bkde`)
+  - `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots
 
   - `geom_bkde2d` : Contours from a 2d density estimate. (uses
     `KernSmooth::bkde2D`)
+
+  - `stat_bkde` : Display a smooth density estimate (uses
+    `KernSmooth::bkde`)
 
   - `stat_bkde2d` : Contours from a 2d density estimate. (uses
     `KernSmooth::bkde2D`)
@@ -86,7 +89,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.5.0'
+## [1] '0.6.1'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
