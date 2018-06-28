@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.6.0
+Version: 0.6.1
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
@@ -70,6 +70,7 @@ Collate:
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'
+    'geom_spikelines.R'
     'geom_dumbbell.R'
     'geom_cartogram.r'
     'geom_encircle.r'

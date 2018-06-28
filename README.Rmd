@@ -36,7 +36,9 @@ The following functions are implemented:
 - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
 - `geom_dumbbell()` : Dead easy dumbbell plots
 - `stat_stepribbon()` : Step ribbons
-- `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other.  
+- `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other.
+- `geom_spikelines()` : Instead of geom_vline and geom_hline a pair of segments that originate from same c(x,y) are drawn to the respective axes.
+
 - plotly integration for a few of the ^^ geoms
 
 ### Installation
@@ -422,6 +424,18 @@ p1 <- p + scale_x_log10()
 
 # add minor ticks on both scales
 p1 + annotation_ticks(sides = 'lb', scale = c('identity','log10'))
+```
+
+```{r spikelines, message=FALSE, fig.width=7, fig.height=7}
+
+mtcars$name <- rownames(mtcars)
+
+p <- ggplot(data = mtcars, aes(x=mpg,y=disp)) + geom_point()
+
+p + 
+  geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) + 
+  ggrepel::geom_label_repel(data = mtcars[mtcars$carb==4,],aes(label = name))
+
 ```
 
 ### Code of Conduct

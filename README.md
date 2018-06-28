@@ -22,32 +22,53 @@ shifted histograms, a new map coordinate system based on the
 The following functions are implemented:
 
   - `geom_ubar` : Uniform width bar charts
+
   - `geom_horizon` : Horizon charts (modified from
     <https://github.com/AtherEnergy/ggTimeSeries>)
+
   - `coord_proj` : Like `coord_map`, only better (prbly shld use this
     with `geom_cartogram` as `geom_map`’s new defaults are ugh)
+
   - `geom_xspline` : Connect control points/observations with an
     X-spline
+
   - `stat_xspline` : Connect control points/observations with an
     X-spline
+
   - `geom_bkde` : Display a smooth density estimate (uses
     `KernSmooth::bkde`)
+
   - `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots
+
   - `geom_bkde2d` : Contours from a 2d density estimate. (uses
     `KernSmooth::bkde2D`)
+
   - `stat_bkde` : Display a smooth density estimate (uses
     `KernSmooth::bkde`)
+
   - `stat_bkde2d` : Contours from a 2d density estimate. (uses
     `KernSmooth::bkde2D`)
+
   - `stat_ash` : Compute and display a univariate averaged shifted
     histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
+
   - `geom_encircle`: Automatically enclose points in a polygon
+
   - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+
   - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
+
   - `geom_dumbbell()` : Dead easy dumbbell plots
+
   - `stat_stepribbon()` : Step ribbons
+
   - `annotation_ticks()` : Add minor ticks to identity, exp(1) and
-    exp(10) axis scales independently of each other.  
+    exp(10) axis scales independently of each other.
+
+  - `geom_spikelines()` : Instead of geom\_vline and geom\_hline a pair
+    of segments that originate from same c(x,y) are drawn to the
+    respective axes.
+
   - plotly integration for a few of the ^^ geoms
 
 ### Installation
@@ -68,7 +89,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.6.0'
+## [1] '0.6.1'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -608,6 +629,19 @@ p1 + annotation_ticks(sides = 'lb', scale = c('identity','log10'))
 ```
 
 <img src="README_figs/README-annoticks-3.png" width="672" />
+
+``` r
+
+mtcars$name <- rownames(mtcars)
+
+p <- ggplot(data = mtcars, aes(x=mpg,y=disp)) + geom_point()
+
+p + 
+  geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) + 
+  ggrepel::geom_label_repel(data = mtcars[mtcars$carb==4,],aes(label = name))
+```
+
+<img src="README_figs/README-spikelines-1.png" width="672" />
 
 ### Code of Conduct
 
