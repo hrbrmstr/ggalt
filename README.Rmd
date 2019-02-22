@@ -36,26 +36,28 @@ install.packages("ggalt")
 
 |  __Geom__ |  __Description__ | __Uses__ |
 |:--|:--|:--|
-| `geom_ubar()` | Uniform width bar charts |
-| `geom_horizon()` | Horizon charts (modified from <https://github.com/AtherEnergy/ggTimeSeries>) |
-| `coord_proj()` | Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)|
-| `geom_xspline()` | Connect control points/observations with an X-spline|
-| `stat_xspline()` | Connect control points/observations with an X-spline|
-| `geom_bkde()` |	Display a smooth density estimate | `KernSmooth::bkde`
-| `geom_stateface()`|	Use ProPublica's StateFace font in ggplot2 plots |
-| `geom_bkde2d()` | Contours from a 2d density estimate. | `KernSmooth::bkde2D`
-| `stat_bkde()` |	Display a smooth density estimate | `KernSmooth::bkde`
-| `stat_bkde2d()` |	Contours from a 2d density estimate. | `KernSmooth::bkde2D`
-| `stat_ash()` | Compute and display a univariate averaged shifted histogram (polynomial kernel) | `ash::ash1`/`ash::bin1`
-| `geom_encircle()`|	Automatically enclose points in a polygon |
-| `geom_lollipop()`| Dead easy lollipops (horizontal or vertical) |
-| `geom_dumbbell()` | Dead easy dumbbell plots |
-| `stat_stepribbon()` | Step ribbons |
-| `annotation_ticks()` | Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other. |
-| `geom_spikelines()` | Instead of geom_vline and geom_hline a pair of segments that originate from same c(x,y) are drawn to the respective axes. |
-| `byte_format()`| helpers. e.g. turn `10000` into `10 Kb` |
+| [`coord_proj()`](https://yonicd.github.io/ggalt/reference/coord_proj.html) | Like `coord_map`, only better (prbly shld use this with `geom_cartogram` as `geom_map`'s new defaults are ugh)|
+| [`geom_stateface()`](https://yonicd.github.io/ggalt/reference/geom_stateface.html)|	Use ProPublica's [StateFace](https://www.fontsquirrel.com/fonts/stateface) font in ggplot2 plots |
+| [`geom_ubar()`](https://yonicd.github.io/ggalt/reference/geom_ubar.html) | Uniform width bar charts |
+| [`geom_horizon()`](https://yonicd.github.io/ggalt/reference/geom_horizon.html) | Horizon charts (modified from [ggTimesSeries](https://github.com/AtherEnergy/ggTimeSeries) ) |
+| [`geom_xspline()`](https://yonicd.github.io/ggalt/reference/geom_xspline.html) [`stat_xspline()`](https://yonicd.github.io/ggalt/reference/geom_xspline.html) | Connect control points/observations with an X-spline|
+| [`geom_bkde()`](https://yonicd.github.io/ggalt/reference/geom_bkde.html) [`stat_bkde()`](https://yonicd.github.io/ggalt/reference/geom_bkde.html) |	Display a smooth density estimate | `KernSmooth::bkde`
+| [`geom_bkde2d()`](https://yonicd.github.io/ggalt/reference/geom_bkde2d.html) [`stat_bkde2d()`](https://yonicd.github.io/ggalt/reference/geom_bkde2d.html) | Contours from a 2d density estimate. | `KernSmooth::bkde2D`
+| [`stat_ash()`](https://yonicd.github.io/ggalt/reference/stat_ash.html) | Compute and display a univariate averaged shifted histogram (polynomial kernel) | `ash::ash1`/`ash::bin1`
+| [`geom_encircle()`](https://yonicd.github.io/ggalt/reference/geom_encircle.html) |	Automatically enclose points in a polygon |
+| [`geom_lollipop()`](https://yonicd.github.io/ggalt/reference/geom_lollipop.html) | Dead easy lollipops (horizontal or vertical) |
+| [`geom_dumbbell()`](https://yonicd.github.io/ggalt/reference/geom_dumbbell.html) | Dead easy dumbbell plots |
+| [`stat_stepribbon()`](https://yonicd.github.io/ggalt/reference/stat_stepribbon.html) | Step ribbons |
+| [`annotation_ticks()`](https://yonicd.github.io/ggalt/reference/annotation_ticks.html) | Add minor ticks to identity, exp(1) and exp(10) axis scales independently of each other. |
+| [`geom_spikelines()`](https://yonicd.github.io/ggalt/reference/geom_spikelines.html) | Instead of geom_vline and geom_hline a pair of segments that originate from same c(x,y) are drawn to the respective axes. |
 
-__note__: plotly integration for a few of the ^^ geoms
+## Utility Functions
+
+|  __Function__ |  __Description__ |
+|:--|:--|
+| [`byte_format()`](https://yonicd.github.io/ggalt/reference/byte_format.html) | helpers. e.g. turn `10000` into `10 Kb` |
+
+__note__: [plotly](https://github.com/ropensci/plotly) integration for a few of the ^^ geoms
 
 ### Code of Conduct
 
