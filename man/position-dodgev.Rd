@@ -4,36 +4,42 @@
 \name{position_dodgev}
 \alias{position_dodgev}
 \alias{PositionDodgev}
-\alias{pos_dodgev}
-\alias{collidev}
 \title{Vertically dodge position}
 \usage{
 position_dodgev(height = NULL)
-
-pos_dodgev(df, height)
-
-collidev(data, height = NULL, name, strategy, ..., check.height = TRUE,
-  reverse = FALSE)
+}
+\arguments{
+\item{height}{numeric, height of vertical dodge, Default: NULL}
 }
 \description{
 Vertically dodge position
 }
 \note{
 position-dodgev(): unmodified from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
+}
+\examples{
 
-PositionDodgev(): based on from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
+if(interactive()){
 
-pos_dodgev(): unmodified from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
+dat <- data.frame(
+  trt = c(LETTERS[1:5], "D"),
+  l = c(20, 40, 10, 30, 50, 40),
+  r = c(70, 50, 30, 60, 80, 70)
+)
 
-collidev(): based on lionel-/ggstance/R/position.R 73f521384ae8ea277db5f7d5a2854004aa18f947
+ggplot(dat, aes(y=trt, x=l, xend=r)) +
+ geom_dumbbell(size=3, color="#e3e2e1",
+               colour_x = "#5b8124", colour_xend = "#bad744",
+               dot_guide=TRUE, dot_guide_size=0.25,
+               position=position_dodgev(height=0.8)) +
+ labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
+ theme_minimal() +
+ theme(panel.grid.major.x=element_line(size=0.05))
+
+ }
+
 }
 \author{
-@ggstance authors
-
-@ggstance authors
-
-@ggstance authors
-
 @ggstance authors
 }
 \keyword{datasets}

@@ -7,13 +7,14 @@
 \usage{
 geom_bkde2d(mapping = NULL, data = NULL, stat = "bkde2d",
   position = "identity", bandwidth = NULL, range.x = NULL,
-  lineend = "butt", contour = TRUE, linejoin = "round", linemitre = 1,
-  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...)
+  lineend = "butt", contour = TRUE, linejoin = "round",
+  linemitre = 1, na.rm = FALSE, show.legend = NA,
+  inherit.aes = TRUE, ...)
 
 stat_bkde2d(mapping = NULL, data = NULL, geom = "density2d",
   position = "identity", contour = TRUE, bandwidth = NULL,
-  grid_size = c(51, 51), range.x = NULL, truncate = TRUE, na.rm = FALSE,
-  show.legend = NA, inherit.aes = TRUE, ...)
+  grid_size = c(51, 51), range.x = NULL, truncate = TRUE,
+  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE, ...)
 }
 \arguments{
 \item{mapping}{Set of aesthetic mappings created by \code{\link[=aes]{aes()}} or
@@ -32,7 +33,7 @@ data. All objects will be fortified to produce a data frame. See
 \code{\link[=fortify]{fortify()}} for which variables will be created.
 
 A \code{function} will be called with a single argument,
-the plot data. The return value must be a \code{data.frame.}, and
+the plot data. The return value must be a \code{data.frame}, and
 will be used as the layer data.}
 
 \item{stat}{The statistical transformation to use on the data for this
@@ -75,7 +76,7 @@ the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
 
 \item{...}{Other arguments passed on to \code{\link[=layer]{layer()}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
-\code{color = "red"} or \code{size = 3}. They may also be parameters
+\code{colour = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
 
 \item{geom}{default geom to use with this stat}

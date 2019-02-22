@@ -16,7 +16,8 @@ Mb(x)
 
 Gb(x)
 
-bytes(x, symbol = "auto", units = c("binary", "si"), only_highest = FALSE)
+bytes(x, symbol = "auto", units = c("binary", "si"),
+  only_highest = FALSE)
 }
 \arguments{
 \item{symbol}{byte symbol to use. If "\code{auto}" the symbol used will be
