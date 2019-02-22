@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.6.1
+Version: 0.6.2
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
@@ -57,7 +57,7 @@ Imports:
     extrafont,
     tibble,
     plotly (>= 3.4.1)
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'

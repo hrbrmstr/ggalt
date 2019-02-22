@@ -1,4 +1,26 @@
-#' Vertically dodge position
+#' @title Vertically dodge position
+#' @param height numeric, height of vertical dodge, Default: NULL
+#' @examples
+#'
+#' if(interactive()){
+#'
+#' dat <- data.frame(
+#'   trt = c(LETTERS[1:5], "D"),
+#'   l = c(20, 40, 10, 30, 50, 40),
+#'   r = c(70, 50, 30, 60, 80, 70)
+#' )
+#'
+#' ggplot(dat, aes(y=trt, x=l, xend=r)) +
+#'  geom_dumbbell(size=3, color="#e3e2e1",
+#'                colour_x = "#5b8124", colour_xend = "#bad744",
+#'                dot_guide=TRUE, dot_guide_size=0.25,
+#'                position=position_dodgev(height=0.8)) +
+#'  labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
+#'  theme_minimal() +
+#'  theme(panel.grid.major.x=element_line(size=0.05))
+#'
+#'  }
+#'
 #' @rdname position-dodgev
 #' @author @@ggstance authors
 #' @note position-dodgev(): unmodified from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
@@ -8,8 +30,6 @@ position_dodgev <- function(height = NULL) {
 }
 
 #' @rdname position-dodgev
-#' @author @@ggstance authors
-#' @note PositionDodgev(): based on from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
 #' @format NULL
 #' @usage NULL
 #' @export
@@ -29,9 +49,6 @@ PositionDodgev <- ggplot2::ggproto("PositionDodgev", ggplot2::Position,
                                    }
 )
 
-#' @rdname position-dodgev
-#' @author @@ggstance authors
-#' @note pos_dodgev(): unmodified from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947
 pos_dodgev <- function(df, height) {
   n <- length(unique(df$group))
   if (n == 1) return(df)
@@ -58,9 +75,6 @@ pos_dodgev <- function(df, height) {
   df
 }
 
-#' @rdname position-dodgev
-#' @author @@ggstance authors
-#' @note collidev(): based on lionel-/ggstance/R/position.R 73f521384ae8ea277db5f7d5a2854004aa18f947
 collidev <- function(data, height = NULL, name, strategy, ..., check.height = TRUE, reverse = FALSE) {
   # Determine height
   if (!is.null(height)) {
