@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.6.2
+Version: 0.7.0
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
@@ -44,25 +44,20 @@ Imports:
     graphics,
     grDevices,
     plyr,
-    dplyr,
     RColorBrewer,
     KernSmooth,
-    proj4,
     scales,
     grid,
     gtable,
     ash,
-    maps,
     MASS,
     extrafont,
-    tibble,
     plotly (>= 3.4.1)
 RoxygenNote: 6.1.1
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
     'annotation_ticks.r'
-    'coord_proj.r'
     'formatters.r'
     'fortify.r'
     'position-dodgev.R'
@@ -72,7 +67,6 @@ Collate:
     'geom_bkde2d.r'
     'geom_spikelines.R'
     'geom_dumbbell.R'
-    'geom_cartogram.r'
     'geom_encircle.r'
     'geom_horizon.r'
     'geom_lollipop.r'

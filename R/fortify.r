@@ -5,5 +5,7 @@
 #' @param ... (unused)
 #' @export
 fortify.table <- function(model, data, ...) {
-  as_tibble(as.data.frame(model, stringsAsFactors=FALSE))
+  out <- as.data.frame(model, stringsAsFactors=FALSE)
+  class(out) <- c("tbl_df", "tbl", "data.frame")
+  out
 }

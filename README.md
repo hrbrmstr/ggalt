@@ -26,9 +26,6 @@ The following functions are implemented:
   - `geom_horizon` : Horizon charts (modified from
     <https://github.com/AtherEnergy/ggTimeSeries>)
 
-  - `coord_proj` : Like `coord_map`, only better (prbly shld use this
-    with `geom_cartogram` as `geom_map`’s new defaults are ugh)
-
   - `geom_xspline` : Connect control points/observations with an
     X-spline
 
@@ -86,10 +83,17 @@ install.packages("ggalt")
 library(ggplot2)
 library(gridExtra)
 library(ggalt)
+## Registered S3 methods overwritten by 'ggalt':
+##   method                  from   
+##   grid.draw.absoluteGrob  ggplot2
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.6.1'
+## [1] '0.7.0'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -349,26 +353,6 @@ m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
 ```
 
 <img src="README_figs/README-bkde2d-2.png" width="672" />
-
-### `coord_proj` LIVES\! (still needs a teensy bit of work)
-
-``` r
-world <- map_data("world")
-## 
-## Attaching package: 'maps'
-## The following object is masked from 'package:purrr':
-## 
-##     map
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_cartogram(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-```
-
-<img src="README_figs/README-coord_proj-1.png" width="672" />
 
 ### ProPublica StateFace
 
