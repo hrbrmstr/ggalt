@@ -14,10 +14,10 @@
 #'   often aesthetics, used to set an aesthetic to a fixed value, like
 #'   \code{color = "red"} or \code{size = 3}. They may also be parameters
 #'   to the paired geom/stat.
-#' @param size_x the size of the start point
-#' @param colour_x the colour of the start point
-#' @param size_xend the size of the end point
-#' @param colour_xend the colour of the end point
+#' @param size_x,size_xend the size of the x/xend; defaults to 0.5
+#' @param colour_x,colour_xend the colour of x/xend; defaults to colour aes
+#' @param shape_x,shape_xend shape to use for x/xend; defaults to 19
+#' @param fill_x,fill_xend fill for x/xend if the shape is hollow; defaults to fill aes
 #' @param dot_guide if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point
 #' @param dot_guide_size,dot_guide_colour singe-value aesthetics for \code{dot_guide}
 #' @param position Position adjustment, either as a string, or the result of a
@@ -27,11 +27,23 @@
 #' @examples
 #' library(ggplot2)
 #'
-#' df <- data.frame(trt=LETTERS[1:5], l=c(20, 40, 10, 30, 50), r=c(70, 50, 30, 60, 80))
+#' data.frame(
+#'   trt = factor(LETTERS[1:5], levels = LETTERS[5:1]),
+#'   l = c(20, 40, 30, 30, 50),
+#'   r = c(70, 50, 10, 60, 80)
+#' ) -> df
 #'
 #' ggplot(df, aes(y=trt, x=l, xend=r)) +
 #'   geom_dumbbell(size=3, color="#e3e2e1",
 #'                 colour_x = "#5b8124", colour_xend = "#bad744",
+#'                 dot_guide=TRUE, dot_guide_size=0.25) +
+#'   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
+#'   theme_minimal() +
+#'   theme(panel.grid.major.x=element_line(size=0.05))
+#'
+#' ggplot(df, aes(y=trt, x=l, xend=r)) +
+#'   geom_dumbbell(size=3, color="#e3e2e1",
+#'                 colour_x = "#5b8124", colour_xend = "#bad744", shape_x = 15,
 #'                 dot_guide=TRUE, dot_guide_size=0.25) +
 #'   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
 #'   theme_minimal() +
@@ -51,8 +63,8 @@
 #'   theme_minimal() +
 #'   theme(panel.grid.major.x=element_line(size=0.05))
 geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
-                          colour_x = NULL, size_x = NULL,
-                          colour_xend = NULL, size_xend = NULL,
+                          colour_x = NULL, size_x = NULL, shape_x = NULL, fill_x = NULL,
+                          colour_xend = NULL, size_xend = NULL, shape_xend = NULL, fill_xend = NULL,
                           dot_guide = FALSE, dot_guide_size = NULL,
                           dot_guide_colour = NULL,
                           na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
@@ -70,8 +82,12 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
       na.rm = na.rm,
       colour_x = colour_x,
       size_x = size_x,
+      shape_x = shape_x,
+      fill_x = fill_x,
       colour_xend = colour_xend,
       size_xend = size_xend,
+      shape_xend = shape_xend,
+      fill_xend = fill_xend,
       dot_guide = dot_guide,
       dot_guide_size = dot_guide_size,
       dot_guide_colour = dot_guide_colour,
@@ -87,8 +103,8 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
 GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   required_aes = c("x", "xend", "y"),
   non_missing_aes = c("size", "shape",
-                      "colour_x", "size_x",
-                      "colour_xend", "size_xend",
+                      "colour_x", "size_x", "shape_x", "fill_x",
+                      "colour_xend", "size_xend", "shape_xend", "fill_xend",
                       "dot_guide", "dot_guide_size", "dot_guide_colour"),
   default_aes = aes(
     shape = 19, colour = "black", size = 0.5, fill = NA,
@@ -100,19 +116,24 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   },
 
   draw_group = function(data, panel_scales, coord,
-                        colour_x = NULL, size_x = NULL,
-                        colour_xend = NULL, size_xend = NULL,
+                        colour_x = NULL, size_x = NULL, shape_x = NULL, fill_x = NULL,
+                        colour_xend = NULL, size_xend = NULL, shape_xend = NULL, fill_xend = NULL,
                         dot_guide = NULL, dot_guide_size = NULL,
                         dot_guide_colour = NULL) {
 
     points.x <- data
     points.x$colour <- colour_x %||% data$colour
+    points.x$fill <- fill_x %||% data$fill
+    points.x$shape <- shape_x %||% 19
     points.x$xend <- NULL
     points.x$size <- size_x %||% (data$size * 1.2)
 
     points.xend <- data
     points.xend$x <- points.xend$xend
+    points.xend$colour <- colour_xend %||% data$colour
+    points.xend$fill <- fill_xend %||% data$fill
     points.xend$xend <- NULL
+    points.xend$shape <- shape_xend %||% 19
     points.xend$colour <- colour_xend %||% data$colour
     points.xend$size <- size_xend %||% (data$size * 1.25)
 
