@@ -1,0 +1,18 @@
+pandoc: 2.3.1
+pkgdown: 1.1.0.9000
+pkgdown_sha: ~
+articles:
+  annoticks: annoticks.html
+  density: density.html
+  dumbell: dumbell.html
+  encircling: encircling.html
+  horizon: horizon.html
+  lollipop: lollipop.html
+  proj: proj.html
+  spikelines: spikelines.html
+  splines: splines.html
+  stateface: stateface.html
+  stepribbon: stepribbon.html
+  ubar: ubar.html
+  verticaldodge: verticaldodge.html
+

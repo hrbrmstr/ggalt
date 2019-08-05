@@ -38,7 +38,12 @@ Suggests:
     knitr,
     rmarkdown,
     ggthemes,
-    reshape2
+    reshape2,
+    pkgdown,
+    hrbrthemes,
+    readr,
+    ggrepel,
+    viridis
 Imports:
     utils,
     graphics,

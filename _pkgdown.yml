@@ -1,0 +1,17 @@
+title: ggalt
+
+development:
+  mode: auto
+
+navbar:
+  structure:
+    left:  [home, reference, articleindex, news]
+    right: [github, twitter]
+  components:
+    articles: ~
+    articleindex:
+      text: Articles
+      href: articles/index.html
+    twitter:
+      icon: fa-lg fa-twitter
+      href: http://twitter.com/hrbrmstr

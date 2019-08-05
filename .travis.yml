@@ -1,19 +1,26 @@
 language: r
 warnings_are_errors: true
 sudo: required
-
 cache: packages
-
 apt_packages:
- - binutils
- - libproj-dev
- - gdal-bin
-
+- binutils
+- libproj-dev
+- gdal-bin
 env:
- global:
-   - CRAN: http://cran.rstudio.com
-
+  global:
+  - CRAN: http://cran.rstudio.com
+  - secure: MTi58h4im/sM7aAMBHUCq7DCPLHNJdZ+1Gv8GDl3DQoUSuR0fcWhNlYBHczFPakRqkM8fWho57Da3qY48eJav20hxpGZmrvV1rfuYDoSqqcxdkn8pqFBifv+UDCfoiftFC7dpDrnsGOAex5v4UO8cu0ttCbDd90mY97h5E4hZIguoFvhdLAjvjF2urNEqRsDEHVpYtFmg6nkm1anaVE7aTWxf7po4r4+lBHgHLGXU9F3SvrO5crccU18hW1sNuGevXmTbccSgASARFV1YNGwr4PeFZKRQVjBzOEUjXonJ9pccTcDRC6bBxxjTDIc1gzFxbWcCWwg2P7tdkiVyEL8BDR4oYcjdKsUl0mbD4Ke9BZ7sh8h5ZuJT0Ll7VmCdS3UYptksU0nlf2S+uqETsCpZr0tVge4EzM9gpOAqoPij1+wjdITf55OXsZkd9bDv4v3eazmrgxBpbz2qcGO3C8yO7BrSHWuuam3SByprGJlW+Z7DRuDYgZDtEZpjQ2rQSxsurUF2qBR75/2HLBNu4XFf4RseSf88iU8EpL1hDQaP2gw11c2iYLs9rX/BIEcKf20UVNhnxUOv025F2FBA6Wcjw2WMs+Y3uoo4Dpn2fSEtzapK+RcRrq7qmQh/QOMaql8yBqyRGyRCDCNdK/N//ObCr0JTxpGbyH7jMuZvOlaZTo=
 notifications:
   email:
     on_success: change
     on_failure: change
+after_success:
+- Rscript -e 'pkgdown::build_site()'
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: "$GITHUB_PAT"
+  keep-history: true
+  local-dir: docs
+  on:
+    branch: master

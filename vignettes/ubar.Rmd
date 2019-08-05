@@ -1,0 +1,30 @@
+---
+title: "Uniform Bars"
+author: "Bob Rudis"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Uniform Bars}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r include=FALSE}
+knitr::opts_chunk$set(collapse=TRUE, comment="##", fig.retina=1, fig.height=6, fig.width=8,message=FALSE,warning = FALSE)
+```
+
+## Uniform Bars
+
+```{r}
+library(ggplot2)
+library(gridExtra)
+library(ggalt)
+library(scales)
+
+```
+
+```{r}
+ggplot(economics, aes(date, uempmed)) +
+  geom_ubar()
+```
