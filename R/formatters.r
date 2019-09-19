@@ -72,7 +72,7 @@ bytes <- function (x, symbol = "auto", units = c("binary", "si"),
   if (only_highest) {
     symbol <- max(symbol, na.rm = TRUE)
   }
-  res <- paste(scales::comma(round(x / base^symbol, 1L)),
+  res <- paste(scales::comma(round(x / base^symbol, 1L), accuracy = 0.1),
                out_names[symbol + 1])
   ifelse(!is.na(x), res, x)
 }
