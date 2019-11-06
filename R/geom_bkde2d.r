@@ -185,6 +185,7 @@ StatBkde2d <- ggproto("StatBkde2d", Stat,
       StatContour$compute_panel(df, scales)
     } else {
       names(df) <- c("x", "y", "density", "group")
+      df$ndensity <- df$density/max(df$density, na.rm = TRUE)
       df$level <- 1
       df$piece <- 1
       df
