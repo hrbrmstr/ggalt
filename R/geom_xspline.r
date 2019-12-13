@@ -148,7 +148,7 @@ geom_xspline <- function(mapping = NULL, data = NULL, stat = "xspline",
 #' @usage NULL
 #' @keywords internal
 #' @export
-GeomXspline <- ggproto("GeomXspline", GeomLine,
+GeomXspline <- ggproto("GeomXspline", GeomPath,
   required_aes = c("x", "y"),
   default_aes = aes(colour = "black", size = 0.5, linetype = 1, alpha = NA)
 )
