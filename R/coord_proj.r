@@ -42,14 +42,14 @@
 #' @export
 #' @examples \dontrun{
 #' # World in Winkel-Tripel
-# world <- map_data("world")
-# world <- world[world$region != "Antarctica",]
-#
-# gg <- ggplot()
-# gg <- gg + geom_cartogram(data=world, map=world,
-#                     aes(x=long, y=lat, map_id=region))
-# gg <- gg + coord_proj("+proj=wintri")
-# gg
+#' world <- map_data("world")
+#' world <- world[world$region != "Antarctica",]
+#'
+#' gg <- ggplot()
+#' gg <- gg + geom_cartogram(data=world, map=world,
+#'                     aes(x=long, y=lat, map_id=region))
+#' gg <- gg + coord_proj("+proj=wintri")
+#' gg
 #'
 #' # U.S.A. Albers-style
 #' usa <- world[world$region == "USA",]
@@ -100,131 +100,15 @@ coord_proj <- function(proj=NULL, inverse = FALSE, degrees = TRUE,
 #' @usage NULL
 #' @keywords internal
 #' @export
-CoordProj <- ggproto("CoordProj", Coord,
-
-  transform = function(self, data, panel_params) {
-
-    trans <- project4(self, data$x, data$y)
-    out <- cunion(trans[c("x", "y")], data)
-
-    out$x <- rescale(out$x, 0:1, panel_params$x.proj)
-    out$y <- rescale(out$y, 0:1, panel_params$y.proj)
-
-    out
-
+CoordProj <- ggproto("CoordProj", ggplot2::Coord,
+  aspect = function(ranges) {
+    diff(ranges$y.proj) / diff(ranges$x.proj)
   },
-
   distance = function(x, y, panel_params) {
     max_dist <- dist_central_angle(panel_params$x.range, panel_params$y.range)
     dist_central_angle(x, y) / max_dist
   },
-
-  aspect = function(ranges) {
-    diff(ranges$y.proj) / diff(ranges$x.proj)
-  },
-
- train = function(self, scale_details) {
-
-    # range in scale
-    ranges <- list()
-    for (n in c("x", "y")) {
-
-      scale <- scale_details[[n]]
-      limits <- self$limits[[n]]
-
-      if (is.null(limits)) {
-        range <- scale$dimension(expand_default(scale))
-      } else {
-        range <- range(scale$transform(limits))
-      }
-      ranges[[n]] <- range
-    }
-
-    orientation <- self$orientation %||% c(90, 0, mean(ranges$x))
-
-    # Increase chances of creating valid boundary region
-    grid <- expand.grid(
-      x = seq(ranges$x[1], ranges$x[2], length.out = 50),
-      y = seq(ranges$y[1], ranges$y[2], length.out = 50)
-    )
-
-    ret <- list(x = list(), y = list())
-
-    # range in map
-    proj <- project4(self, grid$x, grid$y)$range
-    ret$x$proj <- proj[1:2]
-    ret$y$proj <- proj[3:4]
-
-    for (n in c("x", "y")) {
-      out <- scale_details[[n]]$break_info(ranges[[n]])
-      ret[[n]]$range <- out$range
-      ret[[n]]$major <- out$major_source
-      ret[[n]]$minor <- out$minor_source
-      ret[[n]]$labels <- out$labels
-    }
-
-    details <- list(
-      orientation = orientation,
-      x.range = ret$x$range, y.range = ret$y$range,
-      x.proj = ret$x$proj, y.proj = ret$y$proj,
-      x.major = ret$x$major, x.minor = ret$x$minor, x.labels = ret$x$labels,
-      y.major = ret$y$major, y.minor = ret$y$minor, y.labels = ret$y$labels
-    )
-    details
-  },
-  setup_panel_params = function(self, scale_x, scale_y, params = list()) {
-
-    # range in scale
-    ranges <- list()
-    for (n in c("x", "y")) {
-
-      scale <- get(paste0("scale_", n))
-      limits <- self$limits[[n]]
-
-      if (is.null(limits)) {
-        range <- scale$dimension(expand_default(scale))
-      } else {
-        range <- range(scale$transform(limits))
-      }
-      ranges[[n]] <- range
-    }
-
-    orientation <- self$orientation %||% c(90, 0, mean(ranges$x))
-
-    # Increase chances of creating valid boundary region
-    grid <- expand.grid(
-      x = seq(ranges$x[1], ranges$x[2], length.out = 50),
-      y = seq(ranges$y[1], ranges$y[2], length.out = 50)
-    )
-
-    ret <- list(x = list(), y = list())
-
-    # range in map
-    proj <- project4(self, grid$x, grid$y)$range
-    ret$x$proj <- proj[1:2]
-    ret$y$proj <- proj[3:4]
-
-    for (n in c("x", "y")) {
-      out <- get(paste0("scale_", n))$break_info(ranges[[n]])
-      # out <- panel_params[[n]]$break_info(ranges[[n]])
-      ret[[n]]$range <- out$range
-      ret[[n]]$major <- out$major_source
-      ret[[n]]$minor <- out$minor_source
-      ret[[n]]$labels <- out$labels
-    }
-
-    details <- list(
-      orientation = orientation,
-      x.range = ret$x$range, y.range = ret$y$range,
-      x.proj = ret$x$proj, y.proj = ret$y$proj,
-      x.major = ret$x$major, x.minor = ret$x$minor, x.labels = ret$x$labels,
-      y.major = ret$y$major, y.minor = ret$y$minor, y.labels = ret$y$labels
-    )
-    details
-  },
-
   render_bg = function(self, panel_params, theme) {
-
     xrange <- expand_range(panel_params$x.range, 0.2)
     yrange <- expand_range(panel_params$y.range, 0.2)
 
@@ -318,8 +202,73 @@ CoordProj <- ggproto("CoordProj", Coord,
     )
     axes[[which(arrange == "secondary")]] <- zeroGrob()
     axes
-  }
+  },
 
+  backtransform_range = function(panel_params) {
+    list(x = panel_params$x.range, y = panel_params$y.range)
+  },
+
+  transform = function(self, data, panel_params) {
+
+    trans <- project4(self, data$x, data$y)
+    out <- cunion(trans[c("x", "y")], data)
+
+    out$x <- rescale(out$x, 0:1, panel_params$x.proj)
+    out$y <- rescale(out$y, 0:1, panel_params$y.proj)
+
+    out
+
+  },
+
+  setup_panel_params = function(self, scale_x, scale_y, params = list()) {
+    # range in scale
+    ranges <- list()
+    for (n in c("x", "y")) {
+
+      scale <- get(paste0("scale_", n))
+      limits <- self$limits[[n]]
+
+      if (is.null(limits)) {
+        range <- scale$dimension(expand_default(scale))
+      } else {
+        range <- range(scale$transform(limits))
+      }
+      ranges[[n]] <- range
+    }
+
+    orientation <- self$orientation %||% c(90, 0, mean(ranges$x))
+
+    # Increase chances of creating valid boundary region
+    grid <- expand.grid(
+      x = seq(ranges$x[1], ranges$x[2], length.out = 50),
+      y = seq(ranges$y[1], ranges$y[2], length.out = 50)
+    )
+
+    ret <- list(x = list(), y = list())
+
+    # range in map
+    proj <- project4(self, grid$x, grid$y)$range
+    ret$x$proj <- proj[1:2]
+    ret$y$proj <- proj[3:4]
+
+    for (n in c("x", "y")) {
+      out <- get(paste0("scale_", n))$break_info(ranges[[n]])
+      # out <- panel_params[[n]]$break_info(ranges[[n]])
+      ret[[n]]$range <- out$range
+      ret[[n]]$major <- out$major_source
+      ret[[n]]$minor <- out$minor_source
+      ret[[n]]$labels <- out$labels
+    }
+
+    details <- list(
+      orientation = orientation,
+      x.range = ret$x$range, y.range = ret$y$range,
+      x.proj = ret$x$proj, y.proj = ret$y$proj,
+      x.major = ret$x$major, x.minor = ret$x$minor, x.labels = ret$x$labels,
+      y.major = ret$y$major, y.minor = ret$y$minor, y.labels = ret$y$labels
+    )
+    details
+  }
 )
 
 

@@ -11,7 +11,8 @@ Makes the ProPublica StateFace font available to PDF, PostScript,
 et. al. devices.
 }
 \seealso{
-Other StateFace operations: \code{\link{geom_stateface}},
-  \code{\link{show_stateface}}
+Other StateFace operations: 
+\code{\link{geom_stateface}()},
+\code{\link{show_stateface}()}
 }
 \concept{StateFace operations}

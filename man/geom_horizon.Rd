@@ -7,16 +7,34 @@
 \alias{stat_horizon}
 \alias{StatHorizon}
 \title{Plot a time series as a horizon plot}
-\format{An object of class \code{GeomHorizon} (inherits from \code{GeomArea}, \code{GeomRibbon}, \code{Geom}, \code{ggproto}, \code{gg}) of length 4.}
+\format{
+An object of class \code{GeomHorizon} (inherits from \code{GeomArea}, \code{GeomRibbon}, \code{Geom}, \code{ggproto}, \code{gg}) of length 4.
+
+An object of class \code{StatHorizon} (inherits from \code{Stat}, \code{ggproto}, \code{gg}) of length 5.
+}
 \usage{
-geom_horizon(mapping = NULL, data = NULL, show.legend = TRUE,
-  inherit.aes = TRUE, na.rm = TRUE, bandwidth = NULL, ...)
+geom_horizon(
+  mapping = NULL,
+  data = NULL,
+  show.legend = TRUE,
+  inherit.aes = TRUE,
+  na.rm = TRUE,
+  bandwidth = NULL,
+  ...
+)
 
 GeomHorizon
 
-stat_horizon(mapping = NULL, data = NULL, geom = "horizon",
-  show.legend = TRUE, inherit.aes = TRUE, na.rm = TRUE,
-  bandwidth = NULL, ...)
+stat_horizon(
+  mapping = NULL,
+  data = NULL,
+  geom = "horizon",
+  show.legend = TRUE,
+  inherit.aes = TRUE,
+  na.rm = TRUE,
+  bandwidth = NULL,
+  ...
+)
 
 StatHorizon
 }
