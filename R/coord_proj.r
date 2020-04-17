@@ -104,6 +104,10 @@ CoordProj <- ggproto("CoordProj", ggplot2::Coord,
   aspect = function(ranges) {
     diff(ranges$y.proj) / diff(ranges$x.proj)
   },
+  distance = function(x, y, panel_params) {
+    max_dist <- dist_central_angle(panel_params$x.range, panel_params$y.range)
+    dist_central_angle(x, y) / max_dist
+  },
   render_bg = function(self, panel_params, theme) {
     xrange <- expand_range(panel_params$x.range, 0.2)
     yrange <- expand_range(panel_params$y.range, 0.2)
