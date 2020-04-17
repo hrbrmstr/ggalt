@@ -3,7 +3,6 @@
 \docType{package}
 \name{ggalt}
 \alias{ggalt}
-\alias{ggalt-package}
 \title{Extra Geoms, Stats, Coords, Scales & Fonts for 'ggplot2'}
 \description{
 A package containing additional geoms, coords, stats, scales & fonts

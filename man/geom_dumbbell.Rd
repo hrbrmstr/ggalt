@@ -4,15 +4,26 @@
 \alias{geom_dumbbell}
 \title{Dumbbell charts}
 \usage{
-geom_dumbbell(mapping = NULL, data = NULL, ..., colour_x = NULL,
-  size_x = NULL, colour_xend = NULL, size_xend = NULL,
-  dot_guide = FALSE, dot_guide_size = NULL, dot_guide_colour = NULL,
-  na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
-  position = "identity")
+geom_dumbbell(
+  mapping = NULL,
+  data = NULL,
+  ...,
+  colour_x = NULL,
+  size_x = NULL,
+  colour_xend = NULL,
+  size_xend = NULL,
+  dot_guide = FALSE,
+  dot_guide_size = NULL,
+  dot_guide_colour = NULL,
+  na.rm = FALSE,
+  show.legend = NA,
+  inherit.aes = TRUE,
+  position = "identity"
+)
 }
 \arguments{
-\item{mapping}{Set of aesthetic mappings created by \code{\link[=aes]{aes()}} or
-\code{\link[=aes_]{aes_()}}. If specified and \code{inherit.aes = TRUE} (the
+\item{mapping}{Set of aesthetic mappings created by \code{\link[ggplot2:aes]{aes()}} or
+\code{\link[ggplot2:aes_]{aes_()}}. If specified and \code{inherit.aes = TRUE} (the
 default), it is combined with the default mapping at the top level of the
 plot. You must supply \code{mapping} if there is no plot mapping.}
 
@@ -20,15 +31,16 @@ plot. You must supply \code{mapping} if there is no plot mapping.}
 options:
 
 If \code{NULL}, the default, the data is inherited from the plot
-data as specified in the call to \code{\link[=ggplot]{ggplot()}}.
+data as specified in the call to \code{\link[ggplot2:ggplot]{ggplot()}}.
 
 A \code{data.frame}, or other object, will override the plot
 data. All objects will be fortified to produce a data frame. See
-\code{\link[=fortify]{fortify()}} for which variables will be created.
+\code{\link[ggplot2:fortify]{fortify()}} for which variables will be created.
 
 A \code{function} will be called with a single argument,
 the plot data. The return value must be a \code{data.frame}, and
-will be used as the layer data.}
+will be used as the layer data. A \code{function} can be created
+from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
 
 \item{...}{other arguments passed on to \code{\link{layer}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
@@ -59,7 +71,7 @@ display.}
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. \code{\link[=borders]{borders()}}.}
+the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
 
 \item{position}{Position adjustment, either as a string, or the result of a
 call to a position adjustment function.}

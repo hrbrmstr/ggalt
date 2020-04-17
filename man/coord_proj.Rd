@@ -5,8 +5,14 @@
 \title{Similar to \code{coord_map} but uses the PROJ.4 library/package for projection
 transformation}
 \usage{
-coord_proj(proj = NULL, inverse = FALSE, degrees = TRUE,
-  ellps.default = "sphere", xlim = NULL, ylim = NULL)
+coord_proj(
+  proj = NULL,
+  inverse = FALSE,
+  degrees = TRUE,
+  ellps.default = "sphere",
+  xlim = NULL,
+  ylim = NULL
+)
 }
 \arguments{
 \item{proj}{projection definition. If left \code{NULL} will default to
@@ -61,6 +67,14 @@ When \code{inverse} is \code{FALSE} \code{coord_proj} makes a fairly
 \examples{
 \dontrun{
 # World in Winkel-Tripel
+world <- map_data("world")
+world <- world[world$region != "Antarctica",]
+
+gg <- ggplot()
+gg <- gg + geom_cartogram(data=world, map=world,
+                    aes(x=long, y=lat, map_id=region))
+gg <- gg + coord_proj("+proj=wintri")
+gg
 
 # U.S.A. Albers-style
 usa <- world[world$region == "USA",]
