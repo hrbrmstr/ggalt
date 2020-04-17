@@ -101,6 +101,9 @@ coord_proj <- function(proj=NULL, inverse = FALSE, degrees = TRUE,
 #' @keywords internal
 #' @export
 CoordProj <- ggproto("CoordProj", ggplot2::Coord,
+  aspect = function(ranges) {
+    diff(ranges$y.proj) / diff(ranges$x.proj)
+  },
   render_bg = function(self, panel_params, theme) {
     xrange <- expand_range(panel_params$x.range, 0.2)
     yrange <- expand_range(panel_params$y.range, 0.2)
