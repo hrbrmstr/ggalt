@@ -53,7 +53,7 @@ Imports:
     MASS,
     extrafont,
     plotly (>= 3.4.1)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.1
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
@@ -61,6 +61,7 @@ Collate:
     'formatters.r'
     'fortify.r'
     'position-dodgev.R'
+    'position-jitter-on-equal.R'
     'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'

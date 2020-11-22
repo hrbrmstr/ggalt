@@ -19,7 +19,10 @@
 #' @param shape_x,shape_xend shape to use for x/xend; defaults to 19
 #' @param fill_x,fill_xend fill for x/xend if the shape is hollow; defaults to fill aes
 #' @param dot_guide if \code{TRUE}, a leading dotted line will be placed before the left-most dumbbell point
-#' @param dot_guide_size,dot_guide_colour singe-value aesthetics for \code{dot_guide}
+#' @param dot_guide_size,dot_guide_colour singe-value ahesthetics for \code{dot_guide}
+#' @param jitter_on_equal_values numeric value [0..1], default is 0. If non-zero and if both
+#'        values are equal, jitter the points vertically by the amount specified so
+#'        they don't fully overlap.
 #' @param position Position adjustment, either as a string, or the result of a
 #'   call to a position adjustment function.
 #' @inheritParams ggplot2::layer
@@ -66,7 +69,7 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
                           colour_x = NULL, size_x = NULL, shape_x = NULL, fill_x = NULL,
                           colour_xend = NULL, size_xend = NULL, shape_xend = NULL, fill_xend = NULL,
                           dot_guide = FALSE, dot_guide_size = NULL,
-                          dot_guide_colour = NULL,
+                          dot_guide_colour = NULL, jitter_on_equal_values = 0,
                           na.rm = FALSE, show.legend = NA, inherit.aes = TRUE,
                           position = "identity") {
 
@@ -91,6 +94,7 @@ geom_dumbbell <- function(mapping = NULL, data = NULL, ...,
       dot_guide = dot_guide,
       dot_guide_size = dot_guide_size,
       dot_guide_colour = dot_guide_colour,
+      jitter_on_equal_values = jitter_on_equal_values,
       ...
     )
   )
@@ -105,23 +109,25 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   non_missing_aes = c("size", "shape",
                       "colour_x", "size_x", "shape_x", "fill_x",
                       "colour_xend", "size_xend", "shape_xend", "fill_xend",
-                      "dot_guide", "dot_guide_size", "dot_guide_colour"),
+                      "dot_guide", "dot_guide_size", "dot_guide_colour",
+                      "jitter_on_equal_values"),
   default_aes = aes(
     shape = 19, colour = "black", size = 0.5, fill = NA,
     alpha = NA, stroke = 0.5
   ),
 
   setup_data = function(data, params) {
-    transform(data, yend = y)
+    transform(data, point_y = y, yend = y, dot_yend = y)
   },
 
   draw_group = function(data, panel_scales, coord,
                         colour_x = NULL, size_x = NULL, shape_x = NULL, fill_x = NULL,
                         colour_xend = NULL, size_xend = NULL, shape_xend = NULL, fill_xend = NULL,
                         dot_guide = NULL, dot_guide_size = NULL,
-                        dot_guide_colour = NULL) {
+                        dot_guide_colour = NULL, jitter_on_equal_values) {
 
     points.x <- data
+    points.x$y <- points.x$point_y
     points.x$colour <- colour_x %||% data$colour
     points.x$fill <- fill_x %||% data$fill
     points.x$shape <- shape_x %||% 19
@@ -129,6 +135,7 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
     points.x$size <- size_x %||% (data$size * 1.2)
 
     points.xend <- data
+    points.xend.y <- points.xend$yend
     points.xend$x <- points.xend$xend
     points.xend$colour <- colour_xend %||% data$colour
     points.xend$fill <- fill_xend %||% data$fill
@@ -139,6 +146,7 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
 
     dot_df <- data
     dot_df$xend <- ifelse(data$xend < data$x, data$xend, data$x)
+    dot_df$yend <- dot_df$dot_yend
     dot_df$x <- -Inf
     dot_df$linetype <- "11"
     dot_df$size <- dot_guide_size %||% (data$size * 0.5)
@@ -166,6 +174,7 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
   },
 
   draw_key = draw_key_point
+
 )
 
 

@@ -4,10 +4,21 @@
 \alias{annotation_ticks}
 \title{Annotation: tick marks}
 \usage{
-annotation_ticks(sides = "b", scale = "identity", scaled = TRUE,
-  short = unit(0.1, "cm"), mid = unit(0.2, "cm"), long = unit(0.3,
-  "cm"), colour = "black", size = 0.5, linetype = 1, alpha = 1,
-  color = NULL, ticks_per_base = NULL, ...)
+annotation_ticks(
+  sides = "b",
+  scale = "identity",
+  scaled = TRUE,
+  short = unit(0.1, "cm"),
+  mid = unit(0.2, "cm"),
+  long = unit(0.3, "cm"),
+  colour = "black",
+  size = 0.5,
+  linetype = 1,
+  alpha = 1,
+  color = NULL,
+  ticks_per_base = NULL,
+  ...
+)
 }
 \arguments{
 \item{sides}{a string that controls which sides of the plot the log ticks appear on.
