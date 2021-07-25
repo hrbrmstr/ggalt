@@ -3,7 +3,7 @@
 #' A horizon plot breaks the Y dimension down using colours. This is useful
 #' when visualising y values spanning a vast range and / or trying to highlight
 #' outliers without losing context of the rest of the data.\cr \cr Horizon
-#' plots are best viewed in an apsect ratio of very low vertical length.
+#' plots are best viewed in an aspect ratio of very low vertical length.
 #'
 #' @md
 #' @section Aesthetics: `x`, `y`, `fill`. `fill` defaults to `..band..` which is
