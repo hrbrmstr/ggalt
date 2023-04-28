@@ -12,7 +12,8 @@ in the on-screen plot device for ggplot2, you need to install
 the font on your system
 }
 \seealso{
-Other StateFace operations: \code{\link{geom_stateface}},
-  \code{\link{load_stateface}}
+Other StateFace operations: 
+\code{\link{geom_stateface}()},
+\code{\link{load_stateface}()}
 }
 \concept{StateFace operations}

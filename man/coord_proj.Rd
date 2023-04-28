@@ -5,8 +5,14 @@
 \title{Similar to \code{coord_map} but uses the PROJ.4 library/package for projection
 transformation}
 \usage{
-coord_proj(proj = NULL, inverse = FALSE, degrees = TRUE,
-  ellps.default = "sphere", xlim = NULL, ylim = NULL)
+coord_proj(
+  proj = NULL,
+  inverse = FALSE,
+  degrees = TRUE,
+  ellps.default = "sphere",
+  xlim = NULL,
+  ylim = NULL
+)
 }
 \arguments{
 \item{proj}{projection definition. If left \code{NULL} will default to

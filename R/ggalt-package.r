@@ -15,6 +15,7 @@
 #' @importFrom gtable gtable_col gtable_height gtable_width gtable_row gtable_col
 #' @importFrom RColorBrewer brewer.pal
 #' @importFrom extrafont loadfonts fonts ttf_import
+#' @import datasets
 #' @import utils
 #' @importFrom tibble as_tibble
 NULL
