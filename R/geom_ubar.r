@@ -26,6 +26,7 @@
 #'   to the paired geom/stat.
 #' @inheritParams ggplot2::layer
 #' @export
+#' @rdname geom_ubar
 #' @examples
 #' library(ggplot2)
 #'
