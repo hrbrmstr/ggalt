@@ -4,7 +4,6 @@
 #' for ggplot2 2.0+
 #'
 #' @name ggalt
-#' @docType package
 #' @author Bob Rudis (@@hrbrmstr)
 #' @import maps ggplot2 graphics grDevices KernSmooth proj4 ash MASS
 #' @importFrom dplyr filter
@@ -18,4 +17,4 @@
 #' @import datasets
 #' @import utils
 #' @importFrom tibble as_tibble
-NULL
+"_PACKAGE"
