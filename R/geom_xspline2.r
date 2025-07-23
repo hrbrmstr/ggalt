@@ -22,6 +22,8 @@ GeomXSpline2 <- ggproto("GeomXSpline", Geom,
 #' with an X-spline
 #'
 #' @inheritParams geom_xspline
+#' @param stat Use to override the default connection between
+#'   \code{geom_xspline2} and \code{stat_identity}.
 #' @return creates a spline curve
 #' @author Ben Bolker
 #' @family xspline implementations
