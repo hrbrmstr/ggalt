@@ -7,11 +7,11 @@
 \alias{to_basic.GeomStateface}
 \title{Plotly helpers}
 \usage{
-to_basic.GeomXspline(data, prestats_data, layout, params, p, ...)
+\method{to_basic}{GeomXspline}(data, prestats_data, layout, params, p, ...)
 
-to_basic.GeomBkde2d(data, prestats_data, layout, params, p, ...)
+\method{to_basic}{GeomBkde2d}(data, prestats_data, layout, params, p, ...)
 
-to_basic.GeomStateface(data, prestats_data, layout, params, p, ...)
+\method{to_basic}{GeomStateface}(data, prestats_data, layout, params, p, ...)
 }
 \arguments{
 \item{data, prestats_data, layout, params, p, ...}{plotly interface parameters}
