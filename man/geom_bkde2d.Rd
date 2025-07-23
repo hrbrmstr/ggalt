@@ -135,7 +135,7 @@ A sample of the output from \code{geom_bkde2d()}:
 }
 \section{Computed variables}{
 
-Same as \code{\link{stat_contour}}
+Same as \code{\link[ggplot2]{stat_contour}}
 }
 
 \examples{
@@ -165,6 +165,6 @@ d + stat_bkde2d(bandwidth=c(0.5, 0.5), geom = "point",
                 aes(size = ..density..),  contour = FALSE)
 }
 \seealso{
-\code{\link{geom_contour}} for contour drawing geom,
- \code{\link{stat_sum}} for another way of dealing with overplotting
+\code{\link[ggplot2]{geom_contour}} for contour drawing geom,
+ \code{\link[ggplot2]{stat_sum}} for another way of dealing with overplotting
 }

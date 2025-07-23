@@ -30,9 +30,9 @@
 #' @inheritParams ggplot2::geom_point
 #' @param geom,stat Use to override the default connection between
 #'   \code{geom_bkde} and \code{stat_bkde}.
-#' @seealso See \code{\link{geom_histogram}}, \code{\link{geom_freqpoly}} for
+#' @seealso See \code{\link[ggplot2]{geom_histogram}}, \code{\link[ggplot2]{geom_freqpoly}} for
 #'   other methods of displaying continuous distribution.
-#'   See \code{\link{geom_violin}} for a compact density display.
+#'   See \code{\link[ggplot2]{geom_violin}} for a compact density display.
 #' @export
 geom_bkde <- function(mapping = NULL, data = NULL, stat = "bkde",
                       position = "identity", bandwidth=NULL, range.x=NULL,

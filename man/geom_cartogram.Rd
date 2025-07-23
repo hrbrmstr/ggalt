@@ -47,7 +47,7 @@ often aesthetics, used to set an aesthetic to a fixed value, like
 to the paired geom/stat.}
 
 \item{map}{Data frame that contains the map coordinates.  This will
-typically be created using \code{\link{fortify}} on a spatial object.
+typically be created using \code{\link[ggplot2]{fortify}} on a spatial object.
 It must contain columns \code{x}, \code{long} or \code{longitude},
 \code{y}, \code{lat} or \code{latitude} and \code{region} or \code{id}.}
 
