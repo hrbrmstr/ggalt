@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.6.1
+Version: 0.7.0
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
@@ -31,7 +31,7 @@ BugReports: https://github.com/hrbrmstr/ggalt/issues
 Encoding: UTF-8
 Depends:
     R (>= 3.2.0),
-    ggplot2 (>= 2.2.1)
+    ggplot2 (>= 3.5.0)
 Suggests:
     testthat,
     gridExtra,
@@ -44,11 +44,11 @@ Imports:
     graphics,
     datasets,
     grDevices,
-    plyr,
-    dplyr,
+    proj4,
     RColorBrewer,
     KernSmooth,
     proj4,
+    sf,
     scales,
     grid,
     gtable,
@@ -56,9 +56,8 @@ Imports:
     maps,
     MASS,
     extrafont,
-    tibble,
-    plotly (>= 3.4.1)
-RoxygenNote: 7.2.3
+    tibble
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
@@ -67,7 +66,6 @@ Collate:
     'formatters.r'
     'fortify.r'
     'position-dodgev.R'
-    'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'

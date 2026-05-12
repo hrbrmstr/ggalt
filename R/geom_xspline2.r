@@ -7,8 +7,8 @@ GeomXSpline2 <- ggproto("GeomXSpline", Geom,
   default_aes = aes(colour = "black", s_shape=1, s_open=FALSE),
   draw_key = draw_key_point,
 
-  draw_panel = function(data, panel_scales, coord) {
-    coords <- coord$transform(data, panel_scales)
+  draw_panel = function(data, panel_params, coord) {
+    coords <- coord$transform(data, panel_params)
     grid::xsplineGrob(
       coords$x, coords$y,
       shape = coords$s_shape-1,  ## kluge!

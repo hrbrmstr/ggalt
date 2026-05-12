@@ -66,9 +66,9 @@ GeomUbar <- ggproto("GeomUbar", Geom,
     transform(data, xend = x, yend = 0)
   },
 
-  draw_group = function(data, panel_scales, coord) {
+  draw_group = function(data, panel_params, coord) {
 
-    ggplot2::GeomSegment$draw_panel(data, panel_scales, coord)
+    ggplot2::GeomSegment$draw_panel(data, panel_params, coord)
 
   }
 

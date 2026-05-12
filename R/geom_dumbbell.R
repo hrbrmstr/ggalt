@@ -99,7 +99,7 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
     transform(data, yend = y)
   },
 
-  draw_group = function(data, panel_scales, coord,
+  draw_group = function(data, panel_params, coord,
                         colour_x = NULL, size_x = NULL,
                         colour_xend = NULL, size_xend = NULL,
                         dot_guide = NULL, dot_guide_size = NULL,
@@ -126,18 +126,18 @@ GeomDumbbell <- ggproto("GeomDumbbell", Geom,
     if (is.null(dot_guide) | !dot_guide) {
 
       gList(
-        ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.x, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.xend, panel_scales, coord)
+        ggplot2::GeomSegment$draw_panel(data, panel_params, coord),
+        ggplot2::GeomPoint$draw_panel(points.x, panel_params, coord),
+        ggplot2::GeomPoint$draw_panel(points.xend, panel_params, coord)
       )
 
     } else {
 
       gList(
-        ggplot2::GeomSegment$draw_panel(dot_df, panel_scales, coord),
-        ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.x, panel_scales, coord),
-        ggplot2::GeomPoint$draw_panel(points.xend, panel_scales, coord)
+        ggplot2::GeomSegment$draw_panel(dot_df, panel_params, coord),
+        ggplot2::GeomSegment$draw_panel(data, panel_params, coord),
+        ggplot2::GeomPoint$draw_panel(points.x, panel_params, coord),
+        ggplot2::GeomPoint$draw_panel(points.xend, panel_params, coord)
       )
 
     }

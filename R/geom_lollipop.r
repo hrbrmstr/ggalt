@@ -90,7 +90,7 @@ GeomLollipop <- ggproto("GeomLollipop", Geom,
     }
   },
 
-  draw_group = function(data, panel_scales, coord,
+  draw_group = function(data, panel_params, coord,
                         point.colour = NULL, point.size = NULL,
                         horizontal = FALSE) {
 
@@ -99,8 +99,8 @@ GeomLollipop <- ggproto("GeomLollipop", Geom,
     points$size <- point.size %||% (data$size * 2.5)
 
     gList(
-      ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-      ggplot2::GeomPoint$draw_panel(points, panel_scales, coord)
+      ggplot2::GeomSegment$draw_panel(data, panel_params, coord),
+      ggplot2::GeomPoint$draw_panel(points, panel_params, coord)
     )
 
   },

@@ -1,5 +1,5 @@
 draw_key_hack <- function(data, params, size) {
-  data$fill <- alpha(data$fill, data$alpha)
+  data$fill <- scales::alpha(data$fill, data$alpha)
   data$alpha <- 1
 
   grobTree(
@@ -25,9 +25,9 @@ GeomEncircle <- ggproto("GeomEncircle", Geom,
                     spread=0.1),
   draw_key = draw_key_hack, ## ???
 
-  draw_group = function(data, panel_scales, coord) {
+  draw_group = function(data, panel_params, coord) {
     ## browser()
-    coords <- coord$transform(data, panel_scales)
+    coords <- coord$transform(data, panel_params)
     first_row <- coords[1, , drop = FALSE]
     rownames(first_row) <- NULL ## prevent warning later
 
