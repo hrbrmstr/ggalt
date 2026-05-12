@@ -19,7 +19,7 @@
 #'
 #' @export
 #' @param map Data frame that contains the map coordinates.  This will
-#'   typically be created using \code{\link{fortify}} on a spatial object.
+#'   typically be created using \code{\link[ggplot2]{fortify}} on a spatial object.
 #'   It must contain columns \code{x}, \code{long} or \code{longitude},
 #'   \code{y}, \code{lat} or \code{latitude} and \code{region} or \code{id}.
 #' @inheritParams ggplot2::layer
@@ -122,7 +122,7 @@ geom_cartogram <- function(mapping = NULL, data = NULL,
 #' @usage NULL
 #' @export
 GeomCartogram <- ggproto("GeomCartogram", GeomPolygon,
-  draw_panel = function(data, panel_scales, coord, map) {
+  draw_panel = function(data, panel_params, coord, map) {
     # Only use matching data and map ids
     common <- intersect(data$map_id, map$id)
     data <- data[data$map_id %in% common, , drop = FALSE]
@@ -130,7 +130,7 @@ GeomCartogram <- ggproto("GeomCartogram", GeomPolygon,
 
     # Munch, then set up id variable for polygonGrob -
     # must be sequential integers
-    coords <- coord_munch(coord, map, panel_scales)
+    coords <- coord_munch(coord, map, panel_params)
     coords$group <- coords$group %||% coords$id
     grob_id <- match(coords$group, unique(coords$group))
 
@@ -140,7 +140,7 @@ GeomCartogram <- ggproto("GeomCartogram", GeomPolygon,
 
     grid::polygonGrob(coords$x, coords$y, default.units = "native", id = grob_id,
       gp = gpar(
-        col = data$colour, fill = alpha(data$fill, data$alpha),
+        col = data$colour, fill = scales::alpha(data$fill, data$alpha),
         lwd = data$size * .pt
       )
     )

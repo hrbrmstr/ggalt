@@ -1,13 +1,8 @@
-#' Extra Geoms, Stats, Coords, Scales & Fonts for 'ggplot2'
-#'
-#' A package containing additional geoms, coords, stats, scales & fonts
-#' for ggplot2 2.0+
-#'
-#' @name ggalt
-#' @docType package
-#' @author Bob Rudis (@@hrbrmstr)
-#' @import maps ggplot2 graphics grDevices KernSmooth proj4 ash MASS
-#' @importFrom dplyr filter
+#' @keywords internal
+"_PACKAGE"
+
+## usethis namespace: start
+#' @import maps ggplot2 graphics grDevices KernSmooth ash
 #' @importFrom scales rescale expand_range comma
 #' @importFrom grid grobName grobTree unit.c grobHeight grobWidth viewport
 #'                  grid.draw grobX grobY gTree gList textGrob gpar pointsGrob
@@ -18,4 +13,5 @@
 #' @import datasets
 #' @import utils
 #' @importFrom tibble as_tibble
+## usethis namespace: end
 NULL

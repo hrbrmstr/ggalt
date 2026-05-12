@@ -1,75 +1,41 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Project Status: Active - The project has reached a stable, usable
-state and is being actively
-developed.](http://www.repostatus.org/badges/0.1.0/active.svg)](http://www.repostatus.org/#active)
-[![Travis-CI Build
-Status](https://travis-ci.org/hrbrmstr/ggalt.svg?branch=master)](https://travis-ci.org/hrbrmstr/ggalt)
-[![AppVeyor Build
-Status](https://ci.appveyor.com/api/projects/status/github/hrbrmstr/ggalt?branch=master&svg=true)](https://ci.appveyor.com/project/hrbrmstr/ggalt)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/ggalt)](https://CRAN.R-project.org/package=ggalt)
-![downloads](http://cranlogs.r-pkg.org/badges/grand-total/ggalt)
-
 `ggalt` : Extra Coordinate Systems, Geoms, Statistical Transformations,
 Scales & Fonts for ‘ggplot2’
 
 A compendium of ‘geoms’, ‘coords’, ‘stats’, scales and fonts for
 ‘ggplot2’, including splines, 1d and 2d densities, univariate average
-shifted histograms, a new map coordinate system based on the
-‘PROJ.4’-library and the ‘StateFace’ open source font ‘ProPublica’.
+shifted histograms and the ‘StateFace’ open source font ‘ProPublica’.
 
 The following functions are implemented:
 
-  - `geom_ubar` : Uniform width bar charts
-
-  - `geom_horizon` : Horizon charts (modified from
-    <https://github.com/AtherEnergy/ggTimeSeries>)
-
-  - `coord_proj` : Like `coord_map`, only better (prbly shld use this
-    with `geom_cartogram` as `geom_map`’s new defaults are ugh)
-
-  - `geom_xspline` : Connect control points/observations with an
-    X-spline
-
-  - `stat_xspline` : Connect control points/observations with an
-    X-spline
-
-  - `geom_bkde` : Display a smooth density estimate (uses
-    `KernSmooth::bkde`)
-
-  - `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots
-
-  - `geom_bkde2d` : Contours from a 2d density estimate. (uses
-    `KernSmooth::bkde2D`)
-
-  - `stat_bkde` : Display a smooth density estimate (uses
-    `KernSmooth::bkde`)
-
-  - `stat_bkde2d` : Contours from a 2d density estimate. (uses
-    `KernSmooth::bkde2D`)
-
-  - `stat_ash` : Compute and display a univariate averaged shifted
-    histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
-
-  - `geom_encircle`: Automatically enclose points in a polygon
-
-  - `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
-
-  - `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
-
-  - `geom_dumbbell()` : Dead easy dumbbell plots
-
-  - `stat_stepribbon()` : Step ribbons
-
-  - `annotation_ticks()` : Add minor ticks to identity, exp(1) and
-    exp(10) axis scales independently of each other.
-
-  - `geom_spikelines()` : Instead of geom\_vline and geom\_hline a pair
-    of segments that originate from same c(x,y) are drawn to the
-    respective axes.
-
-  - plotly integration for a few of the ^^ geoms
+- `geom_ubar` : Uniform width bar charts
+- `geom_horizon` : Horizon charts (modified from
+  <https://github.com/AtherEnergy/ggTimeSeries>)
+- `geom_xspline` : Connect control points/observations with an X-spline
+- `stat_xspline` : Connect control points/observations with an X-spline
+- `geom_bkde` : Display a smooth density estimate (uses
+  `KernSmooth::bkde`)
+- `geom_stateface`: Use ProPublica’s StateFace font in ggplot2 plots
+- `geom_bkde2d` : Contours from a 2d density estimate. (uses
+  `KernSmooth::bkde2D`)
+- `stat_bkde` : Display a smooth density estimate (uses
+  `KernSmooth::bkde`)
+- `stat_bkde2d` : Contours from a 2d density estimate. (uses
+  `KernSmooth::bkde2D`)
+- `stat_ash` : Compute and display a univariate averaged shifted
+  histogram (polynomial kernel) (uses `ash::ash1`/`ash::bin1`)
+- `geom_encircle`: Automatically enclose points in a polygon
+- `byte_format`: + helpers. e.g. turn `10000` into `10 Kb`
+- `geom_lollipop()`: Dead easy lollipops (horizontal or vertical)
+- `geom_dumbbell()` : Dead easy dumbbell plots
+- `stat_stepribbon()` : Step ribbons
+- `annotation_ticks()` : Add minor ticks to identity, exp(1) and exp(10)
+  axis scales independently of each other.
+- `geom_spikelines()` : Instead of geom_vline and geom_hline a pair of
+  segments that originate from same c(x,y) are drawn to the respective
+  axes.
 
 ### Installation
 
@@ -86,10 +52,16 @@ install.packages("ggalt")
 library(ggplot2)
 library(gridExtra)
 library(ggalt)
+## Registered S3 methods overwritten by 'ggalt':
+##   method                  from   
+##   grobHeight.absoluteGrob ggplot2
+##   grobWidth.absoluteGrob  ggplot2
+##   grobX.absoluteGrob      ggplot2
+##   grobY.absoluteGrob      ggplot2
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.6.1'
+## [1] '0.7.0'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
@@ -111,21 +83,21 @@ library(tidyverse)
 sports <- read_tsv("https://github.com/halhen/viz-pub/raw/master/sports-time-of-day/activity.tsv")
 
 sports %>%
-  group_by(activity) %>% 
-  filter(max(p) > 3e-04, 
-         !grepl('n\\.e\\.c', activity)) %>% 
+  group_by(activity) %>%
+  filter(max(p) > 3e-04,
+         !grepl('n\\.e\\.c', activity)) %>%
   arrange(time) %>%
-  mutate(p_peak = p / max(p), 
+  mutate(p_peak = p / max(p),
          p_smooth = (lag(p_peak) + p_peak + lead(p_peak)) / 3,
-         p_smooth = coalesce(p_smooth, p_peak)) %>% 
+         p_smooth = coalesce(p_smooth, p_peak)) %>%
   ungroup() %>%
-  do({ 
+  do({
     rbind(.,
           filter(., time == 0) %>%
             mutate(time = 24*60))
   }) %>%
   mutate(time = ifelse(time < 3 * 60, time + 24 * 60, time)) %>%
-  mutate(activity = reorder(activity, p_peak, FUN=which.max)) %>% 
+  mutate(activity = reorder(activity, p_peak, FUN=which.max)) %>%
   arrange(activity) %>%
   mutate(activity.f = reorder(as.character(activity), desc(activity))) -> sports
 
@@ -145,9 +117,9 @@ ggplot(sports, aes(time2, p_smooth)) +
   theme(axis.text.y=element_blank())
 ```
 
-<img src="README_figs/README-horizon-1.png" width="912" />
+<img src="README_figs/README-horizon-1.png" alt="" width="912" />
 
-### Splines\!
+### Splines!
 
 ``` r
 ggplot(dat, aes(x, y, group=group, color=group)) +
@@ -155,7 +127,7 @@ ggplot(dat, aes(x, y, group=group, color=group)) +
   geom_line()
 ```
 
-<img src="README_figs/README-splines-1.png" width="672" />
+<img src="README_figs/README-splines-1.png" alt="" width="672" />
 
 ``` r
 
@@ -163,10 +135,14 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point() +
   geom_line() +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-2.png" width="672" />
+<img src="README_figs/README-splines-2.png" alt="" width="672" />
 
 ``` r
 
@@ -174,10 +150,14 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+## Warning: Using the `size` aesthetic in this geom was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` in the `default_aes` field and elsewhere instead.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
-<img src="README_figs/README-splines-3.png" width="672" />
+<img src="README_figs/README-splines-3.png" alt="" width="672" />
 
 ``` r
 
@@ -185,10 +165,10 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-0.4, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-4.png" width="672" />
+<img src="README_figs/README-splines-4.png" alt="" width="672" />
 
 ``` r
 
@@ -196,10 +176,10 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0.4, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-5.png" width="672" />
+<img src="README_figs/README-splines-5.png" alt="" width="672" />
 
 ``` r
 
@@ -207,10 +187,10 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=1, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-6.png" width="672" />
+<img src="README_figs/README-splines-6.png" alt="" width="672" />
 
 ``` r
 
@@ -218,10 +198,10 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=0, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-7.png" width="672" />
+<img src="README_figs/README-splines-7.png" alt="" width="672" />
 
 ``` r
 
@@ -229,10 +209,10 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
   geom_point(color="black") +
   geom_smooth(se=FALSE, linetype="dashed", size=0.5) +
   geom_xspline(spline_shape=-1, size=0.5)
-## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 ```
 
-<img src="README_figs/README-splines-8.png" width="672" />
+<img src="README_figs/README-splines-8.png" alt="" width="672" />
 
 #### Alternate (better) density plots
 
@@ -241,12 +221,12 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 
 data(geyser, package="MASS")
 
-ggplot(geyser, aes(x=duration)) + 
+ggplot(geyser, aes(x=duration)) +
   stat_bkde(alpha=1/2)
 ## Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-1.png" width="672" />
+<img src="README_figs/README-bkde_ash-1.png" alt="" width="672" />
 
 ``` r
 
@@ -255,15 +235,15 @@ ggplot(geyser, aes(x=duration)) +
 ## Bandwidth not specified. Using '0.14', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-2.png" width="672" />
+<img src="README_figs/README-bkde_ash-2.png" alt="" width="672" />
 
 ``` r
 
-ggplot(geyser, aes(x=duration)) + 
+ggplot(geyser, aes(x=duration)) +
   stat_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-bkde_ash-3.png" width="672" />
+<img src="README_figs/README-bkde_ash-3.png" alt="" width="672" />
 
 ``` r
 
@@ -271,12 +251,12 @@ ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
 ```
 
-<img src="README_figs/README-bkde_ash-4.png" width="672" />
+<img src="README_figs/README-bkde_ash-4.png" alt="" width="672" />
 
 ``` r
 
 set.seed(1492)
-dat <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
+dat <- data.frame(cond = factor(rep(c("A","B"), each=200)),
                    rating = c(rnorm(200),rnorm(200, mean=.8)))
 
 ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
@@ -284,7 +264,7 @@ ggplot(dat, aes(x=rating, color=cond)) + geom_bkde(fill="#00000000")
 ## Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-5.png" width="672" />
+<img src="README_figs/README-bkde_ash-5.png" alt="" width="672" />
 
 ``` r
 
@@ -293,7 +273,7 @@ ggplot(dat, aes(x=rating, fill=cond)) + geom_bkde(alpha=0.3)
 ## Bandwidth not specified. Using '0.31', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-6.png" width="672" />
+<img src="README_figs/README-bkde_ash-6.png" alt="" width="672" />
 
 ``` r
 
@@ -309,15 +289,15 @@ grid.arrange(ggplot(dat, aes(x)) + stat_ash(),
 ## Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-7.png" width="672" />
+<img src="README_figs/README-bkde_ash-7.png" alt="" width="672" />
 
 ``` r
 
 cols <- RColorBrewer::brewer.pal(3, "Dark2")
-ggplot(dat, aes(x)) + 
-  stat_ash(alpha=1/3, fill=cols[3]) + 
-  stat_bkde(alpha=1/3, fill=cols[2]) + 
-  stat_density(alpha=1/3, fill=cols[1]) + 
+ggplot(dat, aes(x)) +
+  stat_ash(alpha=1/3, fill=cols[3]) +
+  stat_bkde(alpha=1/3, fill=cols[2]) +
+  stat_density(alpha=1/3, fill=cols[1]) +
   geom_rug() +
   labs(x=NULL, y="density/estimate") +
   scale_x_continuous(expand=c(0,0)) +
@@ -328,7 +308,7 @@ ggplot(dat, aes(x)) +
 ## Bandwidth not specified. Using '0.43', via KernSmooth::dpik.
 ```
 
-<img src="README_figs/README-bkde_ash-8.png" width="672" />
+<img src="README_figs/README-bkde_ash-8.png" alt="" width="672" />
 
 ### Alternate 2D density plots
 
@@ -339,36 +319,24 @@ m <- ggplot(faithful, aes(x = eruptions, y = waiting)) +
        ylim(40, 110)
 
 m + geom_bkde2d(bandwidth=c(0.5, 4))
+## Warning: Computation failed in `stat_bkde2d()`.
+## Caused by error in `compute_group()`:
+## ! argument "z.range" is missing, with no default
 ```
 
-<img src="README_figs/README-bkde2d-1.png" width="672" />
+<img src="README_figs/README-bkde2d-1.png" alt="" width="672" />
 
 ``` r
 
 m + stat_bkde2d(bandwidth=c(0.5, 4), aes(fill = ..level..), geom = "polygon")
+## Warning: The dot-dot notation (`..level..`) was deprecated in ggplot2 3.4.0.
+## ℹ Please use `after_stat(level)` instead.
+## Computation failed in `stat_bkde2d()`.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
-<img src="README_figs/README-bkde2d-2.png" width="672" />
-
-### `coord_proj` LIVES\! (still needs a teensy bit of work)
-
-``` r
-world <- map_data("world")
-## 
-## Attaching package: 'maps'
-## The following object is masked from 'package:purrr':
-## 
-##     map
-world <- world[world$region != "Antarctica",]
-
-gg <- ggplot()
-gg <- gg + geom_cartogram(data=world, map=world,
-                    aes(x=long, y=lat, map_id=region))
-gg <- gg + coord_proj("+proj=wintri")
-gg
-```
-
-<img src="README_figs/README-coord_proj-1.png" width="672" />
+<img src="README_figs/README-bkde2d-2.png" alt="" width="672" />
 
 ### ProPublica StateFace
 
@@ -390,7 +358,7 @@ gg <- gg + scale_size_identity()
 gg
 ```
 
-<img src="README_figs/README-stateface-1.png" width="672" />
+<img src="README_figs/README-stateface-1.png" alt="" width="672" />
 
 ### Encircling points automagically
 
@@ -404,21 +372,21 @@ gg <- gg + scale_y_continuous(expand=c(0.5,1))
 gg + geom_encircle(s_shape=1, expand=0) + geom_point()
 ```
 
-<img src="README_figs/README-encircle-1.png" width="672" />
+<img src="README_figs/README-encircle-1.png" alt="" width="672" />
 
 ``` r
 
 gg + geom_encircle(s_shape=1, expand=0.1, colour="red") + geom_point()
 ```
 
-<img src="README_figs/README-encircle-2.png" width="672" />
+<img src="README_figs/README-encircle-2.png" alt="" width="672" />
 
 ``` r
 
 gg + geom_encircle(s_shape=0.5, expand=0.1, colour="purple") + geom_point()
 ```
 
-<img src="README_figs/README-encircle-3.png" width="672" />
+<img src="README_figs/README-encircle-3.png" alt="" width="672" />
 
 ``` r
 
@@ -426,15 +394,15 @@ gg + geom_encircle(data=subset(d, x==1), colour="blue", spread=0.02) +
   geom_point()
 ```
 
-<img src="README_figs/README-encircle-4.png" width="672" />
+<img src="README_figs/README-encircle-4.png" alt="" width="672" />
 
 ``` r
 
-gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) + 
+gg +geom_encircle(data=subset(d, x==2), colour="cyan", spread=0.04) +
   geom_point()
 ```
 
-<img src="README_figs/README-encircle-5.png" width="672" />
+<img src="README_figs/README-encircle-5.png" alt="" width="672" />
 
 ``` r
 
@@ -442,7 +410,7 @@ gg <- ggplot(mpg, aes(displ, hwy))
 gg + geom_encircle(data=subset(mpg, hwy>40)) + geom_point()
 ```
 
-<img src="README_figs/README-encircle-6.png" width="672" />
+<img src="README_figs/README-encircle-6.png" alt="" width="672" />
 
 ``` r
 
@@ -452,7 +420,7 @@ gg + geom_encircle(data=ss, colour="blue", s_shape=0.9, expand=0.07) +
   geom_point() + geom_point(data=ss, colour="blue")
 ```
 
-<img src="README_figs/README-encircle-7.png" width="672" />
+<img src="README_figs/README-encircle-7.png" alt="" width="672" />
 
 ### Step ribbons
 
@@ -467,7 +435,7 @@ gg <- gg + geom_step(color="#2b2b2b")
 gg
 ```
 
-<img src="README_figs/README-stepribbon-1.png" width="672" />
+<img src="README_figs/README-stepribbon-1.png" alt="" width="672" />
 
 ``` r
 
@@ -479,7 +447,7 @@ gg <- gg + geom_step(color="#2b2b2b")
 gg
 ```
 
-<img src="README_figs/README-stepribbon-2.png" width="672" />
+<img src="README_figs/README-stepribbon-2.png" alt="" width="672" />
 
 ### Lollipop charts
 
@@ -506,7 +474,7 @@ LBGTQ/Ally,0.79
 Mixed Race,0.80
 Jewish Heritage/Observance,0.85
 International Students,0.87", stringsAsFactors=FALSE, sep=",", header=TRUE)
- 
+
 library(ggplot2)
 library(ggalt)
 library(scales)
@@ -518,12 +486,12 @@ library(scales)
 ## The following object is masked from 'package:readr':
 ## 
 ##     col_factor
- 
+
 gg <- ggplot(df, aes(y=reorder(category, pct), x=pct))
 gg <- gg + geom_lollipop(point.colour="steelblue", point.size=2, horizontal=TRUE)
 gg <- gg + scale_x_continuous(expand=c(0,0), labels=percent,
                               breaks=seq(0, 1, by=0.2), limits=c(0, 1))
-gg <- gg + labs(x=NULL, y=NULL, 
+gg <- gg + labs(x=NULL, y=NULL,
                 title="SUNY Cortland Multicultural Alumni survey results",
                 subtitle="Ranked by race, ethnicity, home land and orientation\namong the top areas of concern",
                 caption="Data from http://stephanieevergreen.com/lollipop/")
@@ -531,15 +499,23 @@ gg <- gg + theme_minimal(base_family="Arial Narrow")
 gg <- gg + theme(panel.grid.major.y=element_blank())
 gg <- gg + theme(panel.grid.minor=element_blank())
 gg <- gg + theme(axis.line.y=element_line(color="#2b2b2b", size=0.15))
+## Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
+## ℹ Please use the `linewidth` argument instead.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 gg <- gg + theme(axis.text.y=element_text(margin=margin(r=0, l=0)))
 gg <- gg + theme(plot.margin=unit(rep(30, 4), "pt"))
 gg <- gg + theme(plot.title=element_text(face="bold"))
 gg <- gg + theme(plot.subtitle=element_text(margin=margin(b=10)))
 gg <- gg + theme(plot.caption=element_text(size=8, margin=margin(t=10)))
 gg
+## Warning: Using the `size` aesthetic with geom_segment was deprecated in ggplot2 3.4.0.
+## ℹ Please use the `linewidth` aesthetic instead.
+## This warning is displayed once per session.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.
 ```
 
-<img src="README_figs/README-lollipop-1.png" width="672" />
+<img src="README_figs/README-lollipop-1.png" alt="" width="672" />
 
 ``` r
 library(dplyr)
@@ -548,24 +524,24 @@ library(scales)
 library(ggplot2)
 library(ggalt) # devtools::install_github("hrbrmstr/ggalt")
 
-health <- read.csv("https://rud.is/dl/zhealth.csv", stringsAsFactors=FALSE, 
+health <- read.csv("https://rud.is/dl/zhealth.csv", stringsAsFactors=FALSE,
                    header=FALSE, col.names=c("pct", "area_id"))
 
 areas <- read.csv("https://rud.is/dl/zarea_trans.csv", stringsAsFactors=FALSE, header=TRUE)
 
-health %>% 
-  mutate(area_id=trunc(area_id)) %>% 
-  arrange(area_id, pct) %>% 
+health %>%
+  mutate(area_id=trunc(area_id)) %>%
+  arrange(area_id, pct) %>%
   mutate(year=rep(c("2014", "2013"), 26),
-         pct=pct/100) %>% 
-  left_join(areas, "area_id") %>% 
+         pct=pct/100) %>%
+  left_join(areas, "area_id") %>%
   mutate(area_name=factor(area_name, levels=unique(area_name))) -> health
 
 setNames(bind_cols(filter(health, year==2014), filter(health, year==2013))[,c(4,1,5)],
          c("area_name", "pct_2014", "pct_2013")) -> health
 
 gg <- ggplot(health, aes(x=pct_2014, xend=pct_2013, y=area_name, group=area_name))
-gg <- gg + geom_dumbbell(colour="#a3c4dc", size=1.5, colour_xend="#0e668b", 
+gg <- gg + geom_dumbbell(colour="#a3c4dc", size=1.5, colour_xend="#0e668b",
                          dot_guide=TRUE, dot_guide_size=0.15)
 gg <- gg + scale_x_continuous(label=percent)
 gg <- gg + labs(x=NULL, y=NULL)
@@ -581,15 +557,15 @@ gg <- gg + theme(panel.border=element_blank())
 gg
 ```
 
-<img src="README_figs/README-dumbbell-1.png" width="672" />
+<img src="README_figs/README-dumbbell-1.png" alt="" width="672" />
 
 ``` r
 library(hrbrthemes)
 
 df <- data.frame(trt=LETTERS[1:5], l=c(20, 40, 10, 30, 50), r=c(70, 50, 30, 60, 80))
 
-ggplot(df, aes(y=trt, x=l, xend=r)) + 
-  geom_dumbbell(size=3, color="#e3e2e1", 
+ggplot(df, aes(y=trt, x=l, xend=r)) +
+  geom_dumbbell(size=3, color="#e3e2e1",
                 colour_x = "#5b8124", colour_xend = "#bad744",
                 dot_guide=TRUE, dot_guide_size=0.25) +
   labs(x=NULL, y=NULL, title="ggplot2 geom_dumbbell with dot guide") +
@@ -597,26 +573,26 @@ ggplot(df, aes(y=trt, x=l, xend=r)) +
   theme(panel.grid.major.x=element_line(size=0.05))
 ```
 
-<img src="README_figs/README-dumbbell2-1.png" width="672" />
+<img src="README_figs/README-dumbbell2-1.png" alt="" width="672" />
 
 ``` r
 p <- ggplot(msleep, aes(bodywt, brainwt)) + geom_point()
 
 # add identity scale minor ticks on y axis
 p + annotation_ticks(sides = 'l')
-## Warning: Removed 27 rows containing missing values (geom_point).
+## Warning: Removed 27 rows containing missing values or values outside the scale range (`geom_point()`).
 ```
 
-<img src="README_figs/README-annoticks-1.png" width="672" />
+<img src="README_figs/README-annoticks-1.png" alt="" width="672" />
 
 ``` r
 
 # add identity scale minor ticks on x,y axis
 p + annotation_ticks(sides = 'lb')
-## Warning: Removed 27 rows containing missing values (geom_point).
+## Warning: Removed 27 rows containing missing values or values outside the scale range (`geom_point()`).
 ```
 
-<img src="README_figs/README-annoticks-2.png" width="672" />
+<img src="README_figs/README-annoticks-2.png" alt="" width="672" />
 
 ``` r
 
@@ -625,10 +601,10 @@ p1 <- p + scale_x_log10()
 
 # add minor ticks on both scales
 p1 + annotation_ticks(sides = 'lb', scale = c('identity','log10'))
-## Warning: Removed 27 rows containing missing values (geom_point).
+## Warning: Removed 27 rows containing missing values or values outside the scale range (`geom_point()`).
 ```
 
-<img src="README_figs/README-annoticks-3.png" width="672" />
+<img src="README_figs/README-annoticks-3.png" alt="" width="672" />
 
 ``` r
 
@@ -636,12 +612,12 @@ mtcars$name <- rownames(mtcars)
 
 p <- ggplot(data = mtcars, aes(x=mpg,y=disp)) + geom_point()
 
-p + 
-  geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) + 
+p +
+  geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) +
   ggrepel::geom_label_repel(data = mtcars[mtcars$carb==4,],aes(label = name))
 ```
 
-<img src="README_figs/README-spikelines-1.png" width="672" />
+<img src="README_figs/README-spikelines-1.png" alt="" width="672" />
 
 ### Code of Conduct
 

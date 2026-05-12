@@ -1,7 +1,7 @@
 Package: ggalt
 Title: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales
     and Fonts for 'ggplot2'
-Version: 0.6.1
+Version: 0.8.0
 Maintainer: Bob Rudis <bob@rud.is>
 Authors@R: c(
       person("Bob", "Rudis", email = "bob@rud.is", role = c("aut", "cre"), 
@@ -16,58 +16,51 @@ Authors@R: c(
       person("Jonathan","Sidi", role=c("aut","ctb"), comment="Annotation ticks"),
       person("Tarcisio","Fedrizzi", role="ctb", comment="Bytes formatter")
     )
-Description: A compendium of new geometries, coordinate systems, statistical 
-    transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, 
-    univariate average shifted histograms, a new map coordinate system based on the 
-    'PROJ.4'-library along with geom_cartogram() that mimics the original functionality of 
-    geom_map(), formatters for "bytes", a stat_stepribbon() function, increased 'plotly'
-    compatibility and the 'StateFace' open source font 'ProPublica'. Further new 
-    functionality includes lollipop charts, dumbbell charts, the ability to encircle
-    points and coordinate-system-based text annotations.
+Description: A compendium of new geometries, coordinate systems, statistical
+    transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities,
+    univariate average shifted histograms, formatters for "bytes", a stat_stepribbon() function,
+    and the 'StateFace' open source font 'ProPublica'. Further new functionality includes
+    lollipop charts, dumbbell charts, the ability to encircle points and
+    coordinate-system-based text annotations.
 License: MIT + file LICENSE
 LazyData: true
 URL: https://github.com/hrbrmstr/ggalt
 BugReports: https://github.com/hrbrmstr/ggalt/issues
 Encoding: UTF-8
 Depends:
-    R (>= 3.2.0),
-    ggplot2 (>= 2.2.1)
+    R (>= 4.1),
+    ggplot2 (>= 4.0.0)
 Suggests:
     testthat,
     gridExtra,
     knitr,
     rmarkdown,
     ggthemes,
-    reshape2
+    reshape2,
+    MASS,
+    dplyr
 Imports:
     utils,
     graphics,
     datasets,
     grDevices,
-    plyr,
-    dplyr,
     RColorBrewer,
     KernSmooth,
-    proj4,
     scales,
     grid,
     gtable,
     ash,
     maps,
-    MASS,
     extrafont,
-    tibble,
-    plotly (>= 3.4.1)
-RoxygenNote: 7.2.3
+    tibble
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
     'annotation_ticks.r'
-    'coord_proj.r'
     'formatters.r'
     'fortify.r'
     'position-dodgev.R'
-    'geom2plotly.r'
     'geom_ash.r'
     'geom_bkde.r'
     'geom_bkde2d.r'

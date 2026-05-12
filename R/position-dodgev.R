@@ -123,10 +123,14 @@ collidev <- function(data, height = NULL, name, strategy, ..., check.height = TR
   data$group <- seq_len(nrow(data)) ## reset grouping
 
   if (!is.null(data$xmax)) {
-    plyr::ddply(data, "ymin", strategy, ..., height = height)
+    groups <- split(data, data$ymin)
+    result <- lapply(groups, function(.g) strategy(.g, height = height))
+    data <- do.call(rbind, result)
   } else if (!is.null(data$x)) {
     data$xmax <- data$x
-    data <- plyr::ddply(data, "ymin", strategy, ..., height = height)
+    groups <- split(data, data$ymin)
+    result <- lapply(groups, function(.g) strategy(.g, height = height))
+    data <- do.call(rbind, result)
     data$x <- data$xmax
     data$yend <- data$y ## ALLOW FOR A YEND COLUMN
     data

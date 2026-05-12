@@ -12,13 +12,13 @@
 #' \if{html}{
 #' A sample of the output from \code{geom_lollipop()}:
 #'
-#' \figure{geomlollipop01.png}{options: width="100\%" alt="Figure: geomlollipop01.png"}
+#' \figure{geomlollipop01.png}{options: width=377 alt="Figure: geomlollipop01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_lollipop()}:
 #'
-#' \figure{geomlollipop01.png}{options: width=10cm}
+#' \figure{geomlollipop01.png}{options: width=377}
 #' }
 #'
 #' @section Aesthetics:
@@ -26,7 +26,7 @@
 #' @inheritParams ggplot2::layer
 #' @param na.rm If \code{FALSE} (the default), removes missing values with
 #'    a warning.  If \code{TRUE} silently removes missing values.
-#' @param ... other arguments passed on to \code{\link{layer}}. These are
+#' @param ... other arguments passed on to \code{\link[ggplot2]{layer}}. These are
 #'   often aesthetics, used to set an aesthetic to a fixed value, like
 #'   \code{color = "red"} or \code{size = 3}. They may also be parameters
 #'   to the paired geom/stat.
@@ -90,7 +90,7 @@ GeomLollipop <- ggproto("GeomLollipop", Geom,
     }
   },
 
-  draw_group = function(data, panel_scales, coord,
+  draw_group = function(data, panel_params, coord,
                         point.colour = NULL, point.size = NULL,
                         horizontal = FALSE) {
 
@@ -99,13 +99,11 @@ GeomLollipop <- ggproto("GeomLollipop", Geom,
     points$size <- point.size %||% (data$size * 2.5)
 
     gList(
-      ggplot2::GeomSegment$draw_panel(data, panel_scales, coord),
-      ggplot2::GeomPoint$draw_panel(points, panel_scales, coord)
+      ggplot2::GeomSegment$draw_panel(data, panel_params, coord),
+      ggplot2::GeomPoint$draw_panel(points, panel_params, coord)
     )
 
   },
 
   draw_key = draw_key_point
 )
-
-

@@ -74,13 +74,13 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #' \if{html}{
 #' A sample of the output from \code{geom_bkde2d()}:
 #'
-#' \figure{geombkde2d01.png}{options: width="100\%" alt="Figure: geombkde2d01.png"}
+#' \figure{geombkde2d01.png}{options: width=377 alt="Figure: geombkde2d01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_bkde2d()}:
 #'
-#' \figure{geombkde2d01.png}{options: width=10cm}
+#' \figure{geombkde2d01.png}{options: width=377}
 #' }
 #'
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see
@@ -100,9 +100,9 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #' @param contour If \code{TRUE}, contour the results of the 2d density
 #'        estimation
 #' @section Computed variables:
-#' Same as \code{\link{stat_contour}}
-#' @seealso \code{\link{geom_contour}} for contour drawing geom,
-#'  \code{\link{stat_sum}} for another way of dealing with overplotting
+#' Same as \code{\link[ggplot2]{stat_contour}}
+#' @seealso \code{\link[ggplot2]{geom_contour}} for contour drawing geom,
+#'  \code{\link[ggplot2]{stat_sum}} for another way of dealing with overplotting
 #' @rdname geom_bkde2d
 #' @export
 stat_bkde2d <- function(mapping = NULL, data = NULL, geom = "density2d",

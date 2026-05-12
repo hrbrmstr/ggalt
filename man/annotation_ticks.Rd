@@ -30,7 +30,7 @@ bottom, and left.}
 \item{scaled}{is the data already log-scaled? This should be \code{TRUE}
 (default) when the data is already transformed with \code{log10()} or when
 using \code{scale_y_log10()}. It should be \code{FALSE} when using
-\code{coord_trans(y = "log10")}.}
+\code{coord_transform(y = "log10")}.}
 
 \item{short}{a \code{\link[grid:unit]{grid::unit()}} object specifying the length of the
 short tick marks}
@@ -43,7 +43,7 @@ long tick marks. In base 10, these are the "1" (or "10") ticks.}
 
 \item{colour}{Colour of the tick marks.}
 
-\item{size}{Thickness of tick marks, in mm.}
+\item{size}{\ifelse{html}{\href{https://lifecycle.r-lib.org/articles/stages.html#deprecated}{\figure{lifecycle-deprecated.svg}{options: alt='[Deprecated]'}}}{\strong{[Deprecated]}}}
 
 \item{linetype}{Linetype of tick marks (\code{solid}, \code{dashed}, etc.)}
 

@@ -68,13 +68,13 @@ load_stateface <- function() {
 #' \if{html}{
 #' A sample of the output from \code{geom_stateface()}:
 #'
-#' \figure{geomstateface01.png}{options: width="100\%" alt="Figure: geomstateface01.png"}
+#' \figure{geomstateface01.png}{options: width=377 alt="Figure: geomstateface01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_stateface()}:
 #'
-#' \figure{geomstateface01.png}{options: width=10cm}
+#' \figure{geomstateface01.png}{options: width=377}
 #' }
 #'
 #' @param nudge_x,nudge_y Horizontal and vertical adjustment to nudge l
@@ -146,7 +146,7 @@ GeomStateface <- ggproto("GeomStateface", Geom,
    vjust = 0.5, alpha = NA, family = "", fontface = 1, lineheight = 1.2
   ),
 
-  draw_panel = function(data, panel_scales, coord, parse = FALSE,
+  draw_panel = function(data, panel_params, coord, parse = FALSE,
                        na.rm = FALSE, check_overlap = FALSE) {
 
    load_stateface
@@ -159,7 +159,7 @@ GeomStateface <- ggproto("GeomStateface", Geom,
      lab <- unname(state_trans[state_tbl[tolower(lab)]])
    }
 
-   data <- coord$transform(data, panel_scales)
+   data <- coord$transform(data, panel_params)
    if (is.character(data$vjust)) {
      data$vjust <- compute_just(data$vjust, data$y)
    }
@@ -173,7 +173,7 @@ GeomStateface <- ggproto("GeomStateface", Geom,
      hjust = data$hjust, vjust = data$vjust,
      rot = data$angle,
      gp = gpar(
-       col = alpha(data$colour, data$alpha),
+       col = scales::alpha(data$colour, data$alpha),
        fontsize = data$size * .pt,
        fontfamily = "StateFace",
        fontface = data$fontface,

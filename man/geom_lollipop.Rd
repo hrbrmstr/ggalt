@@ -37,7 +37,7 @@ the plot data. The return value must be a \code{data.frame}, and
 will be used as the layer data. A \code{function} can be created
 from a \code{formula} (e.g. \code{~ head(.x, 10)}).}
 
-\item{...}{other arguments passed on to \code{\link{layer}}. These are
+\item{...}{other arguments passed on to \code{\link[ggplot2]{layer}}. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 \code{color = "red"} or \code{size = 3}. They may also be parameters
 to the paired geom/stat.}
@@ -60,12 +60,14 @@ a warning.  If \code{TRUE} silently removes missing values.}
 \code{NA}, the default, includes if any aesthetics are mapped.
 \code{FALSE} never includes, and \code{TRUE} always includes.
 It can also be a named logical vector to finely select the aesthetics to
-display.}
+display. To include legend keys for all levels, even
+when no data exists, use \code{TRUE}.  If \code{NA}, all levels are shown in legend,
+but unobserved levels are omitted.}
 
 \item{inherit.aes}{If \code{FALSE}, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. \code{\link[ggplot2:borders]{borders()}}.}
+the default plot specification, e.g. \code{\link[ggplot2:annotation_borders]{annotation_borders()}}.}
 }
 \description{
 The lollipop geom is used to create lollipop charts.
@@ -81,13 +83,13 @@ Use the \code{horizontal} parameter to abate the need for \code{coord_flip()}
 \if{html}{
 A sample of the output from \code{geom_lollipop()}:
 
-\figure{geomlollipop01.png}{options: width="100\%" alt="Figure: geomlollipop01.png"}
+\figure{geomlollipop01.png}{options: width=377 alt="Figure: geomlollipop01.png"}
 }
 
 \if{latex}{
 A sample of the output from \code{geom_lollipop()}:
 
-\figure{geomlollipop01.png}{options: width=10cm}
+\figure{geomlollipop01.png}{options: width=377}
 }
 }
 \section{Aesthetics}{

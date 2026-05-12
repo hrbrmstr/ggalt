@@ -150,7 +150,7 @@ GeomTicks <- ggproto(
   },
 
   draw_panel = function(data,
-                        panel_scales,
+                        panel_params,
                         coord,
                         base = c(10, 10),
                         sides = c("b", "l"),
@@ -173,9 +173,9 @@ GeomTicks <- ggproto(
         # Get positions of x tick marks
         xticks <- calc_ticks(
           base = base[s],
-          minpow = floor(panel_scales$x.range[1]),
-          maxpow = ceiling(panel_scales$x.range[2]),
-          majorTicks = panel_scales$x.major_source,
+          minpow = floor(panel_params$x.range[1]),
+          maxpow = ceiling(panel_params$x.range[2]),
+          majorTicks = panel_params$x.major_source,
           start = 0,
           shortend = short,
           midend = mid,
@@ -192,7 +192,7 @@ GeomTicks <- ggproto(
 
         names(xticks)[names(xticks) == "value"] <- "x" # Rename to 'x' for coordinates$transform
 
-        xticks <- coord$transform(xticks, panel_scales)
+        xticks <- coord$transform(xticks, panel_params)
 
         # Make the grobs
         if (grepl("b", sides[s])) {
@@ -204,7 +204,7 @@ GeomTicks <- ggproto(
               y0 = unit(xticks$start, "cm"),
               y1 = unit(xticks$end, "cm"),
               gp = gpar(
-                col = alpha(colour, alpha),
+                col = scales::alpha(colour, alpha),
                 lty = linetype,
                 lwd = size * .pt
               )
@@ -220,7 +220,7 @@ GeomTicks <- ggproto(
               y0 = unit(1, "npc") - unit(xticks$start, "cm"),
               y1 = unit(1, "npc") - unit(xticks$end, "cm"),
               gp = gpar(
-                col = alpha(colour, alpha),
+                col = scales::alpha(colour, alpha),
                 lty = linetype,
                 lwd = size * .pt
               )
@@ -233,9 +233,9 @@ GeomTicks <- ggproto(
       if (grepl("[l|r]", sides[s])) {
         yticks <- calc_ticks(
           base = base[s],
-          minpow = floor(panel_scales$y.range[1]),
-          maxpow = ceiling(panel_scales$y.range[2]),
-          majorTicks = panel_scales$y.major_source,
+          minpow = floor(panel_params$y.range[1]),
+          maxpow = ceiling(panel_params$y.range[2]),
+          majorTicks = panel_params$y.major_source,
           start = 0,
           shortend = short,
           midend = mid,
@@ -251,7 +251,7 @@ GeomTicks <- ggproto(
         }
 
         names(yticks)[names(yticks) == "value"] <- "y" # Rename to 'y' for coordinates$transform
-        yticks <- coord$transform(yticks, panel_scales)
+        yticks <- coord$transform(yticks, panel_params)
 
         # Make the grobs
         if (grepl("l", sides[s])) {
@@ -263,7 +263,7 @@ GeomTicks <- ggproto(
               x0 = unit(yticks$start, "cm"),
               x1 = unit(yticks$end, "cm"),
               gp = gpar(
-                col = alpha(colour, alpha),
+                col = scales::alpha(colour, alpha),
                 lty = linetype, lwd = size * .pt
               )
             )
@@ -278,7 +278,7 @@ GeomTicks <- ggproto(
               x0 = unit(1, "npc") - unit(yticks$start, "cm"),
               x1 = unit(1, "npc") - unit(yticks$end, "cm"),
               gp = gpar(
-                col = alpha(colour, alpha),
+                col = scales::alpha(colour, alpha),
                 lty = linetype,
                 lwd = size * .pt
               )
