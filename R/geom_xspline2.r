@@ -22,6 +22,7 @@ GeomXSpline2 <- ggproto("GeomXSpline", Geom,
 #' with an X-spline
 #'
 #' @inheritParams geom_xspline
+#' @param stat Other arguments passed to \code{\link[ggplot2]{layer}}
 #' @return creates a spline curve
 #' @author Ben Bolker
 #' @family xspline implementations

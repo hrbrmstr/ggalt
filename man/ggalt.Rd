@@ -2,11 +2,20 @@
 % Please edit documentation in R/ggalt-package.r
 \docType{package}
 \name{ggalt}
+\alias{ggalt-package}
 \alias{ggalt}
 \title{Extra Geoms, Stats, Coords, Scales & Fonts for 'ggplot2'}
 \description{
 A package containing additional geoms, coords, stats, scales & fonts
 for ggplot2 2.0+
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/hrbrmstr/ggalt}
+  \item Report bugs at \url{https://github.com/hrbrmstr/ggalt/issues}
+}
+
 }
 \author{
 Bob Rudis (@hrbrmstr)
