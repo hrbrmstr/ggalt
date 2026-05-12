@@ -195,7 +195,7 @@ ggplot(geyser, aes(x=duration)) +
   geom_bkde(bandwidth=0.25)
 }
 \seealso{
-See \code{\link{geom_histogram}}, \code{\link{geom_freqpoly}} for
+See \code{\link[ggplot2]{geom_histogram}}, \code{\link[ggplot2]{geom_freqpoly}} for
   other methods of displaying continuous distribution.
-  See \code{\link{geom_violin}} for a compact density display.
+  See \code{\link[ggplot2]{geom_violin}} for a compact density display.
 }

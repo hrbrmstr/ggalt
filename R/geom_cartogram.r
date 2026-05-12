@@ -19,7 +19,7 @@
 #'
 #' @export
 #' @param map Data frame that contains the map coordinates.  This will
-#'   typically be created using \code{\link{fortify}} on a spatial object.
+#'   typically be created using \code{\link[ggplot2]{fortify}} on a spatial object.
 #'   It must contain columns \code{x}, \code{long} or \code{longitude},
 #'   \code{y}, \code{lat} or \code{latitude} and \code{region} or \code{id}.
 #' @inheritParams ggplot2::layer

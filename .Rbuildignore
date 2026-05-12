@@ -6,3 +6,7 @@
 ^cran-comments\.md$
 ^revdep$
 ^appveyor\.yml$
+^\.claude$
+^\docs$
+^\.revdep$
+^\.github$
