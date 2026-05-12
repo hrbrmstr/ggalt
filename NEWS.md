@@ -1,3 +1,15 @@
+0.8.0
+=====================
+* ggplot2 4.0.0+ compatibility
+* Removed `coord_proj()` and `proj4` dependency (was archived on CRAN)
+* Removed `plotly` ggplotly integration
+* Replaced `alpha()` with `scales::alpha()` for ggplot2 3.5.0+ compatibility
+* Renamed `panel_scales` to `panel_params` in all `draw_panel` methods
+* Removed `MASS`, `dplyr`, `magrittr` from Imports (moved to Suggests)
+* Fixed Rd cross-references to include package anchors
+* Fixed `position_dodgev` to work with dplyr 1.1+ (replaced `group_modify` with base R)
+* Added R 4.1+ dependency
+
 0.5.0
 =====================
 * `geom_ubar()` : uniform bar charts based on `geom_segment()`
