@@ -165,13 +165,13 @@ if (FALSE) {
 #' \if{html}{
 #' A sample of the output from \code{geom_encircle()}:
 #'
-#' \figure{geomencircle01.png}{options: width="100\%" alt="Figure: geomencircle01.png"}
+#' \figure{geomencircle01.png}{options: width=377 alt="Figure: geomencircle01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_encircle()}:
 #'
-#' \figure{geomencircle01.png}{options: width=10cm}
+#' \figure{geomencircle01.png}{options: width=377}
 #' }
 #'
 #' @param mapping mapping
@@ -225,4 +225,3 @@ geom_encircle <- function(mapping = NULL, data = NULL, stat = "identity",
     params = list(na.rm = na.rm, ...)
   )
 }
-

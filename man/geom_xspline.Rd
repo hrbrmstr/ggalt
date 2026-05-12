@@ -133,13 +133,13 @@ first before computing the splines.
 \if{html}{
 A sample of the output from \code{geom_xspline()}:
 
-\figure{geomxspline01.png}{options: width="100\%" alt="Figure: geomxspline01.png"}
+\figure{geomxspline01.png}{options: width=377 alt="Figure: geomxspline01.png"}
 }
 
 \if{latex}{
 A sample of the output from \code{geom_xspline()}:
 
-\figure{geomxspline01.png}{options: width=10cm}
+\figure{geomxspline01.png}{options: width=377}
 }
 
 

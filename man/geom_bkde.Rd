@@ -145,13 +145,13 @@ variables with underlying smoothness.
 \if{html}{
 A sample of the output from \code{geom_bkde()}:
 
-\figure{geombkde01.png}{options: width="100\%" alt="Figure: geombkde01.png"}
+\figure{geombkde01.png}{options: width=377 alt="Figure: geombkde01.png"}
 }
 
 \if{latex}{
 A sample of the output from \code{geom_bkde()}:
 
-\figure{geombkde01.png}{options: width=10cm}
+\figure{geombkde01.png}{options: width=377}
 }
 }
 \section{Aesthetics}{

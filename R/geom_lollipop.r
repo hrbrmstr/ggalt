@@ -12,13 +12,13 @@
 #' \if{html}{
 #' A sample of the output from \code{geom_lollipop()}:
 #'
-#' \figure{geomlollipop01.png}{options: width="100\%" alt="Figure: geomlollipop01.png"}
+#' \figure{geomlollipop01.png}{options: width=377 alt="Figure: geomlollipop01.png"}
 #' }
 #'
 #' \if{latex}{
 #' A sample of the output from \code{geom_lollipop()}:
 #'
-#' \figure{geomlollipop01.png}{options: width=10cm}
+#' \figure{geomlollipop01.png}{options: width=377}
 #' }
 #'
 #' @section Aesthetics:
@@ -107,5 +107,3 @@ GeomLollipop <- ggproto("GeomLollipop", Geom,
 
   draw_key = draw_key_point
 )
-
-
