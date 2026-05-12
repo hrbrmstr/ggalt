@@ -1,0 +1,814 @@
+Hmm ... looks like a package
+Converting parsed Rd's to LaTeX ..
+Creating pdf output from LaTeX ...
+
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01>
+L3 programming layer <2025-05-26>
+(./Rd2.tex
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/mathrsfs.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def)
+No file Rd2.aux.
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+[1{/Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+No file Rd2.toc.
+
+[2]
+[3]
+Overfull \hbox (36.74408pt too wide) in paragraph at lines 189--189
+ []\T1/zi4/m/n/9 p + annotate_textp(x = 0.9, y = 0.35, label="A relative linear\nrelationship", hjust=1, color="red")[] 
+
+[4] (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[5{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[6]
+Overfull \hbox (0.40599pt too wide) in paragraph at lines 413--415
+[]\T1/ptm/m/n/10 A ker-nel den-sity es-ti-mate, use-ful for dis-play-ing the dis-tri-bu-tion of vari-ables with un-der-ly-ing smooth-
+
+[7]
+[8]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 508--512
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[9]
+[10]
+[11]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 753--757
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[12]
+[13]
+[14]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 955--959
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[15]
+[16]
+[17]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1117--1121
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[18]
+[19]
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1282
+
+
+[20]
+[21]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1398--1402
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[22]
+[23]
+[24]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1576--1580
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (5.25328pt too wide) in paragraph at lines 1596--1596
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2)[] 
+
+Overfull \hbox (12.75021pt too wide) in paragraph at lines 1600--1600
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) +[] 
+
+Overfull \hbox (11.43745pt too wide) in paragraph at lines 1611--1614
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 label []\T1/ptm/m/n/10 pa-ram-e-ter can be ei-ther a 2-letter state ab-bre-vi-a-tion or a full state name. []\T1/zi4/m/n/10 geom_stateface()
+
+[25]
+[26]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1744--1748
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[27]
+[28]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1893--1897
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[29]
+[30]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2017--2021
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[31]
+Overfull \hbox (9.52937pt too wide) in paragraph at lines 2063--2065
+[]\T1/ptm/m/n/10 Use to over-ride the de-fault con-nec-tion be-tween []\T1/zi4/m/n/10 geom_xspline []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 stat_xspline[]\T1/ptm/m/n/10 . 
+
+[32]
+[33]
+[34]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2269--2273
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[35]
+Overfull \hbox (92.91681pt too wide) in paragraph at lines 2359--2360
+[]\T1/ptm/m/n/10 position-dodgev(): un-mod-i-fied from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947 
+
+[36]
+[37]
+[38]
+Overfull \hbox (19.52802pt too wide) in paragraph at lines 2514--2517
+[]\T1/ptm/m/n/10 vector of length 2 spec-i-fy-ing the ker-nel, which is pro-por-tional to \T1/ptm/m/it/10 ( 1 - abs(i/m)^kopt(1)
+
+Overfull \hbox (11.63745pt too wide) in paragraph at lines 2514--2517
+\T1/ptm/m/it/10 )i^kopt(2)\T1/ptm/m/n/10 ; (2,2)=bi-weight (de-fault); (0,0)=uni-form; (1,0)=tri-an-gle; (2,1)=Epanech-
+
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2529--2533
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[39]
+Underfull \hbox (badness 10000) in paragraph at lines 2604--2609
+
+
+[40]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2708--2712
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[41]
+No file Rd2.ind.
+
+[42] (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.aux)
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.ash1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bin1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.segment} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.polygon} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.path} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.line} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::arrow\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.size} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.shape} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fill} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linewidth} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linetype} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.group} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.colour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.alpha} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.yend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.y} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.x} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.sum} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde2D} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040stat} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.violin} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.freqpoly} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.histogram} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.key\040glyphs} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.annotation.Rul.borders\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040position} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.aes\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot2.Rdash.ggproto} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::unit\(\)} has been referenced but does not exist, replaced by a fixed one
+
+ </Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (42 pages, 187053 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (211 entries accepted, 1 rejected).
+Sorting entries.....done (1688 comparisons).
+Generating output file Rd2.ind....done (258 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01>
+L3 programming layer <2025-05-26>
+(./Rd2.tex
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/mathrsfs.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.aux) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.out) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.out) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+[1{/Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.toc)
+[2]
+[3]
+Overfull \hbox (36.74408pt too wide) in paragraph at lines 189--189
+ []\T1/zi4/m/n/9 p + annotate_textp(x = 0.9, y = 0.35, label="A relative linear\nrelationship", hjust=1, color="red")[] 
+
+[4]
+[5] (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[6{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[7]
+Overfull \hbox (0.40599pt too wide) in paragraph at lines 413--415
+[]\T1/ptm/m/n/10 A ker-nel den-sity es-ti-mate, use-ful for dis-play-ing the dis-tri-bu-tion of vari-ables with un-der-ly-ing smooth-
+
+[8]
+[9]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 508--512
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[10]
+[11]
+[12]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 753--757
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[13]
+[14]
+[15]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 955--959
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[16]
+[17]
+[18]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1117--1121
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[19]
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1282
+
+
+[21]
+[22]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1398--1402
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[23]
+[24]
+[25]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1576--1580
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (5.25328pt too wide) in paragraph at lines 1596--1596
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2)[] 
+
+Overfull \hbox (12.75021pt too wide) in paragraph at lines 1600--1600
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) +[] 
+
+Overfull \hbox (11.43745pt too wide) in paragraph at lines 1611--1614
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 label []\T1/ptm/m/n/10 pa-ram-e-ter can be ei-ther a 2-letter state ab-bre-vi-a-tion or a full state name. []\T1/zi4/m/n/10 geom_stateface()
+
+[26]
+[27]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1744--1748
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[28]
+[29]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1893--1897
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[30]
+[31]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2017--2021
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[32]
+Overfull \hbox (9.52937pt too wide) in paragraph at lines 2063--2065
+[]\T1/ptm/m/n/10 Use to over-ride the de-fault con-nec-tion be-tween []\T1/zi4/m/n/10 geom_xspline []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 stat_xspline[]\T1/ptm/m/n/10 . 
+
+[33]
+[34]
+[35]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2269--2273
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[36]
+Overfull \hbox (92.91681pt too wide) in paragraph at lines 2359--2360
+[]\T1/ptm/m/n/10 position-dodgev(): un-mod-i-fied from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947 
+
+[37]
+[38]
+[39]
+Overfull \hbox (19.52802pt too wide) in paragraph at lines 2514--2517
+[]\T1/ptm/m/n/10 vector of length 2 spec-i-fy-ing the ker-nel, which is pro-por-tional to \T1/ptm/m/it/10 ( 1 - abs(i/m)^kopt(1)
+
+Overfull \hbox (11.63745pt too wide) in paragraph at lines 2514--2517
+\T1/ptm/m/it/10 )i^kopt(2)\T1/ptm/m/n/10 ; (2,2)=bi-weight (de-fault); (0,0)=uni-form; (1,0)=tri-an-gle; (2,1)=Epanech-
+
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2529--2533
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 2604--2609
+
+
+[41]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2708--2712
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[42] (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.ind
+[43]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 58.
+
+
+
+[44]
+
+[45]) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+Package rerunfilecheck Warning: File `Rd2.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.ash1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bin1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.segment} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.polygon} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.path} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.line} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::arrow\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.size} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.shape} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fill} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linewidth} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linetype} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.group} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.colour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.alpha} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.yend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.y} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.x} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.sum} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde2D} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040stat} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.violin} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.freqpoly} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.histogram} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.key\040glyphs} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.annotation.Rul.borders\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040position} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.aes\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot2.Rdash.ggproto} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::unit\(\)} has been referenced but does not exist, replaced by a fixed one
+
+ </Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (45 pages, 208025 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.17 [TeX Live 2025] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (211 entries accepted, 1 rejected).
+Sorting entries.....done (1685 comparisons).
+Generating output file Rd2.ind....done (259 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex)
+ restricted \write18 enabled.
+entering extended mode
+LaTeX2e <2025-06-01>
+L3 programming layer <2025-05-26>
+(./Rd2.tex
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/book.cls
+Document Class: book 2025/01/22 v1.4n Standard LaTeX document class
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/bk10.clo)) (/Library/Frameworks/R.framework/Resources/share/texmf/tex/latex/Rd.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/longtable.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/bm.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/alltt.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/tools/verbatim.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/mathrsfs.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/times.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/zi4.sty `inconsolata-zi4' v1.12, 2019/05/17 Text macros for Inconsolata (msharpe) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/xkeyval/keyval.tex))))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/color.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolbox.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty)) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty)))) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/base/makeidx.sty)
+Writing index file Rd2.idx
+(/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/t1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.aux) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.out) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.out) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/psnfss/ts1ptm.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/t1zi4.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd) (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/jknapltx/ursfs.fd)
+[1{/Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/base/8r.enc}{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}] (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.toc)
+[2]
+[3]
+Overfull \hbox (36.74408pt too wide) in paragraph at lines 189--189
+ []\T1/zi4/m/n/9 p + annotate_textp(x = 0.9, y = 0.35, label="A relative linear\nrelationship", hjust=1, color="red")[] 
+
+[4]
+[5] (/Users/hrbrmstr/Library/TinyTeX/texmf-dist/tex/latex/inconsolata/ts1zi4.fd)
+[6{/Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}]
+[7]
+Overfull \hbox (0.40599pt too wide) in paragraph at lines 413--415
+[]\T1/ptm/m/n/10 A ker-nel den-sity es-ti-mate, use-ful for dis-play-ing the dis-tri-bu-tion of vari-ables with un-der-ly-ing smooth-
+
+[8]
+[9]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 508--512
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[10]
+[11]
+[12]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 753--757
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[13]
+[14]
+[15]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 955--959
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[16]
+[17]
+[18]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1117--1121
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[19]
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1278--1282
+
+
+[21]
+[22]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1398--1402
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[23]
+[24]
+[25]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1576--1580
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+Overfull \hbox (5.25328pt too wide) in paragraph at lines 1596--1596
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2)[] 
+
+Overfull \hbox (12.75021pt too wide) in paragraph at lines 1600--1600
+ []\T1/zi4/m/n/9 p + geom_spikelines(data = mtcars[mtcars$carb==4,],aes(colour = factor(gear)), linetype = 2) +[] 
+
+Overfull \hbox (11.43745pt too wide) in paragraph at lines 1611--1614
+[]\T1/ptm/m/n/10 The []\T1/zi4/m/n/10 label []\T1/ptm/m/n/10 pa-ram-e-ter can be ei-ther a 2-letter state ab-bre-vi-a-tion or a full state name. []\T1/zi4/m/n/10 geom_stateface()
+
+[26]
+[27]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1744--1748
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[28]
+[29]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 1893--1897
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[30]
+[31]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2017--2021
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[32]
+Overfull \hbox (9.52937pt too wide) in paragraph at lines 2063--2065
+[]\T1/ptm/m/n/10 Use to over-ride the de-fault con-nec-tion be-tween []\T1/zi4/m/n/10 geom_xspline []\T1/ptm/m/n/10 and []\T1/zi4/m/n/10 stat_xspline[]\T1/ptm/m/n/10 . 
+
+[33]
+[34]
+[35]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2269--2273
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[36]
+Overfull \hbox (92.91681pt too wide) in paragraph at lines 2359--2360
+[]\T1/ptm/m/n/10 position-dodgev(): un-mod-i-fied from lionel-/ggstance/R/position-dodgev.R 73f521384ae8ea277db5f7d5a2854004aa18f947 
+
+[37]
+[38]
+[39]
+Overfull \hbox (19.52802pt too wide) in paragraph at lines 2514--2517
+[]\T1/ptm/m/n/10 vector of length 2 spec-i-fy-ing the ker-nel, which is pro-por-tional to \T1/ptm/m/it/10 ( 1 - abs(i/m)^kopt(1)
+
+Overfull \hbox (11.63745pt too wide) in paragraph at lines 2514--2517
+\T1/ptm/m/it/10 )i^kopt(2)\T1/ptm/m/n/10 ; (2,2)=bi-weight (de-fault); (0,0)=uni-form; (1,0)=tri-an-gle; (2,1)=Epanech-
+
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2529--2533
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[40]
+Underfull \hbox (badness 10000) in paragraph at lines 2604--2609
+
+
+[41]
+Overfull \hbox (48.64838pt too wide) in paragraph at lines 2708--2712
+\T1/ptm/m/n/10 shouldn't in-herit be-haviour from the de-fault plot spec-i-fi-ca-tion, e.g. [][][]\T1/zi4/m/n/10 annotation_borders()[][][][]\T1/ptm/m/n/10 . 
+
+[42] (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.ind
+[43]
+
+LaTeX Font Warning: Font shape `T1/zi4/m/it' undefined
+(Font)              using `T1/zi4/m/n' instead on input line 59.
+
+
+
+[44]
+
+[45]) (/private/var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T/RtmpfB6ZDH/Rd2pdf34ac6c23c72c/Rd2.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ )
+(see the transcript file for additional information)
+pdfTeX warning (dest): name{Rfn.ash1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bin1} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xspline} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.segment} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.polygon} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.path} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.line} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::arrow\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.size} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.shape} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fill} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linewidth} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.linetype} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.group} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.colour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.alpha} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.yend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.xend} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.y} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.x} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.sum} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.stat.Rul.contour} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde2D} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040stat} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.violin} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.freqpoly} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.geom.Rul.histogram} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.key\040glyphs} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.annotation.Rul.borders\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.bkde} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.layer\040position} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.fortify\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.aes\(\)} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.ggplot2.Rdash.ggproto} has been referenced but does not exist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{Rfn.grid::unit\(\)} has been referenced but does not exist, replaced by a fixed one
+
+ </Users/hrbrmstr/Library/TinyTeX/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></Users/hrbrmstr/Library/TinyTeX/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (45 pages, 208633 bytes).
+Transcript written on Rd2.log.
+Saving output to ‘ggalt-manual.pdf’ ...
+Done
+You may want to clean up by 'rm -Rf /var/folders/vs/yx3x20rj2z9bpnd16ym4jr3c0000gn/T//RtmpfB6ZDH/Rd2pdf34ac6c23c72c'

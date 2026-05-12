@@ -1,0 +1,27 @@
+GeomTicks               Base ggproto classes for ggplot2
+annotate_textp          Text annotations in plot coordinate system
+annotation_ticks        Annotation: tick marks
+byte_format             Bytes formatter: convert to byte measurement
+                        and display symbol.
+fortify.table           Fortify contingency tables
+geom_bkde               Display a smooth density estimate.
+geom_bkde2d             Contours from a 2d density estimate.
+geom_cartogram          Map polygons layer enabling the display of show
+                        statistical information
+geom_dumbbell           Dumbbell charts
+geom_encircle           Automatically enclose points in a polygon
+geom_lollipop           Lollipop charts
+geom_spikelines         Draw spikelines on a plot
+geom_stateface          Use ProPublica's StateFace font in ggplot2
+                        plots
+geom_ubar               Uniform "bar" charts
+geom_xspline            Connect control points/observations with an
+                        X-spline
+geom_xspline2           Alternative implemenation for connecting
+                        control points/observations with an X-spline
+load_stateface          Load stateface font
+position_dodgev         Vertically dodge position
+show_stateface          Show location of StateFace font
+stat_ash                Compute and display a univariate averaged
+                        shifted histogram (polynomial kernel)
+stat_stepribbon         Step ribbon statistic

@@ -1,0 +1,33 @@
+
+R version 4.6.0 RC (2026-04-22 r89950) -- "Because it was There"
+Copyright (C) 2026 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin23
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(testthat)
+> library(ggalt)
+Loading required package: ggplot2
+Registered S3 methods overwritten by 'ggalt':
+  method                  from   
+  grobHeight.absoluteGrob ggplot2
+  grobWidth.absoluteGrob  ggplot2
+  grobX.absoluteGrob      ggplot2
+  grobY.absoluteGrob      ggplot2
+> 
+> test_check("ggalt")
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 15 ]
+> 
+> proc.time()
+   user  system elapsed 
+  0.593   0.065   0.658 
