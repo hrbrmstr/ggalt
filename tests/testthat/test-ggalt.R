@@ -73,21 +73,6 @@ test_that("geom_ubar basic creation works", {
   expect_true(length(p$layers) == 1)
 })
 
-context("coord_proj functionality")
-test_that("coord_proj creation works", {
-  skip_if_not_installed("proj4")
-
-  world <- map_data("world")
-  world <- world[world$region != "Antarctica", ]
-
-  p <- ggplot() +
-    geom_cartogram(data = world, map = world,
-                   aes(x = long, y = lat, map_id = region)) +
-    coord_proj("+proj=wintri")
-
-  expect_s3_class(p, "ggplot")
-})
-
 context("stat_stepribbon functionality")
 test_that("stat_stepribbon basic creation works", {
   df <- data.frame(

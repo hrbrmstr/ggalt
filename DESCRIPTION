@@ -44,11 +44,8 @@ Imports:
     graphics,
     datasets,
     grDevices,
-    proj4,
     RColorBrewer,
     KernSmooth,
-    proj4,
-    sf,
     scales,
     grid,
     gtable,
@@ -62,7 +59,6 @@ VignetteBuilder: knitr
 Collate:
     'annotate_textp.r'
     'annotation_ticks.r'
-    'coord_proj.r'
     'formatters.r'
     'fortify.r'
     'position-dodgev.R'
