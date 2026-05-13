@@ -11,3 +11,4 @@
 ^\.revdep$
 ^\.github$
 ^\.positai$
+^CRAN-SUBMISSION$

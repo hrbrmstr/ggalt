@@ -79,16 +79,6 @@ suitable alternative to or replacement for bar charts.
 
 Use the \code{horizontal} parameter to abate the need for \code{coord_flip()}
 (see the \code{Arguments} section for details).
-
-\if{html}{
-A sample of the output from \code{geom_lollipop()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_lollipop()}:
-
-}
 }
 \section{Aesthetics}{
 

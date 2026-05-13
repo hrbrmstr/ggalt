@@ -141,17 +141,6 @@ for details}
 A kernel density estimate, useful for displaying the distribution of
 variables with underlying smoothness.
 }
-\details{
-\if{html}{
-A sample of the output from \code{geom_bkde()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_bkde()}:
-
-}
-}
 \section{Aesthetics}{
 
 \code{geom_bkde} understands the following aesthetics (required aesthetics

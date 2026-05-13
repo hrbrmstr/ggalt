@@ -38,17 +38,6 @@ adds a circle around the specified points
 \description{
 Automatically enclose points in a polygon
 }
-\details{
-\if{html}{
-A sample of the output from \code{geom_encircle()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_encircle()}:
-
-}
-}
 \examples{
 d <- data.frame(x=c(1,1,2),y=c(1,2,2)*100)
 

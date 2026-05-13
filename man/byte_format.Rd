@@ -51,5 +51,5 @@ Gb(sample(3000000000, 10))
 }
 \references{
 Units of Information (Wikipedia) :
-  \url{https://en.wikipedia.org/wiki/Units_of_information}
+  \url{http://en.wikipedia.org/wiki/Units_of_information}
 }

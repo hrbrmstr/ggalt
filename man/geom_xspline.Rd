@@ -130,17 +130,6 @@ Patterned after \code{geom_line} in that it orders the points by \code{x}
 first before computing the splines.
 }
 \details{
-\if{html}{
-A sample of the output from \code{geom_xspline()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_xspline()}:
-
-}
-
-
 An X-spline is a line drawn relative to control points. For each control
 point, the line may pass through (interpolate) the control point or it may
 only approach (approximate) the control point; the behaviour is determined
@@ -235,7 +224,7 @@ ggplot(dat, aes(x, y, group=group, color=factor(group))) +
 \references{
 Blanc, C. and Schlick, C. (1995), "X-splines : A Spline Model
             Designed for the End User", in \emph{Proceedings of SIGGRAPH 95},
-            pp. 377-386. \url{https://dept-info.labri.fr/~schlick/DOC/sig1.html}
+            pp. 377-386. \url{http://dept-info.labri.fr/~schlick/DOC/sig1.html}
 }
 \seealso{
 \code{\link[ggplot2]{geom_line}}: Connect observations (x order);

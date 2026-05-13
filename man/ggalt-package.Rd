@@ -6,7 +6,7 @@
 \alias{ggalt-package}
 \title{ggalt: Extra Coordinate Systems, 'Geoms', Statistical Transformations, Scales and Fonts for 'ggplot2'}
 \description{
-A compendium of new geometries, coordinate systems, statistical transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, formatters for "bytes", a stat_stepribbon() function, and the 'StateFace' open source font 'ProPublica'. Further new functionality includes lollipop charts, dumbbell charts, the ability to encircle points and coordinate-system-based text annotations.
+A compendium of new geometries, coordinate systems, statistical transformations, scales and fonts for 'ggplot2', including splines, 1d and 2d densities, univariate average shifted histograms, format functions for "bytes", a stat_stepribbon() function, and the 'StateFace' open source font 'ProPublica'. Further new functionality includes lollipop charts, dumbbell charts, the ability to encircle points and coordinate-system-based text annotations.
 }
 \seealso{
 Useful links:

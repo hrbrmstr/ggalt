@@ -161,17 +161,6 @@ for details}
 Perform a 2D kernel density estimation using \code{bkde2D} and display the
 results with contours. This can be useful for dealing with overplotting
 }
-\details{
-\if{html}{
-A sample of the output from \code{geom_bkde2d()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_bkde2d()}:
-
-}
-}
 \section{Computed variables}{
 
 Same as \code{\link[ggplot2]{stat_contour}}

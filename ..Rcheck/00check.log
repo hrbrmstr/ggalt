@@ -1,0 +1,15 @@
+* using log directory ‘/Users/hrbrmstr/packages/ggalt/..Rcheck’
+* using R version 4.6.0 RC (2026-04-22 r89950)
+* using platform: aarch64-apple-darwin23
+* R was compiled by
+    Apple clang version 17.0.0 (clang-1700.3.19.1)
+    GNU Fortran (GCC) 14.2.0
+* running under: macOS Tahoe 26.5
+* using session charset: UTF-8
+* current time: 2026-05-13 12:56:06 UTC
+* using options ‘--run-donttest --as-cran’
+* checking for file ‘./DESCRIPTION’ ... ERROR
+Required field missing or empty:
+  ‘Author’
+* DONE
+Status: 1 ERROR

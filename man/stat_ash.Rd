@@ -114,17 +114,6 @@ lists which parameters it can accept.
 \description{
 See \code{\link[ash]{bin1}} & \code{\link[ash]{ash1}} for more information.
 }
-\details{
-\if{html}{
-A sample of the output from \code{stat_ash()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{stat_ash()}:
-
-}
-}
 \section{Aesthetics}{
 
 \code{geom_ash} understands the following aesthetics (required aesthetics

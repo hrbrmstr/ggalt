@@ -65,18 +65,6 @@ load_stateface <- function() {
 #' run \code{show_stateface()} to get the filesystem location and then
 #' load the font manually from there.
 #'
-#' \if{html}{
-#' A sample of the output from \code{geom_stateface()}:
-#'
-#' \figure{geomstateface01.png}{options: width=377 alt="Figure: geomstateface01.png"}
-#' }
-#'
-#' \if{latex}{
-#' A sample of the output from \code{geom_stateface()}:
-#'
-#' \figure{geomstateface01.png}{options: width=377}
-#' }
-#'
 #' @param nudge_x,nudge_y Horizontal and vertical adjustment to nudge l
 #'        abels by. Useful for offsetting text from points, particularly
 #'        on discrete scales.

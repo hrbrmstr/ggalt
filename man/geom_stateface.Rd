@@ -136,16 +136,6 @@ device, you'll need to install the font on your system.
 \code{ggalt} ships with a copy of the StateFace TTF font. You can
 run \code{show_stateface()} to get the filesystem location and then
 load the font manually from there.
-
-\if{html}{
-A sample of the output from \code{geom_stateface()}:
-
-}
-
-\if{latex}{
-A sample of the output from \code{geom_stateface()}:
-
-}
 }
 \examples{
 \dontrun{

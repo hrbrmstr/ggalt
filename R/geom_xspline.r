@@ -4,18 +4,6 @@
 #' Patterned after \code{geom_line} in that it orders the points by \code{x}
 #' first before computing the splines.
 #'
-#' \if{html}{
-#' A sample of the output from \code{geom_xspline()}:
-#'
-#' \figure{geomxspline01.png}{options: width=377 alt="Figure: geomxspline01.png"}
-#' }
-#'
-#' \if{latex}{
-#' A sample of the output from \code{geom_xspline()}:
-#'
-#' \figure{geomxspline01.png}{options: width=377}
-#' }
-#'
 #' @section Aesthetics:
 #' \code{geom_xspline} understands the following aesthetics (required aesthetics
 #' are in bold):

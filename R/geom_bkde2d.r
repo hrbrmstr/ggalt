@@ -71,18 +71,6 @@ GeomBkde2d <- ggproto("GeomBkde2d", GeomPath,
 #' Perform a 2D kernel density estimation using \code{bkde2D} and display the
 #' results with contours. This can be useful for dealing with overplotting
 #'
-#' \if{html}{
-#' A sample of the output from \code{geom_bkde2d()}:
-#'
-#' \figure{geombkde2d01.png}{options: width=377 alt="Figure: geombkde2d01.png"}
-#' }
-#'
-#' \if{latex}{
-#' A sample of the output from \code{geom_bkde2d()}:
-#'
-#' \figure{geombkde2d01.png}{options: width=377}
-#' }
-#'
 #' @param bandwidth	the kernel bandwidth smoothing parameter. see
 #'        \code{\link[KernSmooth]{bkde2D}} for details. If \code{NULL},
 #'        it will be computed for you but will most likely not yield optimal

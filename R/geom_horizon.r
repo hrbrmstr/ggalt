@@ -33,7 +33,7 @@ geom_horizon <-  function(mapping = NULL, data = NULL, show.legend = TRUE,
 #' @export
 GeomHorizon <- ggproto("GeomHorizon", GeomArea,
   required_aes = c("x", "y"),
-  default_aes = plyr::defaults(
+  default_aes = ggalt_defaults(
     aes(fill=NA, size = 0.15, linetype = 1, alpha = NA, colour = "gray20"),
     ggplot2::GeomArea$default_aes
   ),

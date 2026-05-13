@@ -61,7 +61,7 @@ library(ggalt)
 
 # current verison
 packageVersion("ggalt")
-## [1] '0.7.0'
+## [1] '0.8.0'
 
 set.seed(1492)
 dat <- data.frame(x=c(1:10, 1:10, 1:10),
